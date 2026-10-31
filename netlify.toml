@@ -1,0 +1,19 @@
+[build]
+  publish = "site"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["site/assets/js/meta.js", "site/data/tickers/meta.json"]
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    cache-control = "public, max-age=600"
+
+# apex to www
+[[redirects]]
+  from = "https://hoodwink.site/*"
+  to = "https://www.hoodwink.site/:splat"
+  status = 301
+  force = true

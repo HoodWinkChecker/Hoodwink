@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /_brand.html
+Sitemap: https://www.hoodwink.site/sitemap.xml

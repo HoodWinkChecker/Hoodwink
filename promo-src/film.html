@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<!-- Hoodwink presentation film, 1920x1080. window.render(t) draws the exact frame at t seconds (deterministic). -->
+<link rel="stylesheet" href="../site/assets/css/hw.css">
+<script src="../site/config.js"></script>
+<style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#08090b}
+.stage{position:relative;width:1920px;height:1080px;overflow:hidden}
+.sc{position:absolute;inset:0;opacity:0}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#15171b 1px,transparent 1px),linear-gradient(90deg,#15171b 1px,transparent 1px);background-size:64px 64px;opacity:.55;mask-image:radial-gradient(ellipse at 50% 50%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000,transparent 70%)}
+.big{font-family:var(--display);font-weight:800;font-stretch:125%;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;color:var(--ink)}
+.w{display:inline-block;opacity:0;transform:translateY(30px)}
+.uvt{color:var(--uv);text-shadow:0 0 50px rgba(205,247,49,.35)}
+.kick{font-family:var(--mono);font-size:18px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+#s1 .t{position:absolute;left:160px;top:330px;font-size:230px}
+#s1 .sub{position:absolute;left:164px;top:820px}
+#s2 .left{position:absolute;left:0;top:0;width:900px;height:1080px;border-right:1px solid var(--line);background:var(--panel)}
+#s2 canvas{width:900px;height:1080px}
+#s2 .right{position:absolute;left:980px;top:110px;width:860px}
+.box{position:relative;border:1px solid var(--uv);background:var(--bg-2);font-family:var(--mono);font-size:22px;padding:28px 30px;color:var(--ink);box-shadow:0 0 80px -30px var(--uv)}
+.box .cur{display:inline-block;width:12px;height:26px;background:var(--uv);vertical-align:-4px;margin-left:2px}
+.rows{margin-top:34px;border-top:1px solid var(--line)}
+.r{display:grid;grid-template-columns:170px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid var(--line);font-size:20px;opacity:.18}
+.r .st{font-size:13px}
+.tally2{margin-top:28px;display:flex;gap:40px;font-family:var(--mono);font-size:15px;color:var(--mute);letter-spacing:.12em;text-transform:uppercase}
+.tally2 b{display:block;font-family:var(--display);font-size:56px;font-weight:750;font-stretch:120%;color:var(--ink);letter-spacing:0;margin-top:6px}
+#s3 h2,#s4 h2,#s5 h2{position:absolute;left:140px;top:110px;font-size:92px;margin:0}
+.card{position:absolute;left:140px;width:1640px;border:1px solid var(--line-2);background:var(--bg-2);padding:26px 32px;display:grid;grid-template-columns:200px 1fr 420px;gap:30px;align-items:center;opacity:0}
+.card .k{font-family:var(--mono);font-size:17px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+.card .v{font-family:var(--mono);font-size:22px;color:var(--ink);word-break:break-all}
+.card .v small{display:block;font-family:var(--display);font-size:20px;color:var(--ink-2);margin-top:8px;word-break:normal}
+.stamp{justify-self:end;font-family:var(--display);font-weight:800;font-stretch:125%;font-size:34px;text-transform:uppercase;color:var(--critical);border:3px solid var(--critical);padding:10px 18px;transform:rotate(-4deg) scale(1.6);opacity:0;letter-spacing:.02em}
+.nums{position:absolute;left:140px;top:420px;display:grid;grid-template-columns:repeat(4,1fr);width:1640px;border-top:1px solid var(--line)}
+.nums>div{padding:30px 0 0 30px;border-right:1px solid var(--line)}
+.nums>div:first-child{padding-left:0}.nums>div:last-child{border-right:0}
+.nums b{display:block;font-family:var(--display);font-size:150px;font-weight:800;font-stretch:120%;line-height:1;color:var(--ink)}
+.nums span{font-family:var(--mono);font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+#s4 .foot4{position:absolute;left:140px;top:820px;font-size:28px;color:var(--ink-2);max-width:1500px}
+#s5 .bars{position:absolute;left:140px;top:430px;width:1640px}
+.b5{display:grid;grid-template-columns:520px 1fr 170px;gap:30px;align-items:center;margin:0 0 38px;font-size:28px}
+.b5 .tr{height:26px;background:var(--line);position:relative}
+.b5 .tr i{position:absolute;left:0;top:0;bottom:0;width:0}
+.b5 .n{font-family:var(--mono);text-align:right;color:var(--ink)}
+#s5 .foot5{position:absolute;left:140px;top:900px;font-size:26px;color:var(--ink-2);max-width:1500px}
+#s6 .mk{position:absolute;left:50%;top:250px;transform:translateX(-50%);width:140px;height:140px}
+#s6 .t{position:absolute;left:0;right:0;top:450px;text-align:center;font-size:120px}
+#s6 .q{position:absolute;left:0;right:0;top:620px;text-align:center;font-size:44px;font-weight:650;font-stretch:115%;color:var(--ink)}
+#s6 .l{position:absolute;left:0;right:0;top:720px;text-align:center;font-size:28px;color:var(--ink-2)}
+#s6 .h{position:absolute;left:0;right:0;top:830px;text-align:center}
+</style></head>
+<body><div class="stage">
+  <div class="grid"></div>
+
+  <section class="sc" id="s1">
+    <div class="t big"><span class="w" id="w1">Real</span> <span class="w" id="w2">or</span><br><span class="w uvt" id="w3">LARP?</span></div>
+    <div class="sub kick" id="s1sub">Token checks for Robinhood Chain</div>
+  </section>
+
+  <section class="sc" id="s2">
+    <div class="left"><canvas id="dial"></canvas></div>
+    <div class="right">
+      <div class="kick" style="margin-bottom:22px">Paste a token</div>
+      <div class="box"><span id="typed"></span><span class="cur" id="cur"></span></div>
+      <div class="rows" id="rows"></div>
+      <div class="tally2"><div>Critical<b id="tCrit" style="color:var(--critical)">0</b></div><div>Concern<b id="tCon" style="color:var(--concern)">0</b></div><div>Pass<b id="tPass" style="color:var(--pass)">0</b></div><div>Info<b id="tInfo" style="color:var(--info)">0</b></div></div>
+    </div>
+  </section>
+
+  <section class="sc" id="s3">
+    <h2 class="big">Every link they typed<br>is on the chain. <span class="uvt">We open them.</span></h2>
+    <div class="card" id="c1" style="top:430px"><span class="k">Website</span><span class="v" id="c1v"></span><span class="stamp" id="c1s">404 · shortener</span></div>
+    <div class="card" id="c2" style="top:620px"><span class="k">X link</span><span class="v" id="c2v"></span><span class="stamp" id="c2s">Borrowed</span></div>
+    <div class="card" id="c3" style="top:810px"><span class="k">Ticker</span><span class="v" id="c3v"></span><span class="stamp" id="c3s">Copycat</span></div>
+  </section>
+
+  <section class="sc" id="s4">
+    <h2 class="big">Then: <span class="uvt">who launched it?</span></h2>
+    <div class="nums">
+      <div><b id="n1">0</b><span>Pons launches</span></div>
+      <div><b id="n2" style="color:var(--pass)">0</b><span>graduated</span></div>
+      <div><b id="n3" style="color:var(--critical)">0</b><span>dumped by the dev</span></div>
+      <div><b id="n4">0s</b><span>median time to dump</span></div>
+    </div>
+    <div class="foot4" id="foot4">A real deployer on Pons. Every earlier launch by the same wallet is read on chain: did it graduate, and how fast did the dev sell?</div>
+  </section>
+
+  <section class="sc" id="s5">
+    <h2 class="big">Are the snipers <span class="uvt">still in?</span></h2>
+    <div class="bars" id="bars5"></div>
+    <div class="foot5" id="foot5">REX: bots took 23% in the first 30 seconds, then sold it all back. Hoodwink reads the launch event and every transfer that followed, then the balances right now.</div>
+  </section>
+
+  <section class="sc" id="s6">
+    <div class="mk" id="mk6"></div>
+    <div class="t big">Hood<span class="uvt">wink</span></div>
+    <div class="q">Real product, honest meme, or LARP.</div>
+    <div class="l">Copied tickers · borrowed links · dev track record · snipers · top 10 · AI verdict</div>
+    <div class="h kick" id="handle"></div>
+  </section>
+</div>
+<script type="module">
+import { createDial } from '../site/assets/js/dial.js';
+import { CHECKS, GROUPS } from '../site/assets/js/engine.js';
+import { MARK } from '../site/assets/js/site.js';
+const $ = (id) => document.getElementById(id);
+const REX = '0x4f7bf61d52d56086a29aa028f414042933d79218';
+const rex = await (await fetch(`../site/data/cases/${REX}.json`)).json();
+const dumper = await (await fetch('data/dumper.json')).json();
+const code = (await (await fetch('https://rpc.mainnet.chain.robinhood.com', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'eth_getCode', params: [REX, 'latest'] }) })).json()).result;
+const dial = createDial($('dial'), { manual: true });
+dial.setCode(code); dial.setChecks(CHECKS, GROUPS); dial.setMode('scan');
+$('mk6').innerHTML = MARK.replace('<svg', '<svg style="width:140px;height:140px"');
+const H = window.HOODWINK || {};
+$('handle').textContent = `${(H.site || '').replace('https://', '')}   ·   @${(H.x || '').split('/').pop()}`;
+
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const ease = (k) => (k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2);
+const ramp = (t, a, b) => ease(clamp((t - a) / (b - a)));
+const SC = [['s1', 0, 4.4], ['s2', 4.4, 11.2], ['s3', 11.2, 17.6], ['s4', 17.6, 24], ['s5', 24, 29.6], ['s6', 29.6, 34.5]];
+window.DUR = 34;
+
+const ST = { pass: 'Pass', info: 'Info', concern: 'Concern', critical: 'Critical', na: 'N/A', unchecked: 'Unchecked' };
+const showRows = rex.checks.filter((c) => !['na', 'unchecked'].includes(c.status)).slice(0, 12);
+const AT = (c) => 6.6 + rex.checks.indexOf(c) * 0.24;
+$('rows').innerHTML = showRows.map((c, i) => `<div class="r" id="row${i}"><span class="st st-pending" id="rst${i}">Reading</span><span>${c.title}</span></div>`).join('');
+
+const m = rex.metadata || {};
+const tweet = rex.checks.find((c) => c.id === 'social').evidence.find((e) => e.k === 'Post text')?.v || '';
+$('c1v').innerHTML = `${m.website}<small>HTTP 404, behind a link shortener</small>`;
+$('c2v').innerHTML = `${m.x}<small>a post by @RobinhoodApp: "${tweet}"</small>`;
+$('c3v').innerHTML = `$REX<small>${rex.checks.find((c) => c.id === 'ticker').summary.replace(/^Copycat: /, '').replace(/ Check you.*$/, '')}</small>`;
+
+const R = dumper.checks.find((c) => c.id === 'devrep').devrep;
+
+const e5 = rex.checks.find((c) => c.id === 'firstblock').early;
+const B5 = [['Deployer, launch transaction', e5.devBuy, 'var(--ink-2)'], ['Others, in the launch block', e5.blockBuy, 'var(--uv)'], ['Others, in the first 30 seconds', e5.winBuy, 'var(--concern)'], ['Still held by them now', e5.still, 'var(--pass)']];
+$('bars5').innerHTML = B5.map(([k, v, c], i) => `<div class="b5"><span>${k}</span><span class="tr"><i id="b5i${i}" style="background:${c}"></i></span><span class="n" id="b5n${i}">0.00%</span></div>`).join('');
+
+window.render = (t) => {
+  for (const [id, a, b] of SC) {
+    const k = Math.min(ramp(t, a, a + 0.5), 1 - ramp(t, b - 0.45, b));
+    $(id).style.opacity = id === 's6' ? ramp(t, a, a + 0.6) : k;
+  }
+  [[1, 0.3], [2, 1.5], [3, 2.7]].forEach(([i, a]) => { const k = ramp(t, a, a + 0.5); const w = $('w' + i); w.style.opacity = k; w.style.transform = `translateY(${(1 - k) * 30}px)`; });
+  $('s1sub').style.opacity = ramp(t, 3.2, 3.8);
+  if (t > 4.2 && t < 11.4) {
+    $('typed').textContent = REX.slice(0, Math.floor(clamp((t - 4.8) / 1.4) * REX.length));
+    $('cur').style.opacity = Math.floor(t * 2.5) % 2 ? 1 : 0.2;
+    const settled = rex.checks.filter((c) => t >= AT(c));
+    dial.setChecks(rex.checks.map((c) => ({ ...c, status: t >= AT(c) ? c.status : 'pending' })), GROUPS);
+    const done = settled.length === rex.checks.length;
+    dial.setMode(done ? 'done' : 'scan');
+    dial.setCenter(done ? String(rex.counts.critical) : String(settled.length), done ? 'REX · critical findings' : `of ${rex.checks.length} settled`);
+    dial.renderAt(t, done ? 0.7 : 2.4);
+    showRows.forEach((c, i) => {
+      const on = t >= AT(c);
+      $('row' + i).style.opacity = on ? 1 : 0.18;
+      const s = $('rst' + i); s.className = 'st st-' + (on ? c.status : 'pending'); s.textContent = on ? ST[c.status] : 'Reading';
+    });
+    const cnt = (st) => settled.filter((c) => c.status === st).length;
+    $('tCrit').textContent = cnt('critical'); $('tCon').textContent = cnt('concern'); $('tPass').textContent = cnt('pass'); $('tInfo').textContent = cnt('info');
+  }
+  if (t > 11 && t < 17.8) {
+    [['c1', 12.0, 12.8], ['c2', 13.4, 14.3], ['c3', 15.0, 15.8]].forEach(([id, a, s]) => {
+      const k = ramp(t, a, a + 0.45); const el = $(id); el.style.opacity = k; el.style.transform = `translateY(${(1 - k) * 24}px)`;
+      const ks = ramp(t, s, s + 0.25); const st = $(id + 's'); st.style.opacity = ks; st.style.transform = `rotate(-4deg) scale(${1.6 - 0.6 * ks})`;
+    });
+  }
+  if (t > 17.4 && t < 24.2) {
+    const cnt = (v, a) => Math.round(v * ramp(t, a, a + 0.8));
+    $('n1').textContent = cnt(R.launches, 18.6); $('n2').textContent = cnt(R.graduated, 19.4); $('n3').textContent = cnt(R.dumped, 20.2);
+    $('n4').textContent = R.median !== null ? Math.round(R.median * 60 * ramp(t, 21.0, 21.8)) + 's' : '–';
+    $('foot4').style.opacity = ramp(t, 22.0, 22.6);
+  }
+  if (t > 23.8 && t < 29.8) {
+    const mx = Math.max(...B5.map((b) => b[1]), 1);
+    B5.forEach(([, v], i) => { const k = ramp(t, 24.8 + i * 0.7, 25.6 + i * 0.7); $('b5i' + i).style.width = (v / mx * 100 * k) + '%'; $('b5n' + i).textContent = (v * k).toFixed(2) + '%'; });
+    $('foot5').style.opacity = ramp(t, 27.2, 27.8);
+  }
+};
+window.render(0);
+window.ready = true;
+</script>
+</body></html>

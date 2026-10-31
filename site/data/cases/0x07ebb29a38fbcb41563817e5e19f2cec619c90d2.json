@@ -1,0 +1,1104 @@
+{
+ "version": 1,
+ "chain": 4663,
+ "token": "0x07EBB29a38Fbcb41563817e5E19f2ceC619C90D2",
+ "name": "Bundle Cat",
+ "symbol": "BUN",
+ "decimals": 18,
+ "totalSupply": "1000000000000000000000000000",
+ "block": 102525557,
+ "at": "2026-10-31T11:41:17.622Z",
+ "kind": "pons",
+ "coverage": 100,
+ "counts": {
+  "critical": 0,
+  "concern": 2,
+  "pass": 7,
+  "info": 6,
+  "unchecked": 0,
+  "na": 1
+ },
+ "checks": [
+  {
+   "group": "identity",
+   "q": "Is this the only token with this ticker, or a copy of an earlier one?",
+   "id": "ticker",
+   "title": "Ticker uniqueness",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Tokens launched on Pons with this ticker",
+     "v": "103 (index of 719,370 launches)"
+    },
+    {
+     "k": "#1 (first)",
+     "v": "Bubble BUNS · block 46,032,748",
+     "addr": "0xdaa12abdbaf99b3ab1b2bc8ec4770e5e4a8450f2"
+    },
+    {
+     "k": "#2",
+     "v": "Bubble BUNS · block 46,033,202",
+     "addr": "0x8f4813d883e7a2e032eb3baef0f5640e0b7ebd7c"
+    },
+    {
+     "k": "#3",
+     "v": "Bubble Buns · block 46,912,907",
+     "addr": "0x635a46f6ad48795b11ee5fa26d45bc5bb95a2643"
+    },
+    {
+     "k": "#4",
+     "v": "Bubble Buns · block 46,913,003",
+     "addr": "0xd6bf62cc32d0991bc050ce973847328179ec2a2e"
+    },
+    {
+     "k": "#5",
+     "v": "Bun · block 51,764,635",
+     "addr": "0x796dfa1504ed00cb122ce194a28092ba6eaddb8e"
+    },
+    {
+     "k": "#6 (this token)",
+     "v": "Bundle Cat · block 52,687,031",
+     "addr": "0x07ebb29a38fbcb41563817e5e19f2cec619c90d2"
+    },
+    {
+     "k": "Earlier tokens with this ticker that graduated",
+     "v": "none among those checked"
+    }
+   ],
+   "summary": "Common ticker: 102 other Pons tokens use $BUN, none of the earlier ones graduated and none copied this name in the week before. First one: 0xdaa1…50f2.",
+   "copies": 102,
+   "rank": 6,
+   "original": "0xdaa12abdbaf99b3ab1b2bc8ec4770e5e4a8450f2"
+  },
+  {
+   "group": "identity",
+   "q": "Does it borrow the ticker or name of a Robinhood stock token?",
+   "id": "stock",
+   "title": "Stock look-alike",
+   "status": "na",
+   "evidence": [],
+   "summary": "Does not present itself as a Robinhood stock token."
+  },
+  {
+   "group": "identity",
+   "q": "Does it lean on the Robinhood name without being Robinhood?",
+   "id": "brand",
+   "title": "Robinhood branding",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "Bundle Cat"
+    },
+    {
+     "k": "symbol()",
+     "v": "BUN"
+    }
+   ],
+   "summary": "No Robinhood branding in the name or ticker."
+  },
+  {
+   "group": "identity",
+   "q": "What is it priced in, and is that asset genuine?",
+   "id": "pair",
+   "title": "Pair asset",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Pair",
+     "v": "ETH (native)"
+    }
+   ],
+   "summary": "Paired against native ETH."
+  },
+  {
+   "group": "reality",
+   "q": "Does the website given at launch work, and does it show this contract?",
+   "id": "website",
+   "title": "Website",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "Protecting the trenches, one bundle at a time. Launched on mosh.trade."
+    },
+    {
+     "k": "Website",
+     "v": "https://mosh.trade"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/uv"
+    },
+    {
+     "k": "Telegram",
+     "v": "https://t.me/moshtrade"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x3e9dcd19093da517aa3001975828065c846d785a4ac7858af76d52d4eec90914"
+    },
+    {
+     "k": "Status",
+     "v": "HTTP 200"
+    },
+    {
+     "k": "Title",
+     "v": "Mosh · the trenches, made better together"
+    },
+    {
+     "k": "Built with",
+     "v": "custom"
+    },
+    {
+     "k": "Shows this contract address",
+     "v": "no"
+    },
+    {
+     "k": "Links found on the site",
+     "v": "X none · GitHub none · Telegram 0"
+    }
+   ],
+   "summary": "Website live (\"Mosh · the trenches, made better together\"), but it does not show this contract address: any token can point to any site."
+  },
+  {
+   "group": "reality",
+   "q": "Is the X link the project's own account, or someone else's post?",
+   "id": "social",
+   "title": "X account",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "Protecting the trenches, one bundle at a time. Launched on mosh.trade."
+    },
+    {
+     "k": "Website",
+     "v": "https://mosh.trade"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/uv"
+    },
+    {
+     "k": "Telegram",
+     "v": "https://t.me/moshtrade"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x3e9dcd19093da517aa3001975828065c846d785a4ac7858af76d52d4eec90914"
+    },
+    {
+     "k": "Handle",
+     "v": "@uv"
+    }
+   ],
+   "summary": "X @uv. Not cross-checked: the website does not link an X account."
+  },
+  {
+   "group": "reality",
+   "q": "Is there a real repository behind the claims?",
+   "id": "code",
+   "title": "Code",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "Protecting the trenches, one bundle at a time. Launched on mosh.trade."
+    },
+    {
+     "k": "Website",
+     "v": "https://mosh.trade"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/uv"
+    },
+    {
+     "k": "Telegram",
+     "v": "https://t.me/moshtrade"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x3e9dcd19093da517aa3001975828065c846d785a4ac7858af76d52d4eec90914"
+    }
+   ],
+   "summary": "No code linked, at launch or on the website. Fine for a meme; a product claim without code is a red flag (see the verdict)."
+  },
+  {
+   "group": "reality",
+   "q": "Taking all the evidence: real product, honest meme, or LARP?",
+   "id": "larp",
+   "title": "AI verdict",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Verdict",
+     "v": "Unclear · medium confidence"
+    },
+    {
+     "k": "Claim (unsupported)",
+     "v": "Launched on mosh.trade — mosh.trade is live and mentions Pons, but the site does not show this token's contract address."
+    },
+    {
+     "k": "Claim (unsupported)",
+     "v": "Protecting the trenches, one bundle at a time — Mosh site describes bundles and AI market-maker agents generically; nothing ties these to BUN."
+    },
+    {
+     "k": "Red flag",
+     "v": "Website is the Mosh platform homepage, not a BUN project page; no contract address shown"
+    },
+    {
+     "k": "Red flag",
+     "v": "X link is @uv, a short handle that matches neither the token nor Mosh; existence not checked"
+    },
+    {
+     "k": "Red flag",
+     "v": "Telegram t.me/moshtrade is the platform's channel, not the token's"
+    },
+    {
+     "k": "Green flag",
+     "v": "Description makes no team, partnership or Robinhood claim"
+    },
+    {
+     "k": "Green flag",
+     "v": "mosh.trade resolves HTTP 200 with substantial custom content mentioning Pons"
+    },
+    {
+     "k": "Judged by",
+     "v": "claude-opus-5-5 on the evidence above (cached)"
+    }
+   ],
+   "summary": "Unclear: Bundle Cat is a cat meme launched via the Mosh.trade platform; the site is Mosh's generic launchpad and does not reference BUN specifically.",
+   "verdict": {
+    "verdict": "unclear",
+    "confidence": "medium",
+    "headline": "Bundle Cat is a cat meme launched via the Mosh.trade platform; the site is Mosh's generic launchpad and does not reference BUN specifically.",
+    "claims": [
+     {
+      "claim": "Launched on mosh.trade",
+      "status": "unsupported",
+      "evidence": "mosh.trade is live and mentions Pons, but the site does not show this token's contract address."
+     },
+     {
+      "claim": "Protecting the trenches, one bundle at a time",
+      "status": "unsupported",
+      "evidence": "Mosh site describes bundles and AI market-maker agents generically; nothing ties these to BUN."
+     }
+    ],
+    "red_flags": [
+     "Website is the Mosh platform homepage, not a BUN project page; no contract address shown",
+     "X link is @uv, a short handle that matches neither the token nor Mosh; existence not checked",
+     "Telegram t.me/moshtrade is the platform's channel, not the token's"
+    ],
+    "green_flags": [
+     "Description makes no team, partnership or Robinhood claim",
+     "mosh.trade resolves HTTP 200 with substantial custom content mentioning Pons"
+    ]
+   }
+  },
+  {
+   "group": "launch",
+   "q": "How much was bought in the launch block and the first 30 seconds, and is it still held?",
+   "id": "firstblock",
+   "title": "Snipers",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Window",
+     "v": "launch block 52,687,031 + 287 blocks (≈30 s)"
+    },
+    {
+     "k": "Bought inside the launch transaction",
+     "v": "714.29M (71.43%)",
+     "tx": "0x3e9dcd19093da517aa3001975828065c846d785a4ac7858af76d52d4eec90914"
+    },
+    {
+     "k": "Other transactions in the launch block",
+     "v": "0 (0.00%) by 0 wallets"
+    },
+    {
+     "k": "Bought by others in the first 30 s",
+     "v": "232.88M (23.29%) by 156 wallets"
+    },
+    {
+     "k": "Still held by those early buyers now",
+     "v": "457.9002 (0.00%), read with balanceOf"
+    }
+   ],
+   "summary": "0.0% bought by other transactions in the launch block and 23.3% in the first 30 seconds: bots sniped the start. Those early buyers still hold 0.0%.",
+   "early": {
+    "devBuy": 71.4285,
+    "blockBuy": 0,
+    "winBuy": 23.2884,
+    "still": 0,
+    "buyers": 156
+   }
+  },
+  {
+   "group": "launch",
+   "q": "Were the first buyers throwaway wallets?",
+   "id": "burners",
+   "title": "Fresh wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Measured",
+     "v": "lifetime nonce at block 102,525,557"
+    }
+   ],
+   "summary": "0 of 40 early buyers have sent 3 transactions or fewer in their whole life."
+  },
+  {
+   "group": "holders",
+   "q": "How much do the ten largest wallets hold?",
+   "id": "distribution",
+   "title": "Top 10",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallets from",
+     "v": "the launch window plus the latest 85,326 Transfer events (history too long to read whole)"
+    },
+    {
+     "k": "Balances",
+     "v": "read with balanceOf at block 102,525,557 (exact)"
+    },
+    {
+     "k": "Smart-account wallets counted as people",
+     "v": "580"
+    },
+    {
+     "k": "#1",
+     "v": "0.56%  5.57M",
+     "addr": "0x712b009be8006d28738fd4810ee1440e277bae03"
+    },
+    {
+     "k": "#2",
+     "v": "0.52%  5.24M",
+     "addr": "0xaf3a73c19118409936bdea72fd975c7539f85359"
+    },
+    {
+     "k": "#3",
+     "v": "0.49%  4.93M",
+     "addr": "0xae5dafe4a7e3b9623eb461e1d752a35f3a9db887"
+    },
+    {
+     "k": "#4",
+     "v": "0.43%  4.27M",
+     "addr": "0x06de9c48b1e639ed5c13ec8fbd4080a38e39f2d1"
+    },
+    {
+     "k": "#5",
+     "v": "0.37%  3.69M",
+     "addr": "0x95528a5c2c6a56c97aacb92ebc105aa7760c2a90"
+    },
+    {
+     "k": "#6",
+     "v": "0.32%  3.17M",
+     "addr": "0x26b2e1a9e5b5d052043a4d6dfdf906c8e17ea756"
+    },
+    {
+     "k": "#7",
+     "v": "0.23%  2.30M",
+     "addr": "0xc0faf4d607181a2213d8f077e64e8ad4c559faf4"
+    },
+    {
+     "k": "#8",
+     "v": "0.22%  2.24M",
+     "addr": "0xf19bc58f747d6ea11959bf2a0fa81e53285546ac"
+    },
+    {
+     "k": "#9",
+     "v": "0.20%  2.03M",
+     "addr": "0xb3057a634a567e6e2481e1b0240e63e9ae16c61a"
+    },
+    {
+     "k": "#10",
+     "v": "0.20%  2.00M",
+     "addr": "0xc27e87cfe1fd2ed6f43dfffbb9e9e46428497a24"
+    },
+    {
+     "k": "Contract holder",
+     "v": "23.78%  237.82M",
+     "addr": "0xde8128796b5dc27c8c87f5d79e071e2aa3c9f7f1"
+    },
+    {
+     "k": "Contract holder",
+     "v": "23.66%  236.59M",
+     "addr": "0xe63ff88539f790e15f99ca33450066a84307ee59"
+    },
+    {
+     "k": "Contract holder",
+     "v": "23.62%  236.19M",
+     "addr": "0x1ebe4c2a7fe5edbd12783304fe267e50ca499136"
+    },
+    {
+     "k": "Contract holder",
+     "v": "8.16%  81.63M",
+     "addr": "0x267444d099b10fb5ed7c3cc7b7c767adca574952"
+    }
+   ],
+   "summary": "1,264 covered wallet holders. The 10 largest wallets hold 3.5% (largest 0.6%). 1.3% sits in the curve or the v4 pool manager, 80.0% in 46 other contracts.",
+   "holdersTop": [
+    {
+     "a": "0x712b009be8006d28738fd4810ee1440e277bae03",
+     "pct": 0.5568
+    },
+    {
+     "a": "0xaf3a73c19118409936bdea72fd975c7539f85359",
+     "pct": 0.5242
+    },
+    {
+     "a": "0xae5dafe4a7e3b9623eb461e1d752a35f3a9db887",
+     "pct": 0.493
+    },
+    {
+     "a": "0x06de9c48b1e639ed5c13ec8fbd4080a38e39f2d1",
+     "pct": 0.4273
+    },
+    {
+     "a": "0x95528a5c2c6a56c97aacb92ebc105aa7760c2a90",
+     "pct": 0.369
+    },
+    {
+     "a": "0x26b2e1a9e5b5d052043a4d6dfdf906c8e17ea756",
+     "pct": 0.3168
+    },
+    {
+     "a": "0xc0faf4d607181a2213d8f077e64e8ad4c559faf4",
+     "pct": 0.23
+    },
+    {
+     "a": "0xf19bc58f747d6ea11959bf2a0fa81e53285546ac",
+     "pct": 0.2238
+    },
+    {
+     "a": "0xb3057a634a567e6e2481e1b0240e63e9ae16c61a",
+     "pct": 0.2026
+    },
+    {
+     "a": "0xc27e87cfe1fd2ed6f43dfffbb9e9e46428497a24",
+     "pct": 0.2
+    }
+   ],
+   "contractsTop": [
+    {
+     "a": "0xde8128796b5dc27c8c87f5d79e071e2aa3c9f7f1",
+     "pct": 23.7816
+    },
+    {
+     "a": "0xe63ff88539f790e15f99ca33450066a84307ee59",
+     "pct": 23.6594
+    },
+    {
+     "a": "0x1ebe4c2a7fe5edbd12783304fe267e50ca499136",
+     "pct": 23.6187
+    },
+    {
+     "a": "0x267444d099b10fb5ed7c3cc7b7c767adca574952",
+     "pct": 8.1633
+    },
+    {
+     "a": "0x4f22b1a543711903604d5e84333a9fdd4a63166d",
+     "pct": 0.4539
+    },
+    {
+     "a": "0x0962f833f91b3c72d160cccd97632c11ee7c781f",
+     "pct": 0.1309
+    }
+   ],
+   "venuesPct": 1.2727,
+   "contractsPct": 80.0432,
+   "partial": true
+  },
+  {
+   "group": "holders",
+   "q": "Do holders pass tokens between each other like one owner?",
+   "id": "clusters",
+   "title": "Linked wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallet-to-wallet transfers",
+     "v": "1532"
+    },
+    {
+     "k": "Groups of 2+ wallets",
+     "v": "113"
+    },
+    {
+     "k": "Hubs set aside (more than 20 counterparties)",
+     "v": "12"
+    },
+    {
+     "k": "Member",
+     "v": "0x2ca37ff95caf25366ef16fc2e655b78a165d125f",
+     "addr": "0x2ca37ff95caf25366ef16fc2e655b78a165d125f"
+    },
+    {
+     "k": "Member",
+     "v": "0x48a097df16c7844a33b1c3d11ab353457846e13f",
+     "addr": "0x48a097df16c7844a33b1c3d11ab353457846e13f"
+    },
+    {
+     "k": "Member",
+     "v": "0xef2d3fcf79927ce06237dcc80ddd75f3ef40151e",
+     "addr": "0xef2d3fcf79927ce06237dcc80ddd75f3ef40151e"
+    },
+    {
+     "k": "Member",
+     "v": "0xf08e56ed401a7f278ced2835abfc5f8bf16058a3",
+     "addr": "0xf08e56ed401a7f278ced2835abfc5f8bf16058a3"
+    },
+    {
+     "k": "Member",
+     "v": "0x2cc319a747b0c151e40c1a4639367dbee10af351",
+     "addr": "0x2cc319a747b0c151e40c1a4639367dbee10af351"
+    },
+    {
+     "k": "Member",
+     "v": "0xf7223efc73240746364288ed4e833fd5a03a49b4",
+     "addr": "0xf7223efc73240746364288ed4e833fd5a03a49b4"
+    },
+    {
+     "k": "Member",
+     "v": "0x1521027b665fa38fa4a642991607ad708376dd7b",
+     "addr": "0x1521027b665fa38fa4a642991607ad708376dd7b"
+    },
+    {
+     "k": "Member",
+     "v": "0x2759fc0bce126a9cf12fba99ce3f1ef487e0444c",
+     "addr": "0x2759fc0bce126a9cf12fba99ce3f1ef487e0444c"
+    }
+   ],
+   "summary": "The largest linked group (in the events covered) is 119 wallets holding 0.5% together. They passed tokens to each other directly.",
+   "clusters": [
+    {
+     "size": 119,
+     "pct": 0.5011,
+     "members": [
+      "0x2ca37ff95caf25366ef16fc2e655b78a165d125f",
+      "0x48a097df16c7844a33b1c3d11ab353457846e13f",
+      "0xef2d3fcf79927ce06237dcc80ddd75f3ef40151e",
+      "0xf08e56ed401a7f278ced2835abfc5f8bf16058a3",
+      "0x2cc319a747b0c151e40c1a4639367dbee10af351",
+      "0xf7223efc73240746364288ed4e833fd5a03a49b4",
+      "0x1521027b665fa38fa4a642991607ad708376dd7b",
+      "0x2759fc0bce126a9cf12fba99ce3f1ef487e0444c",
+      "0xef6869e7329f48370794c152a6c7ec486a81a44f",
+      "0x98ec492942090364ac0736ef1a741ae6c92ec790",
+      "0xaa61254627b7392b0bc922097b10eb0587db2be7",
+      "0xeeff47a33a482c1edec0d24a485b55b7083f95e7"
+     ],
+     "hasDev": false
+    },
+    {
+     "size": 3,
+     "pct": 0.234,
+     "members": [
+      "0x5baba585c3551c9d14fb6be49f22c15af1fe8c9f",
+      "0xd0f651e973dd870245404021564afdfe13b41a56",
+      "0xa544c19bf7c0ed387ba1229f412f4d0f34e86b0b"
+     ],
+     "hasDev": false
+    },
+    {
+     "size": 30,
+     "pct": 0.2297,
+     "members": [
+      "0x73991a25c818bf1f1128deaab1492d45638de0d3",
+      "0xb46f2d6a600a9f94912a46872331035d55cba0a7",
+      "0x064a804e338083693b8efb4a7f440de608a72a3a",
+      "0xe0763177d7e80e290fc4fea055fae11f5024f687",
+      "0x16575aada6b1140f6c263f426764ffea08e3eda9",
+      "0x2ce673a51a1fd838c2ee2bf6912d320ca340a5c5",
+      "0x28a83dbeef2689211e31c7ba8ca8da940b4a09ba",
+      "0xa2f51fb755196049983b1fed2279cba55bb7bfa4",
+      "0x5d1124fb77c539ec92e3ef853053bbce1e98271b",
+      "0x842ccecad2ca424cecaa71f74d86bdfddeb6b1d3",
+      "0xda145865c9a78619c1512bd02de4f44af6b37a37",
+      "0x785ec636493d049469c3d10dc9fab09a229acce7"
+     ],
+     "hasDev": false
+    },
+    {
+     "size": 2,
+     "pct": 0.0964,
+     "members": [
+      "0xb6161198798dc08e3ba5bc2756820848fc51173b",
+      "0x364ff8af50db3fcaf79accbc88cca77b65e31054"
+     ],
+     "hasDev": false
+    },
+    {
+     "size": 17,
+     "pct": 0.0765,
+     "members": [
+      "0xa62858659c83095eb5e702f0af6a7bb7f370b3e7",
+      "0xf747a6072649d81afef0ff949f1efa09b8e374c4",
+      "0xb0a8578541d81092169cb5eea1bde0aef61ae72f",
+      "0x8eabb4e117fb70b346592e013855f6d825f50af1",
+      "0xd44e6b9d12a506e326c3ad1a3d8d559d186c9589",
+      "0x420ef173d58f9ac8bc6d37f3394056cdd6661f34",
+      "0xf300a6549cd46206629e6719d3f258022d7f2da1",
+      "0xad64899f8b144d0b6614a9fd4c370db6ae6bf91b",
+      "0xc2681d0606ebd7719040f2bc1c0fda3e9215db90",
+      "0x41b08fdd72330c14aad91b10c36b54175f593a7f",
+      "0xf39dbc9f6eae53e25998c9b9ae45bb36e2ba15a6",
+      "0x186b12ceaf08fde22e32647fcc800e45876f5bd0"
+     ],
+     "hasDev": false
+    },
+    {
+     "size": 2,
+     "pct": 0.0394,
+     "members": [
+      "0x3416366c0335ee3218ba15dbb1119dd66b8ee591",
+      "0x24902fc50afb88df320122d86dc825873d33f799"
+     ],
+     "hasDev": false
+    }
+   ]
+  },
+  {
+   "group": "dev",
+   "q": "What did the deployer buy, keep and sell here?",
+   "id": "dev",
+   "title": "Deployer on this token",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0x232f26fF2C2F4CB6F548eF1Be7e817bdb4C397cd",
+     "addr": "0x232f26fF2C2F4CB6F548eF1Be7e817bdb4C397cd"
+    },
+    {
+     "k": "Received (covered events)",
+     "v": "0 (0.00%)"
+    },
+    {
+     "k": "Sold back to the market",
+     "v": "0 (0.00%)"
+    },
+    {
+     "k": "Sent to other wallets",
+     "v": "0 transfers, 0 (0.00%)"
+    },
+    {
+     "k": "Holds now (balanceOf)",
+     "v": "0 (0.00%)"
+    }
+   ],
+   "summary": "The deployer never held the token in the events covered."
+  },
+  {
+   "group": "dev",
+   "q": "What happened to the deployer's earlier launches?",
+   "id": "devrep",
+   "title": "Deployer track record",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0x232f26fF2C2F4CB6F548eF1Be7e817bdb4C397cd",
+     "addr": "0x232f26fF2C2F4CB6F548eF1Be7e817bdb4C397cd"
+    },
+    {
+     "k": "Pons launches by this wallet",
+     "v": "1"
+    }
+   ],
+   "summary": "First Pons launch from this wallet: no track record. Fresh wallets cost nothing, so this proves neither good nor bad.",
+   "launches": 1
+  },
+  {
+   "group": "market",
+   "q": "Where does it trade and how deep is it?",
+   "id": "liquidity",
+   "title": "Liquidity",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Pool manager",
+     "v": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+     "addr": "0x8366a39CC670B4001A1121B8F6A443A643e40951"
+    },
+    {
+     "k": "Pool id",
+     "v": "0x06e308b77bdafd691d179645296ce8c40e33c6af4a879a913efc7eedc402581c"
+    },
+    {
+     "k": "Hook",
+     "v": "0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044",
+     "addr": "0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044"
+    },
+    {
+     "k": "Active liquidity (L)",
+     "v": "29277002188455995389594"
+    },
+    {
+     "k": "sqrtPriceX96",
+     "v": "20267937987432152338360518944719"
+    }
+   ],
+   "summary": "Uniswap v4 pool (Pons hook) with about 114.4449 ETH of depth around the current price. Pons liquidity sits in the pool manager; no wallet can pull it."
+  },
+  {
+   "group": "market",
+   "q": "Is the contract the standard launchpad template, with nothing hidden?",
+   "id": "contract",
+   "title": "Contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Deployed token contract · pass",
+     "v": "Contract found: 3,248 bytes of runtime code."
+    },
+    {
+     "k": "Token interface · pass",
+     "v": "Bundle Cat (BUN), 18 decimals, 1.00B total supply."
+    },
+    {
+     "k": "Upgradeability · pass",
+     "v": "Not a proxy. The code at this address is final and cannot be replaced."
+    },
+    {
+     "k": "Ownership · pass",
+     "v": "No owner() or getOwner() function."
+    },
+    {
+     "k": "Privileged functions · pass",
+     "v": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+    },
+    {
+     "k": "Launchpad template · pass",
+     "v": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+    },
+    {
+     "k": "Origin · info",
+     "v": "Launched on Pons by 0x232f…97cd, now graduated to a Uniswap v4 pool."
+    },
+    {
+     "k": "Buy, move, sell · pass",
+     "v": "Bought, moved and sold back on the live state. The round trip cost 1.99%, in line with fees and tax."
+    },
+    {
+     "k": "Fees and taxes · pass",
+     "v": "0.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+    }
+   ],
+   "summary": "Standard Pons contract, byte-identical to the template: fixed supply, no mint, blacklist or pause, nothing upgradeable. A simulated buy, transfer and sell went through (round trip 1.99%). Creator tax 0.00%.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 1.9877949277437579,
+    "quoteIn": "10000000000000000",
+    "quoteBack": "7350915380419218",
+    "quoteSym": "ETH",
+    "quoteDec": 18
+   }
+  }
+ ],
+ "internal": [
+  {
+   "group": "internal",
+   "q": "",
+   "id": "deployed",
+   "title": "Deployed token contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Address",
+     "v": "0x07EBB29a38Fbcb41563817e5E19f2ceC619C90D2",
+     "addr": "0x07EBB29a38Fbcb41563817e5E19f2ceC619C90D2"
+    },
+    {
+     "k": "Code hash",
+     "v": "0x7c16047fae9f8fee5effb88675360c56f8fbfa4f4d430181205f299eac934ff9"
+    },
+    {
+     "k": "Read at block",
+     "v": "102,525,557"
+    }
+   ],
+   "summary": "Contract found: 3,248 bytes of runtime code."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "erc20",
+   "title": "Token interface",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "Bundle Cat"
+    },
+    {
+     "k": "symbol()",
+     "v": "BUN"
+    },
+    {
+     "k": "decimals()",
+     "v": "18"
+    },
+    {
+     "k": "totalSupply()",
+     "v": "1000000000000000000000000000"
+    }
+   ],
+   "summary": "Bundle Cat (BUN), 18 decimals, 1.00B total supply."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "proxy",
+   "title": "Upgradeability",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "EIP-1967 implementation slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1967 beacon slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1167 clone",
+     "v": "no"
+    }
+   ],
+   "summary": "Not a proxy. The code at this address is final and cannot be replaced."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "owner",
+   "title": "Ownership",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "owner()",
+     "v": "not present"
+    }
+   ],
+   "summary": "No owner() or getOwner() function."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "powers",
+   "title": "Privileged functions",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Selectors scanned",
+     "v": "25 in contract bytecode"
+    }
+   ],
+   "summary": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "template",
+   "title": "Launchpad template",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Compared with",
+     "v": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592",
+     "addr": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592"
+    },
+    {
+     "k": "Masked fields",
+     "v": "token, curve, deployer, fee recipient, pair"
+    }
+   ],
+   "summary": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "origin",
+   "title": "Origin",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Launchpad",
+     "v": "Pons (factory 0x7eD5…EC7e)",
+     "addr": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e"
+    },
+    {
+     "k": "Deployer",
+     "v": "0x232f26fF2C2F4CB6F548eF1Be7e817bdb4C397cd",
+     "addr": "0x232f26fF2C2F4CB6F548eF1Be7e817bdb4C397cd"
+    },
+    {
+     "k": "Bonding curve",
+     "v": "0x62e4aa27046b0CBd28d76D0Ec7C56C5a32CE3aF4",
+     "addr": "0x62e4aa27046b0CBd28d76D0Ec7C56C5a32CE3aF4"
+    },
+    {
+     "k": "Creator fee recipient",
+     "v": "0x232f26fF2C2F4CB6F548eF1Be7e817bdb4C397cd",
+     "addr": "0x232f26fF2C2F4CB6F548eF1Be7e817bdb4C397cd"
+    },
+    {
+     "k": "Creator tax",
+     "v": "0.00%"
+    },
+    {
+     "k": "Buyback",
+     "v": "off"
+    },
+    {
+     "k": "Phase",
+     "v": "graduated to Uniswap v4"
+    },
+    {
+     "k": "Launch block",
+     "v": "52,687,031"
+    },
+    {
+     "k": "Launch transaction",
+     "v": "0x3e9dcd19093da517aa3001975828065c846d785a4ac7858af76d52d4eec90914",
+     "tx": "0x3e9dcd19093da517aa3001975828065c846d785a4ac7858af76d52d4eec90914"
+    }
+   ],
+   "summary": "Launched on Pons by 0x232f…97cd, now graduated to a Uniswap v4 pool."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "serial",
+   "title": "Deployer history",
+   "status": "pending",
+   "evidence": []
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "burned",
+   "title": "Burned supply",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Held by dead addresses (balanceOf)",
+     "v": "8,119.0775"
+    },
+    {
+     "k": "Destroyed (sent to zero)",
+     "v": "not totalled: history sampled"
+    }
+   ],
+   "summary": "8,119.0775 provably burned (0.00% of current supply)."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "roundtrip",
+   "title": "Buy, move, sell",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Method",
+     "v": "Uniswap v4 pool via PoolManager.unlock(): swap in, transfer(), swap out"
+    },
+    {
+     "k": "State",
+     "v": "latest block, eth_call with state override (nothing broadcast)"
+    },
+    {
+     "k": "Spent",
+     "v": "0.0100 ETH"
+    },
+    {
+     "k": "Tokens received",
+     "v": "647.8243"
+    },
+    {
+     "k": "Moved to a fresh wallet",
+     "v": "161.9561 sent, 161.9561 arrived"
+    },
+    {
+     "k": "Sold back",
+     "v": "485.8682"
+    },
+    {
+     "k": "Came back",
+     "v": "0.00735 ETH"
+    },
+    {
+     "k": "Round-trip cost",
+     "v": "1.99% (fees, tax and price impact on the sold share)"
+    }
+   ],
+   "summary": "Bought, moved and sold back on the live state. The round trip cost 1.99%, in line with fees and tax.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 1.9877949277437579,
+    "quoteIn": "10000000000000000",
+    "quoteBack": "7350915380419218",
+    "quoteSym": "ETH",
+    "quoteDec": 18
+   }
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "tax",
+   "title": "Fees and taxes",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Creator tax (factory record)",
+     "v": "0.00% on each trade"
+    },
+    {
+     "k": "Received vs quoted on the buy",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Wallet-to-wallet transfer",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Round-trip cost (buy + sell)",
+     "v": "1.99%"
+    }
+   ],
+   "summary": "0.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+  }
+ ],
+ "metadata": {
+  "launchBlock": 52687031,
+  "launchTx": "0x3e9dcd19093da517aa3001975828065c846d785a4ac7858af76d52d4eec90914",
+  "launchedAt": 1788363425,
+  "sender": "0xc4330342196c66b17985e45a759b42e146f4f68b",
+  "via": "0x5d2f0d7d635bdbaf8167ca70ed4da39d299957b7",
+  "deployer": "0x232f26ff2c2f4cb6f548ef1be7e817bdb4c397cd",
+  "name": "Bundle Cat",
+  "symbol": "BUN",
+  "description": "Protecting the trenches, one bundle at a time. Launched on mosh.trade.",
+  "logo": "https://ipfs.io/ipfs/bafkreieze2bpf4nioez3zpnwxeccbtmz62leeiw5dgotksrl7j7umja5xi",
+  "website": "https://mosh.trade",
+  "x": "https://x.com/uv",
+  "telegram": "https://t.me/moshtrade",
+  "discord": null,
+  "farcaster": null,
+  "github": null,
+  "other": []
+ },
+ "meta": {
+  "ms": 46383,
+  "rpcCalls": 376,
+  "transfers": 85326
+ }
+}

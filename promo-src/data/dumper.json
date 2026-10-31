@@ -1,0 +1,838 @@
+{
+ "version": 1,
+ "chain": 4663,
+ "token": "0x4b5De030df5bBb12E0418bEB23215570d09B4B80",
+ "name": "sdafsfaAD",
+ "symbol": "sdafsfaAD",
+ "decimals": 18,
+ "totalSupply": "1000000000000000000000000000",
+ "block": 102487731,
+ "at": "2026-10-31T10:33:05.172Z",
+ "kind": "pons",
+ "coverage": 93,
+ "counts": {
+  "critical": 1,
+  "concern": 2,
+  "pass": 8,
+  "info": 3,
+  "unchecked": 1,
+  "na": 1
+ },
+ "checks": [
+  {
+   "group": "identity",
+   "q": "Is this the only token with this ticker, or a copy of an earlier one?",
+   "id": "ticker",
+   "title": "Ticker uniqueness",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Tokens launched on Pons with this ticker",
+     "v": "1 (index of 719,370 launches)"
+    },
+    {
+     "k": "#1 (this token)",
+     "v": "sdafsfaAD · block 102,483,290",
+     "addr": "0x4b5de030df5bbb12e0418beb23215570d09b4b80"
+    }
+   ],
+   "summary": "Unique ticker: no other Pons launch uses $sdafsfaAD.",
+   "copies": 0,
+   "rank": 1
+  },
+  {
+   "group": "identity",
+   "q": "Does it borrow the ticker or name of a Robinhood stock token?",
+   "id": "stock",
+   "title": "Stock look-alike",
+   "status": "na",
+   "evidence": [],
+   "summary": "Does not present itself as a Robinhood stock token."
+  },
+  {
+   "group": "identity",
+   "q": "Does it lean on the Robinhood name without being Robinhood?",
+   "id": "brand",
+   "title": "Robinhood branding",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "sdafsfaAD"
+    },
+    {
+     "k": "symbol()",
+     "v": "sdafsfaAD"
+    }
+   ],
+   "summary": "No Robinhood branding in the name or ticker."
+  },
+  {
+   "group": "identity",
+   "q": "What is it priced in, and is that asset genuine?",
+   "id": "pair",
+   "title": "Pair asset",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Pair",
+     "v": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+     "addr": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"
+    }
+   ],
+   "summary": "Paired against USDG (Global Dollar), the dollar token Robinhood stock pools use."
+  },
+  {
+   "group": "reality",
+   "q": "Does the website given at launch work, and does it show this contract?",
+   "id": "website",
+   "title": "Website",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "X: https://x.com/Google"
+    },
+    {
+     "k": "Website",
+     "v": "none"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/Google"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x0d15df153ab90e09c5b35ef0abd7f471f5d1a8dba7ae8981ad0796c907f1b64c"
+    }
+   ],
+   "summary": "No website given at launch. Normal for a pure meme; a token that claims a product without a site is a red flag."
+  },
+  {
+   "group": "reality",
+   "q": "Is the X link the project's own account, or someone else's post?",
+   "id": "social",
+   "title": "X account",
+   "status": "critical",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "X: https://x.com/Google"
+    },
+    {
+     "k": "Website",
+     "v": "none"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/Google"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x0d15df153ab90e09c5b35ef0abd7f471f5d1a8dba7ae8981ad0796c907f1b64c"
+    },
+    {
+     "k": "Handle",
+     "v": "@Google"
+    }
+   ],
+   "summary": "The X link points to @Google, a major account that is not this project."
+  },
+  {
+   "group": "reality",
+   "q": "Is there a real repository behind the claims?",
+   "id": "code",
+   "title": "Code",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "X: https://x.com/Google"
+    },
+    {
+     "k": "Website",
+     "v": "none"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/Google"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x0d15df153ab90e09c5b35ef0abd7f471f5d1a8dba7ae8981ad0796c907f1b64c"
+    }
+   ],
+   "summary": "No code linked, at launch or on the website. Fine for a meme; a product claim without code is a red flag (see the verdict)."
+  },
+  {
+   "group": "reality",
+   "q": "Taking all the evidence: real product, honest meme, or LARP?",
+   "id": "larp",
+   "title": "AI verdict",
+   "status": "unchecked",
+   "evidence": [],
+   "summary": "AI verdict unavailable: verdict disabled: no ANTHROPIC_API_KEY on the server."
+  },
+  {
+   "group": "launch",
+   "q": "How much was bought in the launch block and the first 30 seconds, and is it still held?",
+   "id": "firstblock",
+   "title": "Snipers",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Window",
+     "v": "launch block 102,483,290 + 287 blocks (≈30 s)"
+    },
+    {
+     "k": "Bought inside the launch transaction",
+     "v": "84.06M (8.41%)",
+     "tx": "0x0d15df153ab90e09c5b35ef0abd7f471f5d1a8dba7ae8981ad0796c907f1b64c"
+    },
+    {
+     "k": "Other transactions in the launch block",
+     "v": "0 (0.00%) by 0 wallets"
+    },
+    {
+     "k": "Bought by others in the first 30 s",
+     "v": "8.81M (0.88%) by 2 wallets"
+    },
+    {
+     "k": "Still held by those early buyers now",
+     "v": "8.81M (0.88%), read with balanceOf"
+    }
+   ],
+   "summary": "Clean start: 0.9% of supply went to other wallets in the first 30 seconds.",
+   "early": {
+    "devBuy": 8.4064,
+    "blockBuy": 0,
+    "winBuy": 0.8811,
+    "still": 0.8811,
+    "buyers": 2
+   }
+  },
+  {
+   "group": "launch",
+   "q": "Were the first buyers throwaway wallets?",
+   "id": "burners",
+   "title": "Fresh wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Measured",
+     "v": "lifetime nonce at block 102,487,731"
+    }
+   ],
+   "summary": "0 of 2 early buyers have sent 3 transactions or fewer in their whole life."
+  },
+  {
+   "group": "holders",
+   "q": "How much do the ten largest wallets hold?",
+   "id": "distribution",
+   "title": "Top 10",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallets from",
+     "v": "all 18 Transfer events since launch"
+    },
+    {
+     "k": "Balances",
+     "v": "read with balanceOf at block 102,487,731 (exact)"
+    },
+    {
+     "k": "Smart-account wallets counted as people",
+     "v": "2"
+    },
+    {
+     "k": "#1",
+     "v": "3.26%  32.61M",
+     "addr": "0x1e9cec1a621ea64eda3db12d4a844124f30eb6f0"
+    },
+    {
+     "k": "#2",
+     "v": "0.88%  8.81M",
+     "addr": "0x9480c8b34f4a181e29efd4f636464ddc9eb4404e"
+    },
+    {
+     "k": "#3",
+     "v": "0.11%  1.12M",
+     "addr": "0xc3205f8d4d935e550f2c008e4c351807383bf392"
+    },
+    {
+     "k": "#4",
+     "v": "0.00%  34.7K",
+     "addr": "0xcb373b34726803443ffab953449c60e6d3141dfa"
+    },
+    {
+     "k": "#5",
+     "v": "0.00%  100",
+     "addr": "0xc2dfa3badb8cc7fc33de31661de8060ebb96b415"
+    },
+    {
+     "k": "Contract holder",
+     "v": "0.00%  1.00e-18",
+     "addr": "0x8f10b468b06c6fd214b65f87778827f7d113f996"
+    }
+   ],
+   "summary": "5 wallet holders. The 10 largest wallets hold 4.3% (largest 3.3%). 95.7% sits in the curve or the v4 pool manager, 0.0% in 1 other contracts.",
+   "holdersTop": [
+    {
+     "a": "0x1e9cec1a621ea64eda3db12d4a844124f30eb6f0",
+     "pct": 3.2614
+    },
+    {
+     "a": "0x9480c8b34f4a181e29efd4f636464ddc9eb4404e",
+     "pct": 0.8811
+    },
+    {
+     "a": "0xc3205f8d4d935e550f2c008e4c351807383bf392",
+     "pct": 0.1117
+    },
+    {
+     "a": "0xcb373b34726803443ffab953449c60e6d3141dfa",
+     "pct": 0.0034
+    },
+    {
+     "a": "0xc2dfa3badb8cc7fc33de31661de8060ebb96b415",
+     "pct": 0
+    }
+   ],
+   "contractsTop": [
+    {
+     "a": "0x8f10b468b06c6fd214b65f87778827f7d113f996",
+     "pct": 0
+    }
+   ],
+   "venuesPct": 95.7421,
+   "contractsPct": 0,
+   "partial": false
+  },
+  {
+   "group": "holders",
+   "q": "Do holders pass tokens between each other like one owner?",
+   "id": "clusters",
+   "title": "Linked wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallet-to-wallet transfers",
+     "v": "0"
+    },
+    {
+     "k": "Hubs set aside (more than 20 counterparties)",
+     "v": "0"
+    }
+   ],
+   "summary": "No meaningful linked group: 0 wallet-to-wallet moves, no group holds more than 0.5%.",
+   "clusters": []
+  },
+  {
+   "group": "dev",
+   "q": "What did the deployer buy, keep and sell here?",
+   "id": "dev",
+   "title": "Deployer on this token",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0x7572E25602432B8A8b467d998c80B77d84051E02",
+     "addr": "0x7572E25602432B8A8b467d998c80B77d84051E02"
+    },
+    {
+     "k": "Received",
+     "v": "84.06M (8.41%)"
+    },
+    {
+     "k": "Sold back to the market",
+     "v": "84.06M (8.41%)"
+    },
+    {
+     "k": "Sent to other wallets",
+     "v": "0 transfers, 0 (0.00%)"
+    },
+    {
+     "k": "Holds now (balanceOf)",
+     "v": "0 (0.00%)"
+    }
+   ],
+   "summary": "The deployer took 8.4% and has sold 8.4% back."
+  },
+  {
+   "group": "dev",
+   "q": "What happened to the deployer's earlier launches?",
+   "id": "devrep",
+   "title": "Deployer track record",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0x7572E25602432B8A8b467d998c80B77d84051E02",
+     "addr": "0x7572E25602432B8A8b467d998c80B77d84051E02"
+    },
+    {
+     "k": "Pons launches by this wallet",
+     "v": "27"
+    },
+    {
+     "k": "Earlier launches graduated",
+     "v": "0 of 20 (latest 20 of 26 read)"
+    },
+    {
+     "k": "Earlier launches the deployer dumped (sold 80%+ of its bag)",
+     "v": "7 of 20 where it held tokens · median 0.3 min after launch"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x4ad7f31b7bbb55de40e9e929279e8aaa20db4d82 · did not graduate · dev sold 30%",
+     "addr": "0x4ad7f31b7bbb55de40e9e929279e8aaa20db4d82"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x24a78184a7f63c2024d59d88fa63920c930a4098 · did not graduate · dev sold 40%",
+     "addr": "0x24a78184a7f63c2024d59d88fa63920c930a4098"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x97cb4432bf83144b60c30fe876453ddcbc8b79bf · did not graduate · dev sold 30%",
+     "addr": "0x97cb4432bf83144b60c30fe876453ddcbc8b79bf"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x0ca0fe004dddb97206cafd2135cfa8bbf8da5839 · did not graduate · dev sold 30%",
+     "addr": "0x0ca0fe004dddb97206cafd2135cfa8bbf8da5839"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0xcd7b6ce6e3a23be31e6232199f9ed0396be22ea4 · did not graduate · dev sold 50%",
+     "addr": "0xcd7b6ce6e3a23be31e6232199f9ed0396be22ea4"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x58f24b7ca2d6c6b2879abefc51f17e9e0ce76303 · did not graduate · dev sold 50%",
+     "addr": "0x58f24b7ca2d6c6b2879abefc51f17e9e0ce76303"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x5461022fd880bc0b40c5c8e652b7a43bcf9aefc0 · did not graduate · dev sold 0%",
+     "addr": "0x5461022fd880bc0b40c5c8e652b7a43bcf9aefc0"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x94eb641c194a077f47f110d971c39c86667c4c13 · did not graduate · dev sold 0%",
+     "addr": "0x94eb641c194a077f47f110d971c39c86667c4c13"
+    }
+   ],
+   "summary": "Serial launcher. 20 earlier Pons launches (latest 20 of 26 read): 0 graduated, 7 dumped by the deployer (median 0.3 min after launch).",
+   "devrep": {
+    "launches": 27,
+    "earlier": 20,
+    "graduated": 0,
+    "dumped": 7,
+    "withBag": 20,
+    "median": 0.3361416666666666
+   }
+  },
+  {
+   "group": "market",
+   "q": "Where does it trade and how deep is it?",
+   "id": "liquidity",
+   "title": "Liquidity",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Curve",
+     "v": "0xB717D22bDe591173Df4dd410300E92299032fAa6",
+     "addr": "0xB717D22bDe591173Df4dd410300E92299032fAa6"
+    },
+    {
+     "k": "Curve reserves (getReserves)",
+     "v": "3,379.9109 USDG incl. virtual part, 957.42M tokens"
+    },
+    {
+     "k": "USDG balance of the curve",
+     "v": "145.0976 USDG"
+    },
+    {
+     "k": "Graduation threshold",
+     "v": "8,090 USDG"
+    }
+   ],
+   "summary": "Still on the bonding curve: 145.0976 USDG actually held by the curve, 957.42M tokens left on it. It graduates to Uniswap v4 at the threshold set by the factory.",
+   "curveQuote": "145097644",
+   "threshold": "8090000000"
+  },
+  {
+   "group": "market",
+   "q": "Is the contract the standard launchpad template, with nothing hidden?",
+   "id": "contract",
+   "title": "Contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Deployed token contract · pass",
+     "v": "Contract found: 3,248 bytes of runtime code."
+    },
+    {
+     "k": "Token interface · pass",
+     "v": "sdafsfaAD (sdafsfaAD), 18 decimals, 1.00B total supply."
+    },
+    {
+     "k": "Upgradeability · pass",
+     "v": "Not a proxy. The code at this address is final and cannot be replaced."
+    },
+    {
+     "k": "Ownership · pass",
+     "v": "No owner() or getOwner() function."
+    },
+    {
+     "k": "Privileged functions · pass",
+     "v": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+    },
+    {
+     "k": "Launchpad template · pass",
+     "v": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+    },
+    {
+     "k": "Origin · info",
+     "v": "Launched on Pons by 0x7572…1E02, still trading on its bonding curve."
+    },
+    {
+     "k": "Buy, move, sell · pass",
+     "v": "Bought, moved and sold back on the live state. The round trip cost 1.95%, in line with fees and tax."
+    },
+    {
+     "k": "Fees and taxes · pass",
+     "v": "0.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+    }
+   ],
+   "summary": "Standard Pons contract, byte-identical to the template: fixed supply, no mint, blacklist or pause, nothing upgradeable. A simulated buy, transfer and sell went through (round trip 1.95%). Creator tax 0.00%.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 1.9541600000000048,
+    "quoteIn": "5000000",
+    "quoteBack": "3676719",
+    "quoteSym": "USDG",
+    "quoteDec": 6
+   }
+  }
+ ],
+ "internal": [
+  {
+   "group": "internal",
+   "q": "",
+   "id": "deployed",
+   "title": "Deployed token contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Address",
+     "v": "0x4b5De030df5bBb12E0418bEB23215570d09B4B80",
+     "addr": "0x4b5De030df5bBb12E0418bEB23215570d09B4B80"
+    },
+    {
+     "k": "Code hash",
+     "v": "0x66bf0180ca60872101f256537a18f7da6971aeb1d04e0e65212b2faca9c13dde"
+    },
+    {
+     "k": "Read at block",
+     "v": "102,487,731"
+    }
+   ],
+   "summary": "Contract found: 3,248 bytes of runtime code."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "erc20",
+   "title": "Token interface",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "sdafsfaAD"
+    },
+    {
+     "k": "symbol()",
+     "v": "sdafsfaAD"
+    },
+    {
+     "k": "decimals()",
+     "v": "18"
+    },
+    {
+     "k": "totalSupply()",
+     "v": "1000000000000000000000000000"
+    }
+   ],
+   "summary": "sdafsfaAD (sdafsfaAD), 18 decimals, 1.00B total supply."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "proxy",
+   "title": "Upgradeability",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "EIP-1967 implementation slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1967 beacon slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1167 clone",
+     "v": "no"
+    }
+   ],
+   "summary": "Not a proxy. The code at this address is final and cannot be replaced."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "owner",
+   "title": "Ownership",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "owner()",
+     "v": "not present"
+    }
+   ],
+   "summary": "No owner() or getOwner() function."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "powers",
+   "title": "Privileged functions",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Selectors scanned",
+     "v": "25 in contract bytecode"
+    }
+   ],
+   "summary": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "template",
+   "title": "Launchpad template",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Compared with",
+     "v": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592",
+     "addr": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592"
+    },
+    {
+     "k": "Masked fields",
+     "v": "token, curve, deployer, fee recipient, pair"
+    }
+   ],
+   "summary": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "origin",
+   "title": "Origin",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Launchpad",
+     "v": "Pons (factory 0x7eD5…EC7e)",
+     "addr": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e"
+    },
+    {
+     "k": "Deployer",
+     "v": "0x7572E25602432B8A8b467d998c80B77d84051E02",
+     "addr": "0x7572E25602432B8A8b467d998c80B77d84051E02"
+    },
+    {
+     "k": "Bonding curve",
+     "v": "0xB717D22bDe591173Df4dd410300E92299032fAa6",
+     "addr": "0xB717D22bDe591173Df4dd410300E92299032fAa6"
+    },
+    {
+     "k": "Creator fee recipient",
+     "v": "0x0EE90E17Ce6f2c03Ff692AE8Ad59E3B4E1faaD16",
+     "addr": "0x0EE90E17Ce6f2c03Ff692AE8Ad59E3B4E1faaD16"
+    },
+    {
+     "k": "Creator tax",
+     "v": "0.00%"
+    },
+    {
+     "k": "Buyback",
+     "v": "off"
+    },
+    {
+     "k": "Phase",
+     "v": "on the bonding curve"
+    },
+    {
+     "k": "Launch block",
+     "v": "102,483,290"
+    },
+    {
+     "k": "Launch transaction",
+     "v": "0x0d15df153ab90e09c5b35ef0abd7f471f5d1a8dba7ae8981ad0796c907f1b64c",
+     "tx": "0x0d15df153ab90e09c5b35ef0abd7f471f5d1a8dba7ae8981ad0796c907f1b64c"
+    }
+   ],
+   "summary": "Launched on Pons by 0x7572…1E02, still trading on its bonding curve."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "serial",
+   "title": "Deployer history",
+   "status": "pending",
+   "evidence": []
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "burned",
+   "title": "Burned supply",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Held by dead addresses (balanceOf)",
+     "v": "0"
+    },
+    {
+     "k": "Destroyed (sent to zero)",
+     "v": "0"
+    },
+    {
+     "k": "Minted in total",
+     "v": "1.00B"
+    }
+   ],
+   "summary": "0 provably burned (0.00% of current supply)."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "roundtrip",
+   "title": "Buy, move, sell",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Method",
+     "v": "Pons bonding curve: buy(), transfer(), sell()"
+    },
+    {
+     "k": "State",
+     "v": "latest block, eth_call with state override (nothing broadcast)"
+    },
+    {
+     "k": "Spent",
+     "v": "5 USDG"
+    },
+    {
+     "k": "Tokens received",
+     "v": "1.40M"
+    },
+    {
+     "k": "Moved to a fresh wallet",
+     "v": "350.0K sent, 350.0K arrived"
+    },
+    {
+     "k": "Sold back",
+     "v": "1.05M"
+    },
+    {
+     "k": "Came back",
+     "v": "3.6767 USDG"
+    },
+    {
+     "k": "Round-trip cost",
+     "v": "1.95% (fees, tax and price impact on the sold share)"
+    }
+   ],
+   "summary": "Bought, moved and sold back on the live state. The round trip cost 1.95%, in line with fees and tax.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 1.9541600000000048,
+    "quoteIn": "5000000",
+    "quoteBack": "3676719",
+    "quoteSym": "USDG",
+    "quoteDec": 6
+   }
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "tax",
+   "title": "Fees and taxes",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Creator tax (factory record)",
+     "v": "0.00% on each trade"
+    },
+    {
+     "k": "Received vs quoted on the buy",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Wallet-to-wallet transfer",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Round-trip cost (buy + sell)",
+     "v": "1.95%"
+    }
+   ],
+   "summary": "0.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+  }
+ ],
+ "metadata": {
+  "launchBlock": 102483290,
+  "launchTx": "0x0d15df153ab90e09c5b35ef0abd7f471f5d1a8dba7ae8981ad0796c907f1b64c",
+  "launchedAt": 1793442298,
+  "sender": "0x7572e25602432b8a8b467d998c80b77d84051e02",
+  "via": "0xe33e9e479df8802cb0866d5d05258bec4cf62948",
+  "deployer": "0x7572e25602432b8a8b467d998c80b77d84051e02",
+  "name": "sdafsfaAD",
+  "symbol": null,
+  "description": "X: https://x.com/Google",
+  "logo": "ipfs://bafkreibolvjd4f3zakut3bv43zyhvskuoj2zia6s6szrywnvkvbnvczhbq",
+  "website": null,
+  "x": "https://x.com/Google",
+  "telegram": null,
+  "discord": null,
+  "farcaster": null,
+  "github": null,
+  "other": []
+ },
+ "meta": {
+  "ms": 11822,
+  "rpcCalls": 148,
+  "transfers": 18
+ }
+}

@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docs · Hoodwink</title>
+<meta name="description" content="Hoodwink documentation: the 16 checks and their thresholds, reality checks and the AI verdict, ticker index, deployer track record, Pons reference, self-hosting.">
+<meta property="og:title" content="Hoodwink docs">
+<meta property="og:url" content="https://www.hoodwink.site/docs.html">
+<meta property="og:image" content="https://www.hoodwink.site/assets/img/og.png">
+<meta name="twitter:site" content="@CheckHoodWink">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#08090b">
+<link rel="canonical" href="https://www.hoodwink.site/docs.html">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/hw.css">
+<script src="config.js"></script>
+</head>
+<body data-page="docs">
+<div class="docs-top"><a class="brand" href="index.html" id="topBrand"></a><button class="btn" id="navToggle" aria-expanded="false" aria-controls="docsNav">Pages</button></div>
+<div class="docs">
+  <nav class="docs-nav" id="docsNav" aria-label="Documentation">
+    <a class="brand" href="index.html" id="navBrand" style="border:0;padding:0"></a>
+    <h6>Start</h6>
+    <a href="#overview">Overview</a>
+    <a href="#how">How a scan works</a>
+    <a href="#quickstart">Quickstart</a>
+    <h6>Reference</h6>
+    <a href="#checks">The 16 checks</a>
+    <a href="#statuses">Statuses and coverage</a>
+    <a href="#reality">Reality checks and AI verdict</a>
+    <a href="#tickers">Ticker index</a>
+    <a href="#devrep">Deployer track record</a>
+    <a href="#simulation">The probe contract</a>
+    <a href="#stocks">Stock-token fingerprint</a>
+    <a href="#pons">Pons reference</a>
+    <a href="#api">Engine API and CLI</a>
+    <a href="#architecture">Addresses</a>
+    <a href="#selfhost">Running and deploying</a>
+    <h6>Trust</h6>
+    <a href="#sources">Data sources and limits</a>
+    <a href="#security">What a scan cannot tell</a>
+    <h6>More</h6>
+    <a href="#glossary">Glossary</a>
+    <a href="#faq">FAQ</a>
+    <a href="#changelog">Changelog</a>
+    <h6>Links</h6>
+    <a href="index.html#scan">Scan a token</a>
+    <a href="token.html" id="navTicker">$WINK</a>
+    <a href="#" id="navX" target="_blank" rel="noopener">X / Twitter</a>
+  </nav>
+
+  <main class="docs-main" id="main">
+
+<article data-doc="overview">
+<div class="label">Start</div>
+<h1>Overview</h1>
+<p>Hoodwink checks tokens on <strong>Robinhood Chain</strong> (chain id 4663) and answers the questions that decide a trade on Pons: is this the original ticker, are the links real or borrowed, who is the deployer and what did they do before, are the snipers still holding, how much do the top 10 own, and, taking all of it together, is this a real product, an honest meme or a LARP.</p>
+<h2 id="o-why">Why not a contract scanner</h2>
+<p>Almost every token on Robinhood Chain is launched on Pons, and every Pons token is the same audited template: fixed supply, no mint, no blacklist, no pause, and selling always works through the curve or the Uniswap v4 pool. A scanner that reads the contract will mark every one of them safe. Hoodwink still verifies that (one line, <a href="#checks">contract</a>), and spends the rest of the report on what actually differs from token to token: the story and the wallets.</p>
+<h2 id="o-what">What a report contains</h2>
+<ul>
+<li><strong>Identity:</strong> ticker uniqueness against every Pons launch, look-alikes of Robinhood stock tokens, Robinhood branding, the pair asset.</li>
+<li><strong>Reality:</strong> the website, X and GitHub links typed at launch (read from the launch transaction), each one opened and checked, then an <a href="#reality">AI verdict</a> written from that evidence.</li>
+<li><strong>Launch:</strong> what was bought in the launch block and the first 30 seconds, whether those wallets still hold, whether they were throwaway wallets.</li>
+<li><strong>Holders:</strong> the top 10 wallets with exact balances, and groups of wallets that pass tokens between themselves.</li>
+<li><strong>Developer:</strong> what the deployer did on this token, and the <a href="#devrep">track record</a> of every earlier Pons launch from the same wallet.</li>
+<li><strong>Market and contract:</strong> liquidity, and the one-line contract verdict.</li>
+</ul>
+<h2 id="o-not">What it is not</h2>
+<p>A report describes a token; it does not certify it, and the coverage percentage is not a safety score. See <a href="#security">what a scan cannot tell</a>.</p>
+</article>
+
+<article data-doc="how">
+<div class="label">Start</div>
+<h1>How a scan works</h1>
+<p>Two halves run at the same time. Your browser reads the chain directly; the Hoodwink server opens the links (a browser is not allowed to read third-party sites) and asks the AI for a verdict.</p>
+<pre><code>address
+  │
+  ├─ browser ── chain (public RPC)
+  │    ├─ token, Pons factory record, launch event and block
+  │    ├─ every Transfer since launch → snipers, fresh wallets, top 10, linked wallets
+  │    ├─ every earlier launch by the deployer → graduated? dumped? how fast?
+  │    ├─ ticker index (static files) + launches since the index was built
+  │    └─ contract: template diff + simulated buy, transfer, sell (eth_call)
+  │
+  └─ server ── /api/reality  (cached 6 h)
+       ├─ launch transaction → description, website, X, Telegram, GitHub typed at launch
+       ├─ website: fetched with redirects, shortener / builder detection, contract address present?
+       ├─ X: post read through X's public embed endpoint (author, date, text)
+       ├─ GitHub: repository age, commits, fork, last push
+       └─ /api/verdict  (cached 24 h) → AI reads that evidence only → real product / honest meme / LARP</code></pre>
+<h2 id="h-time">How long it takes</h2>
+<p>A young token settles in 10 to 30 seconds; the AI verdict adds a few seconds the first time a token is judged and nothing after that (cached). Tokens with 100,000+ transfers take one to three minutes, spent reading logs.</p>
+</article>
+
+<article data-doc="quickstart">
+<div class="label">Start</div>
+<h1>Quickstart</h1>
+<h2 id="q-browser">In the browser</h2>
+<p>Open <a href="index.html#scan">the scanner</a>, paste a token address, press Scan. The report URL (<code>scan.html?a=0x…</code>) is shareable: whoever opens it runs the scan again on the block they open it.</p>
+<h2 id="q-cli">From a terminal</h2>
+<p>The CLI runs the exact module the site runs. Node 18 or later, no dependency to install.</p>
+<pre><code>git clone &lt;repository&gt; hoodwink && cd hoodwink
+node tools/scan.mjs 0x07ebb29a38fbcb41563817e5e19f2cec619c90d2
+node tools/scan.mjs 0x07ebb29a38fbcb41563817e5e19f2cec619c90d2 --json bun.json</code></pre>
+<p>Output for REX, a token launched with a link to a Robinhood post (trimmed):</p>
+<pre><code>Rex Robinhood Agent (REX)  kind=pons  coverage=100%
+WARN  brand         The name or ticker leans on Robinhood ("Rex Robinhood Agent" / REX).
+WARN  website       The website does not work: HTTP 404, behind a link shortener.
+CRIT  social        Borrowed narrative: the X link is a post by @RobinhoodApp, a major account, not an account of this project.
+WARN  firstblock    23.2% bought in the first 30 seconds: bots sniped the start. Those early buyers still hold 0.0%.
+INFO  devrep        First Pons launch from this wallet: no track record.
+PASS  contract      Standard Pons contract, byte-identical to the template: fixed supply, no mint, blacklist or pause.</code></pre>
+<p>The CLI calls the same server functions in-process, so it reads <code>.env</code> for the AI key.</p>
+<h2 id="q-module">In your own page</h2>
+<pre><code>&lt;script type="module"&gt;
+import { investigate } from './assets/js/engine.js';
+const report = await investigate('0x…', {
+  onCheck: (c) =&gt; console.log(c.id, c.status, c.summary),
+  onStage: (s) =&gt; console.log(s),
+});
+console.log(report.coverage, report.counts);
+&lt;/script&gt;</code></pre>
+<h2 id="q-rpc">Using another RPC</h2>
+<p>Set <code>rpc</code> in <code>config.js</code>, or call <code>setRpc(url)</code> before <code>investigate()</code>. The endpoint must allow CORS for browser use and support <code>eth_call</code> state overrides.</p>
+</article>
+
+<article data-doc="checks">
+<div class="label">Reference</div>
+<h1>The 16 checks</h1>
+<p>Each check answers one question and returns a status (see <a href="#statuses">statuses and coverage</a>). Thresholds are listed so you can disagree with them.</p>
+<h2 id="c-identity">Identity</h2>
+<table>
+<tr><th>Check</th><th>How it decides</th></tr>
+<tr><td><code>ticker</code></td><td>The normalised ticker (case, <code>$</code> and punctuation ignored) is looked up in the index of every Pons launch, plus launches since the index was built. Only one: <strong>pass</strong>. This is the first of several: <strong>info</strong>. A later copy: <strong>concern</strong>; a copy of a token that graduated, by another wallet: <strong>critical</strong>. See <a href="#tickers">ticker index</a>.</td></tr>
+<tr><td><code>stock</code></td><td>Name says "Robinhood Token" but the code is not the official stock proxy: <strong>critical</strong>. Ticker of one of the 78 stock tokens: <strong>concern</strong>, with the address of the real one.</td></tr>
+<tr><td><code>brand</code></td><td>"Robinhood" or "Hood Chain" in the name, or tickers RH / HOOD / RHC: <strong>concern</strong>. Robinhood Chain has no native token.</td></tr>
+<tr><td><code>pair</code></td><td>ETH, USDG or an official stock: <strong>pass</strong>. A stock ticker that fails the fingerprint: <strong>critical</strong>. Another memecoin: <strong>concern</strong>.</td></tr>
+</table>
+<h2 id="c-reality">Reality</h2>
+<table>
+<tr><th>Check</th><th>How it decides</th></tr>
+<tr><td><code>website</code></td><td>None: <strong>info</strong>. Dead, error or unreachable: <strong>concern</strong>. Live and shows this contract address, no other flag: <strong>pass</strong>. Live without the contract: <strong>info</strong>; plus a shortener, a JavaScript-only page or an X link that differs from the one typed at launch: <strong>concern</strong>.</td></tr>
+<tr><td><code>social</code></td><td>The X link is a post by another account: <strong>concern</strong>, <strong>critical</strong> if a major or business-verified account (borrowed narrative). A profile the website also links: <strong>pass</strong>; a different one: <strong>concern</strong>; not cross-checkable: <strong>info</strong>.</td></tr>
+<tr><td><code>code</code></td><td>No repository: <strong>info</strong>. Missing repo, nearly empty (under 5 commits) or a thin fork: <strong>concern</strong>. Created after launch: <strong>info</strong>. Real history before launch: <strong>pass</strong>.</td></tr>
+<tr><td><code>larp</code></td><td>The AI verdict. LARP: <strong>critical</strong>. Unclear: <strong>concern</strong>. Honest meme or real product: <strong>pass</strong>. See <a href="#reality">reality checks and AI verdict</a>.</td></tr>
+</table>
+<h2 id="c-launch">Launch</h2>
+<table>
+<tr><th>Check</th><th>How it decides</th></tr>
+<tr><td><code>firstblock</code></td><td>Window = launch block + 287 blocks (30 s). Other transactions in the launch block above 10% of supply, or early buyers still holding above 20%: <strong>critical</strong>. Launch block above 3%, first 30 s above 12%, or still holding above 8%: <strong>concern</strong>.</td></tr>
+<tr><td><code>burners</code></td><td>Up to 40 early buyers; fresh = plain wallet with lifetime nonce 3 or less. Above 50% fresh (4+): <strong>critical</strong>. Above 30% (3+): <strong>concern</strong>.</td></tr>
+</table>
+<h2 id="c-holders">Holders</h2>
+<table>
+<tr><th>Check</th><th>How it decides</th></tr>
+<tr><td><code>distribution</code></td><td>Exact balances (<code>balanceOf</code>). Pools and contracts set aside, smart-account wallets counted. Largest above 15% or top 10 above 50%: <strong>critical</strong>. Above 6% / 30%: <strong>concern</strong>.</td></tr>
+<tr><td><code>clusters</code></td><td>Wallets that sent the token to each other are grouped; hubs with 20+ counterparties ignored. Group above 15%, or with the deployer above 5%: <strong>critical</strong>. Above 5%: <strong>concern</strong>.</td></tr>
+</table>
+<h2 id="c-dev">Developer</h2>
+<table>
+<tr><th>Check</th><th>How it decides</th></tr>
+<tr><td><code>dev</code></td><td>On this token: sold 80%+ of more than 1% received, spread more than 2% to other wallets, or still holds more than 10%: <strong>concern</strong>.</td></tr>
+<tr><td><code>devrep</code></td><td>See <a href="#devrep">deployer track record</a>. Three or more dumps and a dump rate of 60%+: <strong>critical</strong>. Ten or more earlier launches, or two dumps: <strong>concern</strong>. At least one graduation and a dump rate below 50%: <strong>pass</strong>. First launch: <strong>info</strong>.</td></tr>
+</table>
+<h2 id="c-market">Market and contract</h2>
+<table>
+<tr><th>Check</th><th>How it decides</th></tr>
+<tr><td><code>liquidity</code></td><td>Curve reserves and real balance, or the Uniswap v4 pool state. <strong>info</strong>.</td></tr>
+<tr><td><code>contract</code></td><td>Folds nine measurements into one line: code present, ERC-20 interface, proxy, owner, 56 privileged signatures, Pons template diff, origin, a simulated buy-transfer-sell (<a href="#simulation">probe</a>) and taxes. On a standard Pons token this is a <strong>pass</strong>; otherwise it takes the worst status found and lists why.</td></tr>
+</table>
+</article>
+
+<article data-doc="statuses">
+<div class="label">Reference</div>
+<h1>Statuses and coverage</h1>
+<table>
+<tr><th>Status</th><th>Meaning</th></tr>
+<tr><td><span class="st st-pass">Pass</span></td><td>The specific thing measured is fine. Only that thing.</td></tr>
+<tr><td><span class="st st-info">Info</span></td><td>A fact worth knowing that is neither good nor bad on its own.</td></tr>
+<tr><td><span class="st st-concern">Concern</span></td><td>Read this before buying. Not proof of bad intent.</td></tr>
+<tr><td><span class="st st-critical">Critical</span></td><td>A strong signal against the token: copied ticker of a winner, borrowed narrative, serial dumper, LARP verdict, bundled launch.</td></tr>
+<tr><td><span class="st st-unchecked">Unchecked</span></td><td>The question could not be answered (server down, data too large, no metadata). Never counted as a pass.</td></tr>
+<tr><td><span class="st st-na">N/A</span></td><td>The question does not apply. Left out of the coverage.</td></tr>
+</table>
+<h2 id="s-glance">At a glance</h2>
+<p>The top of every report sums the findings up in one card: a risk level (<strong>High risk</strong> if any check is critical, <strong>Caution</strong> if any is a concern, <strong>Low risk</strong> otherwise), one sentence that lists the risks in order of severity and what came out clean, and eight tiles: ticker, website, X account, tech and claims (the AI verdict), snipers, top 10, developer and contract. It fills in live while the scan runs. Every tile is backed by a check further down.</p>
+<h2 id="s-coverage">Coverage</h2>
+<p><code>coverage = settled checks ÷ applicable checks</code>. It says how complete the investigation is, never how safe the token is.</p>
+</article>
+
+<article data-doc="reality">
+<div class="label">Reference</div>
+<h1>Reality checks and AI verdict</h1>
+<p>When a token is launched on Pons, everything the creator typed (name, ticker, logo, description, website, X, Telegram, Discord, Farcaster, GitHub) travels in the launch transaction. Routers wrap the factory call differently, so instead of one ABI the calldata is scanned for ABI-encoded strings, which are then sorted into fields.</p>
+<h2 id="r-links">How each link is checked</h2>
+<ul>
+<li><strong>Website.</strong> Fetched by the server with up to five redirects, each one re-checked; private and internal addresses are refused, pages are capped at 1.5 MB and 8 seconds. Measured: HTTP status, final URL, link shortener, site builder (Linktree, Carrd, Notion, Framer…), readable text, whether this exact contract address appears, and which X, GitHub and Telegram links the page contains.</li>
+<li><strong>X.</strong> A profile link is compared with the X link on the website. A post link is read through X's public embed endpoint: author, date, text. A post by someone else (for example @RobinhoodApp) is reported as borrowed narrative.</li>
+<li><strong>GitHub.</strong> From the launch metadata, or the first repository linked on the website: existence, creation date versus launch date, commit count, fork or not, last push.</li>
+</ul>
+<h2 id="r-ai">The AI verdict</h2>
+<p>The evidence above is written into a short file and sent to Claude (<code>claude-opus-5-5</code>, structured JSON output). The model answers with one of four verdicts, a confidence, a one-line headline, each claim the project makes with the evidence that supports or fails it, and red and green flags.</p>
+<table>
+<tr><th>Verdict</th><th>Meaning</th></tr>
+<tr><td>Honest meme</td><td>No product, team or affiliation claimed. Normal, not negative.</td></tr>
+<tr><td>Real product</td><td>A product is claimed and the evidence shows it exists.</td></tr>
+<tr><td>LARP</td><td>A product, AI agent, protocol, affiliation or team is claimed, and the evidence is missing, dead, borrowed or contradicts it.</td></tr>
+<tr><td>Unclear</td><td>Not enough evidence either way.</td></tr>
+</table>
+<h2 id="r-guard">Safeguards</h2>
+<ul>
+<li>The verdict endpoint takes only a token address. The evidence is gathered by the server itself, so nobody can make the AI judge text they wrote into the request.</li>
+<li>Website, description and post text are passed as untrusted data; the instructions tell the model never to follow instructions found in them.</li>
+<li>One verdict per token per 24 hours (cached), and a daily cap (<code>VERDICTS_PER_DAY</code>, 400 by default) bounds the API bill.</li>
+<li>No request waits on the model: <code>/api/verdict</code> answers at once with the cached verdict or <code>{ pending: true }</code>, a background function does the work, and the page polls every two seconds. A slow model can never time a request out.</li>
+</ul>
+</article>
+
+<article data-doc="tickers">
+<div class="label">Reference</div>
+<h1>Ticker index</h1>
+<p>A static index of every Pons launch lives in <code>data/tickers/</code>: one file per first two characters of the normalised ticker, each entry <code>[token, launchBlock, symbol, name, deployer]</code>, plus <code>meta.json</code> with the last indexed block and the total.</p>
+<p>On the home page, typing a ticker (<code>$REX</code> or <code>rex</code>) instead of an address lists every Pons token using it, the first launched marked as the original, each one a click away from its report.</p>
+<p>When a scan runs, the browser loads one shard, then reads every launch made since <code>meta.json</code>'s block straight from the chain (up to the latest 8,000) and their tickers through Multicall3, so a copy launched five minutes ago is still caught.</p>
+<pre><code>node tools/build-index.mjs            # full rebuild (about ten minutes)
+node tools/build-index.mjs --update   # only launches since the last build</code></pre>
+<h2 id="t-fresh">Keeping it fresh</h2>
+<p>Nothing to do by hand. A scheduled function (<code>tickers-update</code>, hourly) appends every new launch to a tail stored in the cache, served by <code>/api/tickers-tail?shard=XX</code>; a scan reads the static shard, then the tail, then only the last few minutes live. Locally, <code>launch.bat</code> runs the same job every hour while it is open. Rebuild the static files now and then (<code>node tools/build-index.mjs --update</code>, then redeploy) to keep the tail small.</p>
+</article>
+
+<article data-doc="devrep">
+<div class="label">Reference</div>
+<h1>Deployer track record</h1>
+<p>Every Pons launch event carries the deployer as an indexed topic, so all launches by a wallet come back in a dozen log queries. For each earlier launch (the latest 30):</p>
+<ul>
+<li><strong>Graduated</strong>: read from the Pons factory record and the curve.</li>
+<li><strong>Dumped</strong>: the deployer sent 80% or more of everything it received of that token to the token's curve or the v4 pool manager. The delay is measured from the launch block to the first such sell.</li>
+</ul>
+<p>The summary reads like <em>"14 earlier Pons launches: 2 graduated, 9 dumped by the deployer (median 1.8 min after launch)"</em>, and every launch is listed with a link.</p>
+<h2 id="d-known">Known developers</h2>
+<p><code>data/devs.json</code> maps a deployer address to a label, a tone (<code>good</code>, <code>bad</code> or <code>neutral</code>), a note and a source. A label overrides the computed status and is always shown with its source. The file ships empty: add entries only with a public source.</p>
+<pre><code>{ "0xabc…": { "label": "Team behind X", "tone": "good", "note": "Shipped Y", "source": "https://…" } }</code></pre>
+<h2 id="d-limits">Limits</h2>
+<p>A new wallet has no history; a careful deployer uses a fresh one each time. Funding links between wallets (who sent the ETH) are not traced: the public RPC has no index for it.</p>
+</article>
+
+<article data-doc="simulation">
+<div class="label">Reference</div>
+<h1>The probe contract</h1>
+<p>The round trip is executed by a small Solidity contract, <code>Probe.sol</code>. It is <strong>never deployed</strong>. The scanner sends an <code>eth_call</code> whose state override places the probe's runtime bytecode at <code>0x4000…0d0d</code>, gives that address 100 ETH (and, for USDG or stock pairs, a balance written straight into the pair token's storage), then calls one function. The node executes it against the latest block and throws the result away.</p>
+<h2 id="p-stages">Stages</h2>
+<table>
+<tr><th>Stage</th><th>What happens</th><th>Failure means</th></tr>
+<tr><td>1 · Buy</td><td><code>curve.buy()</code>, or <code>PoolManager.unlock()</code> → <code>swap()</code> exact-in → <code>settle()</code> → <code>take()</code></td><td>Buying is blocked at this block</td></tr>
+<tr><td>2 · Move</td><td><code>transfer()</code> of 25% to <code>0x…beef</code>; the fresh wallet's balance delta is measured</td><td>Tokens cannot leave a wallet: a trap</td></tr>
+<tr><td>3 · Sell</td><td><code>curve.sell()</code> or the reverse swap, with the remaining balance</td><td>Honeypot behaviour</td></tr>
+<tr><td>4 · Complete</td><td>Quote returned, compared with the quote spent for the share sold</td><td></td></tr>
+</table>
+<p>Every external step is wrapped in <code>try/catch</code>, so a revert comes back as a stage number with its revert data, not as a failed request.</p>
+<h2 id="p-generic">Tokens without a venue</h2>
+<p>For stock tokens and non-Pons tokens the probe is funded through the token's own balance storage (the slot is discovered by trying mapping slots 0 to 11 and the OpenZeppelin ERC-7201 namespace) and runs <code>holderMove()</code>. If no slot is found, the probe's code is placed on the address of a real holder that is a plain wallet, which then moves part of its own balance.</p>
+<h2 id="p-batch">Batch reads</h2>
+<p><code>codeSizes(address[])</code> returns the code size and code hash of up to 1,500 addresses in one call. It is how the scanner tells wallets, smart accounts and contracts apart without one request per address.</p>
+<h2 id="p-source">Source</h2>
+<p>Compiled with solc 0.8.26, optimizer 200 runs. <a href="contracts/Probe.sol">Download Probe.sol</a>.</p>
+<pre><code id="probeSrc">Loading…</code></pre>
+</article>
+
+<article data-doc="stocks">
+<div class="label">Reference</div>
+<h1>Stock-token fingerprint</h1>
+<p>Robinhood issues each tokenized stock as a 283-byte beacon proxy. The bytecode is identical for every stock: the issuer's beacon address is compiled into it as an immutable, and the proxy asks the beacon for its implementation on every call.</p>
+<table>
+<tr><th>Field</th><th>Value</th></tr>
+<tr><td>Runtime code hash</td><td><code>0x6c1fdd40002dcb440c7fff6a84171404d279ccb057803b65826f7546acd65630</code></td></tr>
+<tr><td>Beacon (immutable)</td><td><code>0xe10b6f6b275de231345c20d14ab812db62151b00</code></td></tr>
+<tr><td>Name pattern</td><td><code>&lt;Company&gt; • Robinhood Token</code></td></tr>
+<tr><td>Measured on</td><td>NVDA, TSLA, AAPL, then all 78 stock tokens used as Pons pair assets</td></tr>
+</table>
+<h2 id="st-logic">How look-alikes are judged</h2>
+<ul>
+<li>Fingerprint matches: genuine. Issuer powers (upgrade through the beacon, mint, pause) are shown as <em>info</em>: they are expected for a regulated asset, and they are real.</li>
+<li>The name claims "Robinhood Token" and the fingerprint does not match: <strong>critical</strong>, impostor.</li>
+<li>Only the ticker matches: <strong>concern</strong>. A memecoin called MU is not a crime, but someone looking for Micron should know this is not it.</li>
+<li>As a pair asset, a stock ticker that fails the fingerprint is <strong>critical</strong>: buyers would be paying in a copy.</li>
+</ul>
+<h2 id="st-list">The 78 tickers</h2>
+<p id="stockList"></p>
+</article>
+
+<article data-doc="pons">
+<div class="label">Reference</div>
+<h1>Pons reference</h1>
+<p>Pons is the main launchpad on Robinhood Chain. Tokens start on a bonding curve and graduate to a Uniswap v4 pool behind the Pons hook. Everything below was read from the chain.</p>
+<table>
+<tr><th>Item</th><th>Value</th></tr>
+<tr><td>Factory</td><td><code>0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e</code></td></tr>
+<tr><td>Fee escrow</td><td><code>0xd3AFEB2a57f70eF218Aa82451c51B2fb0416Ac9e</code></td></tr>
+<tr><td>v4 hook</td><td><code>0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044</code></td></tr>
+<tr><td>Launch event topic</td><td><code>0x8d4aad49…a89607</code>, topics: token, curve, deployer</td></tr>
+<tr><td>Supply</td><td>1,000,000,000 tokens, 18 decimals</td></tr>
+</table>
+<h2 id="po-record">getLaunchedToken(token)</h2>
+<pre><code>(address token, address curve, address deployer, address creatorFeeRecipient,
+ address pairToken, uint256 graduationThreshold, uint24 poolFee, int24 tickSpacing,
+ uint16 creatorTaxBps, bool buybackEnabled, uint8 phase,
+ uint256 sweptQuote, uint256 sweptTokens, uint256 sweptAt, bool exists)</code></pre>
+<h2 id="po-curve">Curve</h2>
+<pre><code>buy(uint256 quoteIn, uint256 minTokensOut, address recipient) payable returns (uint256)
+sell(uint256 tokensIn, uint256 minQuoteOut, address recipient) returns (uint256)
+getReserves() returns (uint256 quoteReserve, uint256 tokenReserve)   // includes a virtual part
+graduated() returns (bool)</code></pre>
+<h2 id="po-pool">Graduated pool</h2>
+<p>Pool key: <code>(currency0, currency1, poolFee, tickSpacing, hook)</code> with the pair asset and the token sorted by address (native ETH is <code>address(0)</code>). The pool id is <code>keccak256(abi.encode(key))</code>; slot0 sits at <code>keccak256(poolId . 6)</code> and liquidity three slots later, both read with <code>PoolManager.extsload</code>.</p>
+<h2 id="po-pairs">What launches are priced in</h2>
+<p id="pairTable"></p>
+</article>
+
+<article data-doc="api">
+<div class="label">Reference</div>
+<h1>Engine API and CLI</h1>
+<h2 id="a-http">HTTP endpoints</h2>
+<table>
+<tr><th>Endpoint</th><th>Returns</th></tr>
+<tr><td><code>GET /api/reality?token=0x…</code></td><td>Launch metadata, website check, X post or profile, GitHub facts. Cached 6 h.</td></tr>
+<tr><td><code>GET /api/verdict?token=0x…</code></td><td><code>{ verdict: { verdict, confidence, headline, claims[], red_flags[], green_flags[] }, model, at }</code>. Cached 24 h; 503 without an API key, 429 over the daily cap.</td></tr>
+</table>
+<h2 id="a-investigate">investigate(address, options)</h2>
+<table>
+<tr><th>Option</th><th>Type</th><th>Description</th></tr>
+<tr><td><code>onCheck</code></td><td>function(check)</td><td>Called each time a check settles.</td></tr>
+<tr><td><code>onStage</code></td><td>function(stage, progress)</td><td>Pipeline stage name; progress <code>{ p, n }</code> while reading logs or balances.</td></tr>
+<tr><td><code>apiBase</code></td><td>string</td><td>Where <code>/api/reality</code> and <code>/api/verdict</code> live (default: same origin).</td></tr>
+<tr><td><code>reality</code>, <code>verdict</code></td><td>function(token)</td><td>Replace the HTTP calls (the CLI passes the server functions directly).</td></tr>
+</table>
+<p>Throws when the input is not an address. Every other failure is reported inside the relevant check as <em>unchecked</em>.</p>
+<h2 id="a-report">Report</h2>
+<pre><code>{
+  version: 1, chain: 4663, token: "0x…", name, symbol, decimals, totalSupply,
+  block: 102425339, at: "2026-10-31T…Z",
+  kind: "pons" | "stock" | "other",
+  coverage: 0-100,
+  counts: { critical, concern, pass, info, unchecked, na },
+  checks: [ Check × 16 ],
+  internal: [ Check × 11 ],   // contract measurements folded into "contract"
+  metadata: { description, website, x, telegram, github, launchTx, … },
+  meta: { ms, rpcCalls, transfers }
+}</code></pre>
+<h2 id="a-check">Check</h2>
+<pre><code>{
+  id: "roundtrip", group: "market", title, q,
+  status: "pass" | "info" | "concern" | "critical" | "unchecked" | "na",
+  summary: "one sentence",
+  evidence: [ { k: "label", v: "value", addr?: "0x…", tx?: "0x…" } ],
+  // extras on some checks, used by the report widgets:
+  sim?, early?, holdersTop?, contractsTop?, venuesPct?, contractsPct?, clusters?, partial?
+}</code></pre>
+<h2 id="a-exports">Other exports</h2>
+<table>
+<tr><th>Export</th><th>Use</th></tr>
+<tr><td><code>CHECKS</code>, <code>GROUPS</code></td><td>The catalogue, in report order.</td></tr>
+<tr><td><code>CHAIN</code>, <code>KNOWN</code></td><td>Chain parameters and known contract addresses.</td></tr>
+<tr><td><code>setRpc(url)</code></td><td>Point the engine at another endpoint.</td></tr>
+<tr><td><code>selectorsOf(code)</code></td><td>Every PUSH4 value of a bytecode (opcode walk, push data skipped).</td></tr>
+<tr><td><code>rpc(method, params)</code></td><td>The throttled JSON-RPC client (6 requests in flight, retries on rate limits).</td></tr>
+</table>
+<h2 id="a-cli">CLI</h2>
+<pre><code>node tools/scan.mjs &lt;address&gt;               # table to stdout, stages to stderr
+node tools/scan.mjs &lt;address&gt; --json out.json  # full report as JSON
+node tools/pairs.mjs                         # re-map every Pons pair asset (writes data/pairs.json)
+node tools/find-cases.mjs 3000000 pair       # recent launches with a non-ETH pair</code></pre>
+</article>
+
+<article data-doc="architecture">
+<div class="label">Reference</div>
+<h1>Addresses</h1>
+<p>Robinhood Chain mainnet, chain id <code>4663</code>, an Arbitrum Orbit layer 2. Gas is paid in ETH. Public RPC <code>https://rpc.mainnet.chain.robinhood.com</code>, explorer <a href="https://robinhoodchain.blockscout.com" target="_blank" rel="noopener">robinhoodchain.blockscout.com</a>.</p>
+<table>
+<tr><th>Contract</th><th>Address</th></tr>
+<tr><td>Pons factory</td><td><code>0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e</code></td></tr>
+<tr><td>Pons fee escrow</td><td><code>0xd3AFEB2a57f70eF218Aa82451c51B2fb0416Ac9e</code></td></tr>
+<tr><td>Pons v4 hook</td><td><code>0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044</code></td></tr>
+<tr><td>Uniswap v4 PoolManager</td><td><code>0x8366a39CC670B4001A1121B8F6A443A643e40951</code></td></tr>
+<tr><td>Uniswap v3 factory</td><td><code>0x1f7d7550b1b028f7571e69a784071f0205fd2efa</code></td></tr>
+<tr><td>USDG (Global Dollar)</td><td><code>0x5fc5360d0400a0fd4f2af552add042d716f1d168</code></td></tr>
+<tr><td>Stock-token beacon</td><td><code>0xe10b6f6b275de231345c20d14ab812db62151b00</code></td></tr>
+<tr><td>Multicall3</td><td><code>0xcA11bde05977b3631167028862bE2a173976CA11</code></td></tr>
+<tr><td>Probe (virtual, never deployed)</td><td><code>0x4000000000000000000000000000000000000d0d</code></td></tr>
+</table>
+</article>
+
+<article data-doc="selfhost">
+<div class="label">Reference</div>
+<h1>Running and deploying</h1>
+<h2 id="sh-local">On your machine</h2>
+<p>Double-click <code>launch.bat</code> (or <code>node serve.mjs 6912</code>): it serves the site and the <code>/api/*</code> functions, then opens the browser. Put the keys in a <code>.env</code> file next to it (copy <code>.env.example</code>).</p>
+<table>
+<tr><th>Variable</th><th>Use</th></tr>
+<tr><td><code>ANTHROPIC_API_KEY</code></td><td>Enables the AI verdict. Read from the environment, or from <code>netlify/lib/secrets.mjs</code> (server-only, git-ignored, bundled into the functions at deploy). Without it, everything else works and the verdict shows as unchecked.</td></tr>
+<tr><td><code>GITHUB_TOKEN</code></td><td>Optional. Raises the GitHub API limit from 60 to 5,000 requests per hour.</td></tr>
+<tr><td><code>VERDICTS_PER_DAY</code></td><td>Optional. Daily cap on new AI verdicts (default 400).</td></tr>
+<tr><td><code>RH_RPC</code></td><td>Optional. Another Robinhood Chain RPC for the server.</td></tr>
+</table>
+<h2 id="sh-netlify">On Netlify</h2>
+<p><code>netlify.toml</code> publishes <code>site/</code> and deploys <code>netlify/functions/</code>; the cache uses Netlify Blobs. Set the variables above in the site settings. Run <code>npm install</code> once so the functions have their dependencies.</p>
+<h2 id="sh-cost">Cost of the AI verdict</h2>
+<p>About 3,000 input tokens and a few hundred output tokens per new token, at low effort: roughly one US cent per verdict at Claude Opus 5.5 prices, and nothing for the 24 hours after (cached).</p>
+</article>
+
+<article data-doc="sources">
+<div class="label">Trust</div>
+<h1>Data sources and limits</h1>
+<h2 id="d-sources">One source</h2>
+<p>Everything comes from the public Robinhood Chain JSON-RPC: <code>eth_getCode</code>, <code>eth_getStorageAt</code>, <code>eth_call</code> (with state overrides), <code>eth_getLogs</code>, <code>eth_getTransactionCount</code>, <code>eth_getBlockByNumber</code>. No indexer, no explorer API, no price feed, no off-chain list except the stock tickers, which were themselves read from the chain. Explorer links in reports are for your convenience; nothing is read from them.</p>
+<h2 id="d-limits">Limits of the RPC, and what the engine does about them</h2>
+<table>
+<tr><th>Limit</th><th>Effect</th><th>Handling</th></tr>
+<tr><td>eth_getLogs spans at most 10,000,000 blocks</td><td>A full history needs about 11 windows</td><td>Windows read one at a time, oldest first, so a cap always keeps the launch</td></tr>
+<tr><td>eth_getLogs returns at most 10,000 events</td><td>Busy windows fail</td><td>Split in halves recursively, up to 18 levels</td></tr>
+<tr><td>Historical state for about 100,000 blocks only</td><td>Balances at launch cannot be read</td><td>Rebuilt from events; current balances read with balanceOf</td></tr>
+<tr><td>No tracing (debug_traceCall)</td><td>Internal calls are not visible</td><td>The probe reports stages and balance deltas instead</td></tr>
+<tr><td>Rate limits</td><td>429 or "too many requests"</td><td>6 requests in flight, exponential back-off, retries</td></tr>
+</table>
+<h2 id="d-cap">The 60,000-transfer cap</h2>
+<p>Above 60,000 transfers the browser would hold too many events. The engine then keeps the launch window and the latest 20,000 transfers, reads exact balances for every wallet in them, and labels the affected checks as covering that range.</p>
+</article>
+
+<article data-doc="security">
+<div class="label">Trust</div>
+<h1>What a scan cannot tell</h1>
+<p>Read this page once. It is the difference between using Hoodwink well and trusting it too much.</p>
+<ul>
+<li><strong>The future.</strong> The round trip proves a buy and a sell work at this block. A token whose rules can change (owner, proxy, beacon) can stop working tomorrow; that is why those powers are reported separately.</li>
+<li><strong>Roles other than owner.</strong> The privileged-function scan sees functions, not who may call them. A renounced owner with a separate admin role is possible; the summary says "unless they use a role other than owner" for that reason.</li>
+<li><strong>Intent.</strong> A deployer who sold is not necessarily a rug; a clean launch is not a promise. The report describes behaviour.</li>
+<li><strong>Off-chain links.</strong> Wallets funded by the same exchange account, or coordinated in a chat, look independent on chain. Clusters only see direct token transfers.</li>
+<li><strong>Unknown launchpads.</strong> Tokens not launched on Pons get fewer checks (no launch record, no curve). Those checks are marked unchecked, not passed.</li>
+<li><strong>Price.</strong> Hoodwink does not say whether a token is cheap, expensive or going anywhere.</li>
+</ul>
+<h2 id="se-trust">Trust assumptions</h2>
+<p>You trust the RPC to return the chain's real state, and you trust this engine's code, which is short enough to read. To remove the first assumption, point <code>setRpc()</code> at your own node.</p>
+</article>
+
+<article data-doc="glossary">
+<div class="label">More</div>
+<h1>Glossary</h1>
+<table>
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td>Bonding curve</td><td>Pons contract that sells the token at a price rising with supply sold, until graduation.</td></tr>
+<tr><td>Graduation</td><td>The move from the curve to a Uniswap v4 pool once the threshold is reached.</td></tr>
+<tr><td>Snipe</td><td>Buying in the first seconds of a launch, usually by bots.</td></tr>
+<tr><td>Bundled launch</td><td>Supply bought by several transactions in the same block as the launch, often controlled by one person.</td></tr>
+<tr><td>Fresh wallet</td><td>A plain wallet with three transactions or fewer in its whole life.</td></tr>
+<tr><td>Hub</td><td>An address with more than 20 token counterparties (exchange, distributor); ignored when linking wallets.</td></tr>
+<tr><td>Smart account</td><td>A wallet that is a contract: EIP-7702 delegation or an account exposing validateUserOp, isValidSignature or execute.</td></tr>
+<tr><td>State override</td><td>An eth_call parameter that pretends some accounts have other code, balance or storage, for that call only.</td></tr>
+<tr><td>Selector</td><td>The first 4 bytes of keccak256 of a function signature; how the EVM dispatches calls.</td></tr>
+<tr><td>Beacon proxy</td><td>A proxy that asks a separate beacon contract which implementation to use; one beacon upgrades many proxies.</td></tr>
+<tr><td>Coverage</td><td>Share of applicable checks that settled. Not a safety score.</td></tr>
+</table>
+</article>
+
+<article data-doc="faq">
+<div class="label">More</div>
+<h1>FAQ</h1>
+<h3>Does Hoodwink need my wallet?</h3>
+<p>No. There is no connect button. A scan only reads.</p>
+<h3>Is a 100% coverage report safe?</h3>
+<p>No. It means every applicable question was answered. Read the answers.</p>
+<h3>Why does a scan take two minutes for some tokens?</h3>
+<p>Tokens with long histories need many log requests, because the RPC caps each one at 10,000 events. Young tokens take seconds.</p>
+<h3>Why is a stock token's mint power only "info"?</h3>
+<p>Because the issuer mints and redeems shares by design. It is still shown, so that you know it exists.</p>
+<h3>Can the probe spend real money?</h3>
+<p>No. It exists only inside a read-only call. The 100 ETH it holds are written into that call's imaginary state.</p>
+<h3>Which launchpads are supported?</h3>
+<p>Pons, fully. Any ERC-20 gets identity, control, distribution and a transfer test. More launchpads will be fingerprinted; the changelog will say when.</p>
+<h3>Why not a single safety score?</h3>
+<p>Because it would hide the one finding that matters to you behind an average.</p>
+<h3>Do I need an API key?</h3>
+<p>Not to use the site. Whoever runs the server sets one Anthropic key for the AI verdict; everything else needs no key at all.</p>
+<h3>Can a project game the AI verdict?</h3>
+<p>It can write anything on its website, and the model is told to treat that text as a claim to verify, never as an instruction. What it cannot fake is the rest of the file: a dead link, a post by someone else, a repository created yesterday, a deployer who dumped nine launches.</p>
+<h3>Is this affiliated with Robinhood?</h3>
+<p>No. Hoodwink is an independent tool that reads a public chain.</p>
+</article>
+
+<article data-doc="changelog">
+<div class="label">More</div>
+<h1>Changelog</h1>
+<h2 id="cl-2">Engine 2.0 · 2026-10-31</h2>
+<ul>
+<li>Refocused on what differs between Pons tokens: ticker uniqueness, reality checks (website, X, GitHub) and an AI verdict, deployer track record, snipers still holding, top 10.</li>
+<li>Contract checks (fixed by the Pons template) folded into one line.</li>
+<li>Ticker index of every Pons launch, with a live tail since the last build.</li>
+<li>Server functions <code>/api/reality</code> and <code>/api/verdict</code>, cached.</li>
+</ul>
+<h2 id="cl-1">Engine 1.0 · 2026-10-31</h2>
+<ul>
+<li>20 checks in five groups; live report; JSON export; CLI.</li>
+<li>Probe contract: Pons curve and Uniswap v4 round trips, generic holder transfer, batch code sizes.</li>
+<li>Stock-token fingerprint and the 78 official tickers, mapped from every Pons pair asset on chain.</li>
+<li>Exact balances through Multicall3; smart accounts recognised; hubs set aside in clustering.</li>
+<li>Sampling for tokens above 60,000 transfers, always keeping the full launch window.</li>
+</ul>
+<h2 id="cl-next">Next</h2>
+<ul>
+<li>Fingerprints for other Robinhood Chain launchpads as they gain volume.</li>
+<li>Funding links between deployer wallets.</li>
+<li>Profile checks for X accounts (age, followers) when a reliable source is available.</li>
+</ul>
+</article>
+
+    <div class="docs-pager" id="pager"></div>
+  </main>
+  <aside class="docs-toc" id="toc" aria-label="On this page"></aside>
+</div>
+<script type="module">
+import { MARK, cfg, TICKER, esc } from './assets/js/site.js';
+import { STOCKS, PAIR_STATS } from './assets/js/stocks.js';
+const brand = `${MARK}<span class="word">Hoodwink</span>`;
+document.getElementById('navBrand').innerHTML = brand;
+document.getElementById('topBrand').innerHTML = brand;
+document.getElementById('navX').href = cfg.x || '#';
+document.getElementById('navTicker').textContent = TICKER;
+const nav = document.getElementById('docsNav');
+document.getElementById('navToggle').onclick = (e) => { nav.classList.toggle('open'); e.target.setAttribute('aria-expanded', nav.classList.contains('open')); };
+const arts = [...document.querySelectorAll('article[data-doc]')];
+const ids = arts.map((a) => a.dataset.doc);
+function show() {
+  let id = location.hash.slice(1);
+  let anchor = null;
+  if (!ids.includes(id)) { const el = id && document.getElementById(id); const art = el && el.closest('article'); if (art) { anchor = el; id = art.dataset.doc; } else id = 'overview'; }
+  arts.forEach((a) => (a.hidden = a.dataset.doc !== id));
+  nav.querySelectorAll('a[href^="#"]').forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + id));
+  const art = arts[ids.indexOf(id)];
+  document.title = `${art.querySelector('h1').textContent} · Hoodwink docs`;
+  const hs = [...art.querySelectorAll('h2[id]')];
+  document.getElementById('toc').innerHTML = hs.length ? `<div class="label" style="margin-bottom:10px">On this page</div>` + hs.map((h) => `<a href="#${h.id}">${esc(h.textContent)}</a>`).join('') : '';
+  const i = ids.indexOf(id);
+  const title = (k) => arts[k].querySelector('h1').textContent;
+  document.getElementById('pager').innerHTML = `${i > 0 ? `<a class="btn" href="#${ids[i - 1]}">← ${esc(title(i - 1))}</a>` : '<span></span>'}${i < ids.length - 1 ? `<a class="btn" href="#${ids[i + 1]}">${esc(title(i + 1))} →</a>` : ''}`;
+  nav.classList.remove('open');
+  if (anchor) anchor.scrollIntoView(); else window.scrollTo(0, 0);
+}
+addEventListener('hashchange', show);
+show();
+// copy buttons on code blocks
+document.querySelectorAll('.docs-main pre').forEach((pre) => {
+  const b = document.createElement('button'); b.className = 'btn copy'; b.textContent = 'Copy';
+  b.onclick = async () => { try { await navigator.clipboard.writeText(pre.querySelector('code').innerText); b.textContent = 'Copied'; setTimeout(() => (b.textContent = 'Copy'), 1400); } catch {} };
+  pre.appendChild(b);
+});
+fetch('contracts/Probe.sol').then((r) => r.text()).then((t) => { document.getElementById('probeSrc').textContent = t; }).catch(() => {});
+document.getElementById('stockList').innerHTML = Object.entries(STOCKS).sort((a, b) => a[0].localeCompare(b[0])).map(([s, a]) => `<a href="scan.html?a=${a}" title="${a}">${esc(s)}</a>`).join(' · ');
+document.getElementById('pairTable').innerHTML = `<table><tr><th>Pair asset</th><th>Kind</th><th>Launches</th></tr>${PAIR_STATS.pairs.slice(0, 16).map((p) => `<tr><td><code>${esc(p.sym)}</code></td><td>${p.kind === 'stock' ? 'official stock token' : esc(p.kind)}</td><td>${p.n.toLocaleString('en-US')}</td></tr>`).join('')}</table><p>${PAIR_STATS.launches.toLocaleString('en-US')} launch events read at block ${PAIR_STATS.block.toLocaleString('en-US')} with <code>tools/pairs.mjs</code>. A handful of 400,000-block windows hit the RPC's result cap during the busiest weeks, so these counts are a floor.</p>`;
+</script>
+</body>
+</html>

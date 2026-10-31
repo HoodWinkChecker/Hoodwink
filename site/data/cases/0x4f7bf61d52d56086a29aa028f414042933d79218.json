@@ -1,0 +1,886 @@
+{
+ "version": 1,
+ "chain": 4663,
+ "token": "0x4f7Bf61D52D56086a29aa028f414042933D79218",
+ "name": "Rex Robinhood Agent",
+ "symbol": "REX",
+ "decimals": 18,
+ "totalSupply": "1000000000000000000000000000",
+ "block": 102525324,
+ "at": "2026-10-31T11:40:18.125Z",
+ "kind": "pons",
+ "coverage": 100,
+ "counts": {
+  "critical": 3,
+  "concern": 3,
+  "pass": 6,
+  "info": 3,
+  "unchecked": 0,
+  "na": 1
+ },
+ "checks": [
+  {
+   "group": "identity",
+   "q": "Is this the only token with this ticker, or a copy of an earlier one?",
+   "id": "ticker",
+   "title": "Ticker uniqueness",
+   "status": "critical",
+   "evidence": [
+    {
+     "k": "Tokens launched on Pons with this ticker",
+     "v": "89 (index of 719,370 launches)"
+    },
+    {
+     "k": "#1 (first)",
+     "v": "GTA DOG · block 40,872,839",
+     "addr": "0x1451101cc05930cbe47f2aeeee33d5300b2b3e81"
+    },
+    {
+     "k": "#2",
+     "v": "Cursor AI Dog · block 41,454,218",
+     "addr": "0xbe42d415c74961b9f58fbe3f0d8aa106790fb892"
+    },
+    {
+     "k": "#3",
+     "v": "Cursor Dog · block 41,454,305",
+     "addr": "0xf42c664a3c073c4a915913ee7307117018751ffe"
+    },
+    {
+     "k": "#4",
+     "v": "The Lego Cat · block 47,541,793",
+     "addr": "0xcbdb6554582fe5bd0196de7020ece7e288b7c509"
+    },
+    {
+     "k": "#5",
+     "v": "The Original Coge · block 48,107,166",
+     "addr": "0xbb5812a9fc9146a6e1f08b622f64c251d323dcba"
+    },
+    {
+     "k": "#6",
+     "v": "The First Coge · block 48,108,885",
+     "addr": "0x342b5fe9f6f8ced5050a5d8e1427faf965b21902"
+    },
+    {
+     "k": "Earlier tokens with this ticker that graduated",
+     "v": "0x4ede1f4fb6f18881cfe1fff9e6b9acb4e52414f5"
+    },
+    {
+     "k": "Same name launched in the 7 days before",
+     "v": "5 token(s), first 0x043d882e713d4dc83d18fbc05eab1b2e7f14c08a",
+     "addr": "0x043d882e713d4dc83d18fbc05eab1b2e7f14c08a"
+    }
+   ],
+   "summary": "Copycat: $REX launched 2 min after a $REX that graduated (0x4ede…14f5), by another wallet. Check you are buying the one you mean.",
+   "copies": 88,
+   "rank": 78,
+   "original": "0x4ede1f4fb6f18881cfe1fff9e6b9acb4e52414f5"
+  },
+  {
+   "group": "identity",
+   "q": "Does it borrow the ticker or name of a Robinhood stock token?",
+   "id": "stock",
+   "title": "Stock look-alike",
+   "status": "na",
+   "evidence": [],
+   "summary": "Does not present itself as a Robinhood stock token."
+  },
+  {
+   "group": "identity",
+   "q": "Does it lean on the Robinhood name without being Robinhood?",
+   "id": "brand",
+   "title": "Robinhood branding",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "Rex Robinhood Agent"
+    },
+    {
+     "k": "symbol()",
+     "v": "REX"
+    }
+   ],
+   "summary": "The name or ticker leans on Robinhood (\"Rex Robinhood Agent\" / REX). Robinhood Chain has no native token: gas is paid in ETH. Any token presented as \"the Robinhood Chain token\" is not official."
+  },
+  {
+   "group": "identity",
+   "q": "What is it priced in, and is that asset genuine?",
+   "id": "pair",
+   "title": "Pair asset",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Pair",
+     "v": "Alphabet Class A • Robinhood Token (GOOGL)",
+     "addr": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3"
+    },
+    {
+     "k": "Pair code hash",
+     "v": "0x6c1fdd40002dcb440c7fff6a84171404d279ccb057803b65826f7546acd65630"
+    }
+   ],
+   "summary": "Stock-paired: trades against GOOGL, and that GOOGL is the genuine Robinhood stock token (code fingerprint matched)."
+  },
+  {
+   "group": "reality",
+   "q": "Does the website given at launch work, and does it show this contract?",
+   "id": "website",
+   "title": "Website",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "none"
+    },
+    {
+     "k": "Website",
+     "v": "https://j7m.io/m/lo4wqRvu0Y"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/robinhoodapp/status/2113299347819651380"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0xa5e587806c10293f2e203fc7a1953321c9415fffb92a986c473eab64a46cb7ff"
+    },
+    {
+     "k": "Checked URL",
+     "v": "https://j7m.io/m/lo4wqRvu0Y"
+    }
+   ],
+   "summary": "The website does not work: HTTP 404, behind a link shortener."
+  },
+  {
+   "group": "reality",
+   "q": "Is the X link the project's own account, or someone else's post?",
+   "id": "social",
+   "title": "X account",
+   "status": "critical",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "none"
+    },
+    {
+     "k": "Website",
+     "v": "https://j7m.io/m/lo4wqRvu0Y"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/robinhoodapp/status/2113299347819651380"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0xa5e587806c10293f2e203fc7a1953321c9415fffb92a986c473eab64a46cb7ff"
+    },
+    {
+     "k": "Post author",
+     "v": "@RobinhoodApp (Robinhood) · Business"
+    },
+    {
+     "k": "Posted",
+     "v": "2026-10-22T16:00:02.000Z"
+    },
+    {
+     "k": "Post text",
+     "v": "rex is ready to cook 🍳"
+    }
+   ],
+   "summary": "Borrowed narrative: the X link is a post by @RobinhoodApp, a major account, not an account of this project. Linking someone else's post proves no affiliation."
+  },
+  {
+   "group": "reality",
+   "q": "Is there a real repository behind the claims?",
+   "id": "code",
+   "title": "Code",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "none"
+    },
+    {
+     "k": "Website",
+     "v": "https://j7m.io/m/lo4wqRvu0Y"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/robinhoodapp/status/2113299347819651380"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0xa5e587806c10293f2e203fc7a1953321c9415fffb92a986c473eab64a46cb7ff"
+    }
+   ],
+   "summary": "No code linked, at launch or on the website. Fine for a meme; a product claim without code is a red flag (see the verdict)."
+  },
+  {
+   "group": "reality",
+   "q": "Taking all the evidence: real product, honest meme, or LARP?",
+   "id": "larp",
+   "title": "AI verdict",
+   "status": "critical",
+   "evidence": [
+    {
+     "k": "Verdict",
+     "v": "LARP · high confidence"
+    },
+    {
+     "k": "Claim (unsupported)",
+     "v": "Name \"Rex Robinhood Agent\" implies an AI agent affiliated with Robinhood — No description, no GitHub, and the website returns 404; no agent or affiliation is shown anywhere."
+    },
+    {
+     "k": "Claim (unsupported)",
+     "v": "Linked X post implies official Robinhood backing — The X link is a post by @RobinhoodApp (\"rex is ready to cook\"), a different account. That is borrowed narrative, not proof of affiliation."
+    },
+    {
+     "k": "Claim (contradicted)",
+     "v": "Project website — The j7m.io short link returns HTTP 404 \"Object not found\". It shows no contract address and no mention of Robinhood."
+    },
+    {
+     "k": "Red flag",
+     "v": "Name uses the Robinhood brand; Robinhood Chain has no native token"
+    },
+    {
+     "k": "Red flag",
+     "v": "X link points to an @RobinhoodApp post, not the project's own account"
+    },
+    {
+     "k": "Red flag",
+     "v": "Token launched about 4 minutes after that post, suggesting it rides the news"
+    },
+    {
+     "k": "Red flag",
+     "v": "Website is a link shortener that resolves to a 404 storage bucket"
+    },
+    {
+     "k": "Red flag",
+     "v": "No description, GitHub, Telegram or Discord"
+    },
+    {
+     "k": "Judged by",
+     "v": "claude-opus-5-5 on the evidence above (cached)"
+    }
+   ],
+   "summary": "LARP: \"Robinhood Agent\" token with a dead shortened website and a borrowed @RobinhoodApp post; no evidence of an agent or affiliation.",
+   "verdict": {
+    "verdict": "larp",
+    "confidence": "high",
+    "headline": "\"Robinhood Agent\" token with a dead shortened website and a borrowed @RobinhoodApp post; no evidence of an agent or affiliation.",
+    "claims": [
+     {
+      "claim": "Name \"Rex Robinhood Agent\" implies an AI agent affiliated with Robinhood",
+      "status": "unsupported",
+      "evidence": "No description, no GitHub, and the website returns 404; no agent or affiliation is shown anywhere."
+     },
+     {
+      "claim": "Linked X post implies official Robinhood backing",
+      "status": "unsupported",
+      "evidence": "The X link is a post by @RobinhoodApp (\"rex is ready to cook\"), a different account. That is borrowed narrative, not proof of affiliation."
+     },
+     {
+      "claim": "Project website",
+      "status": "contradicted",
+      "evidence": "The j7m.io short link returns HTTP 404 \"Object not found\". It shows no contract address and no mention of Robinhood."
+     }
+    ],
+    "red_flags": [
+     "Name uses the Robinhood brand; Robinhood Chain has no native token",
+     "X link points to an @RobinhoodApp post, not the project's own account",
+     "Token launched about 4 minutes after that post, suggesting it rides the news",
+     "Website is a link shortener that resolves to a 404 storage bucket",
+     "No description, GitHub, Telegram or Discord"
+    ],
+    "green_flags": []
+   }
+  },
+  {
+   "group": "launch",
+   "q": "How much was bought in the launch block and the first 30 seconds, and is it still held?",
+   "id": "firstblock",
+   "title": "Snipers",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Window",
+     "v": "launch block 95,236,058 + 287 blocks (≈30 s)"
+    },
+    {
+     "k": "Bought inside the launch transaction",
+     "v": "21.91M (2.19%)",
+     "tx": "0xa5e587806c10293f2e203fc7a1953321c9415fffb92a986c473eab64a46cb7ff"
+    },
+    {
+     "k": "Other transactions in the launch block",
+     "v": "0 (0.00%) by 0 wallets"
+    },
+    {
+     "k": "Bought by others in the first 30 s",
+     "v": "231.62M (23.16%) by 15 wallets"
+    },
+    {
+     "k": "Still held by those early buyers now",
+     "v": "35.2K (0.00%), read with balanceOf"
+    }
+   ],
+   "summary": "0.0% bought by other transactions in the launch block and 23.2% in the first 30 seconds: bots sniped the start. Those early buyers still hold 0.0%.",
+   "early": {
+    "devBuy": 2.1911,
+    "blockBuy": 0,
+    "winBuy": 23.162,
+    "still": 0.0035,
+    "buyers": 15
+   }
+  },
+  {
+   "group": "launch",
+   "q": "Were the first buyers throwaway wallets?",
+   "id": "burners",
+   "title": "Fresh wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Measured",
+     "v": "lifetime nonce at block 102,525,324"
+    }
+   ],
+   "summary": "0 of 15 early buyers have sent 3 transactions or fewer in their whole life."
+  },
+  {
+   "group": "holders",
+   "q": "How much do the ten largest wallets hold?",
+   "id": "distribution",
+   "title": "Top 10",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallets from",
+     "v": "all 69 Transfer events since launch"
+    },
+    {
+     "k": "Balances",
+     "v": "read with balanceOf at block 102,525,324 (exact)"
+    },
+    {
+     "k": "Smart-account wallets counted as people",
+     "v": "2"
+    },
+    {
+     "k": "#1",
+     "v": "0.00%  35.1K",
+     "addr": "0xcb373b34726803443ffab953449c60e6d3141dfa"
+    },
+    {
+     "k": "#2",
+     "v": "0.00%  1,000",
+     "addr": "0x1e9cec1a621ea64eda3db12d4a844124f30eb6f0"
+    },
+    {
+     "k": "#3",
+     "v": "0.00%  100",
+     "addr": "0xd42affab5fc01117c03e929187ed6885ad67d6a4"
+    },
+    {
+     "k": "#4",
+     "v": "0.00%  1",
+     "addr": "0x0d5389cfd87471a64ff1c7b1f264c7b49a1f9b6f"
+    }
+   ],
+   "summary": "4 wallet holders. The 10 largest wallets hold 0.0% (largest 0.0%). 100.0% sits in the curve or the v4 pool manager.",
+   "holdersTop": [
+    {
+     "a": "0xcb373b34726803443ffab953449c60e6d3141dfa",
+     "pct": 0.0035
+    },
+    {
+     "a": "0x1e9cec1a621ea64eda3db12d4a844124f30eb6f0",
+     "pct": 0.0001
+    },
+    {
+     "a": "0xd42affab5fc01117c03e929187ed6885ad67d6a4",
+     "pct": 0
+    },
+    {
+     "a": "0x0d5389cfd87471a64ff1c7b1f264c7b49a1f9b6f",
+     "pct": 0
+    }
+   ],
+   "contractsTop": [],
+   "venuesPct": 99.9963,
+   "contractsPct": 0,
+   "partial": false
+  },
+  {
+   "group": "holders",
+   "q": "Do holders pass tokens between each other like one owner?",
+   "id": "clusters",
+   "title": "Linked wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallet-to-wallet transfers",
+     "v": "0"
+    },
+    {
+     "k": "Hubs set aside (more than 20 counterparties)",
+     "v": "0"
+    }
+   ],
+   "summary": "No meaningful linked group: 0 wallet-to-wallet moves, no group holds more than 0.5%.",
+   "clusters": []
+  },
+  {
+   "group": "dev",
+   "q": "What did the deployer buy, keep and sell here?",
+   "id": "dev",
+   "title": "Deployer on this token",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0x8c9FB48d16b645c61ebA17700a9D7cd0956Ff075",
+     "addr": "0x8c9FB48d16b645c61ebA17700a9D7cd0956Ff075"
+    },
+    {
+     "k": "Received",
+     "v": "0 (0.00%)"
+    },
+    {
+     "k": "Sold back to the market",
+     "v": "0 (0.00%)"
+    },
+    {
+     "k": "Sent to other wallets",
+     "v": "0 transfers, 0 (0.00%)"
+    },
+    {
+     "k": "Holds now (balanceOf)",
+     "v": "0 (0.00%)"
+    }
+   ],
+   "summary": "The deployer never held the token."
+  },
+  {
+   "group": "dev",
+   "q": "What happened to the deployer's earlier launches?",
+   "id": "devrep",
+   "title": "Deployer track record",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0x8c9FB48d16b645c61ebA17700a9D7cd0956Ff075",
+     "addr": "0x8c9FB48d16b645c61ebA17700a9D7cd0956Ff075"
+    },
+    {
+     "k": "Pons launches by this wallet",
+     "v": "1"
+    }
+   ],
+   "summary": "First Pons launch from this wallet: no track record. Fresh wallets cost nothing, so this proves neither good nor bad.",
+   "launches": 1
+  },
+  {
+   "group": "market",
+   "q": "Where does it trade and how deep is it?",
+   "id": "liquidity",
+   "title": "Liquidity",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Curve",
+     "v": "0xE5ed7c1820d138550d97BefF613D901a06CEBd83",
+     "addr": "0xE5ed7c1820d138550d97BefF613D901a06CEBd83"
+    },
+    {
+     "k": "Curve reserves (getReserves)",
+     "v": "9.6804 GOOGL incl. virtual part, 999.96M tokens"
+    },
+    {
+     "k": "GOOGL balance of the curve",
+     "v": "0.000408 GOOGL"
+    },
+    {
+     "k": "Graduation threshold",
+     "v": "24.2 GOOGL"
+    }
+   ],
+   "summary": "Still on the bonding curve: 0.000408 GOOGL actually held by the curve, 999.96M tokens left on it. It graduates to Uniswap v4 at the threshold set by the factory.",
+   "curveQuote": "407728487952357",
+   "threshold": "24200000000000000000"
+  },
+  {
+   "group": "market",
+   "q": "Is the contract the standard launchpad template, with nothing hidden?",
+   "id": "contract",
+   "title": "Contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Deployed token contract · pass",
+     "v": "Contract found: 3,248 bytes of runtime code."
+    },
+    {
+     "k": "Token interface · pass",
+     "v": "Rex Robinhood Agent (REX), 18 decimals, 1.00B total supply."
+    },
+    {
+     "k": "Upgradeability · pass",
+     "v": "Not a proxy. The code at this address is final and cannot be replaced."
+    },
+    {
+     "k": "Ownership · pass",
+     "v": "No owner() or getOwner() function."
+    },
+    {
+     "k": "Privileged functions · pass",
+     "v": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+    },
+    {
+     "k": "Launchpad template · pass",
+     "v": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+    },
+    {
+     "k": "Origin · info",
+     "v": "Launched on Pons by 0x8c9F…f075, still trading on its bonding curve."
+    },
+    {
+     "k": "Buy, move, sell · pass",
+     "v": "Bought, moved and sold back on the live state. The round trip cost 1.87%, in line with fees and tax."
+    },
+    {
+     "k": "Fees and taxes · pass",
+     "v": "0.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+    }
+   ],
+   "summary": "Standard Pons contract, byte-identical to the template: fixed supply, no mint, blacklist or pause, nothing upgradeable. A simulated buy, transfer and sell went through (round trip 1.87%). Creator tax 0.00%.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 1.8651863365326093,
+    "quoteIn": "50000000000000000",
+    "quoteBack": "36800555123800275",
+    "quoteSym": "GOOGL",
+    "quoteDec": 18
+   }
+  }
+ ],
+ "internal": [
+  {
+   "group": "internal",
+   "q": "",
+   "id": "deployed",
+   "title": "Deployed token contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Address",
+     "v": "0x4f7Bf61D52D56086a29aa028f414042933D79218",
+     "addr": "0x4f7Bf61D52D56086a29aa028f414042933D79218"
+    },
+    {
+     "k": "Code hash",
+     "v": "0x34d412bf1602a21dcde89690e40d335de662e94c02800c5c0ceed1d44bb94a8c"
+    },
+    {
+     "k": "Read at block",
+     "v": "102,525,324"
+    }
+   ],
+   "summary": "Contract found: 3,248 bytes of runtime code."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "erc20",
+   "title": "Token interface",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "Rex Robinhood Agent"
+    },
+    {
+     "k": "symbol()",
+     "v": "REX"
+    },
+    {
+     "k": "decimals()",
+     "v": "18"
+    },
+    {
+     "k": "totalSupply()",
+     "v": "1000000000000000000000000000"
+    }
+   ],
+   "summary": "Rex Robinhood Agent (REX), 18 decimals, 1.00B total supply."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "proxy",
+   "title": "Upgradeability",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "EIP-1967 implementation slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1967 beacon slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1167 clone",
+     "v": "no"
+    }
+   ],
+   "summary": "Not a proxy. The code at this address is final and cannot be replaced."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "owner",
+   "title": "Ownership",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "owner()",
+     "v": "not present"
+    }
+   ],
+   "summary": "No owner() or getOwner() function."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "powers",
+   "title": "Privileged functions",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Selectors scanned",
+     "v": "25 in contract bytecode"
+    }
+   ],
+   "summary": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "template",
+   "title": "Launchpad template",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Compared with",
+     "v": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592",
+     "addr": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592"
+    },
+    {
+     "k": "Masked fields",
+     "v": "token, curve, deployer, fee recipient, pair"
+    }
+   ],
+   "summary": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "origin",
+   "title": "Origin",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Launchpad",
+     "v": "Pons (factory 0x7eD5…EC7e)",
+     "addr": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e"
+    },
+    {
+     "k": "Deployer",
+     "v": "0x8c9FB48d16b645c61ebA17700a9D7cd0956Ff075",
+     "addr": "0x8c9FB48d16b645c61ebA17700a9D7cd0956Ff075"
+    },
+    {
+     "k": "Bonding curve",
+     "v": "0xE5ed7c1820d138550d97BefF613D901a06CEBd83",
+     "addr": "0xE5ed7c1820d138550d97BefF613D901a06CEBd83"
+    },
+    {
+     "k": "Creator fee recipient",
+     "v": "0x2cA6b04e4b41F671D709A95B2Aa8bFA3C8F326aC",
+     "addr": "0x2cA6b04e4b41F671D709A95B2Aa8bFA3C8F326aC"
+    },
+    {
+     "k": "Creator tax",
+     "v": "0.00%"
+    },
+    {
+     "k": "Buyback",
+     "v": "off"
+    },
+    {
+     "k": "Phase",
+     "v": "on the bonding curve"
+    },
+    {
+     "k": "Launch block",
+     "v": "95,236,058"
+    },
+    {
+     "k": "Launch transaction",
+     "v": "0xa5e587806c10293f2e203fc7a1953321c9415fffb92a986c473eab64a46cb7ff",
+     "tx": "0xa5e587806c10293f2e203fc7a1953321c9415fffb92a986c473eab64a46cb7ff"
+    }
+   ],
+   "summary": "Launched on Pons by 0x8c9F…f075, still trading on its bonding curve."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "serial",
+   "title": "Deployer history",
+   "status": "pending",
+   "evidence": []
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "burned",
+   "title": "Burned supply",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Held by dead addresses (balanceOf)",
+     "v": "0"
+    },
+    {
+     "k": "Destroyed (sent to zero)",
+     "v": "0"
+    },
+    {
+     "k": "Minted in total",
+     "v": "1.00B"
+    }
+   ],
+   "summary": "0 provably burned (0.00% of current supply)."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "roundtrip",
+   "title": "Buy, move, sell",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Method",
+     "v": "Pons bonding curve: buy(), transfer(), sell()"
+    },
+    {
+     "k": "State",
+     "v": "latest block, eth_call with state override (nothing broadcast)"
+    },
+    {
+     "k": "Spent",
+     "v": "0.0500 GOOGL"
+    },
+    {
+     "k": "Tokens received",
+     "v": "5.09M"
+    },
+    {
+     "k": "Moved to a fresh wallet",
+     "v": "1.27M sent, 1.27M arrived"
+    },
+    {
+     "k": "Sold back",
+     "v": "3.82M"
+    },
+    {
+     "k": "Came back",
+     "v": "0.0368 GOOGL"
+    },
+    {
+     "k": "Round-trip cost",
+     "v": "1.87% (fees, tax and price impact on the sold share)"
+    }
+   ],
+   "summary": "Bought, moved and sold back on the live state. The round trip cost 1.87%, in line with fees and tax.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 1.8651863365326093,
+    "quoteIn": "50000000000000000",
+    "quoteBack": "36800555123800275",
+    "quoteSym": "GOOGL",
+    "quoteDec": 18
+   }
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "tax",
+   "title": "Fees and taxes",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Creator tax (factory record)",
+     "v": "0.00% on each trade"
+    },
+    {
+     "k": "Received vs quoted on the buy",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Wallet-to-wallet transfer",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Round-trip cost (buy + sell)",
+     "v": "1.87%"
+    }
+   ],
+   "summary": "0.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+  }
+ ],
+ "metadata": {
+  "launchBlock": 95236058,
+  "launchTx": "0xa5e587806c10293f2e203fc7a1953321c9415fffb92a986c473eab64a46cb7ff",
+  "launchedAt": 1792685032,
+  "sender": "0x3e6c71f64376bdcb463a2637d1b5ccaeda171ec9",
+  "via": "0x6319141dcc29e7dceaab6c4563cca1fb58e8cce2",
+  "deployer": "0x8c9fb48d16b645c61eba17700a9d7cd0956ff075",
+  "name": "Rex Robinhood Agent",
+  "symbol": "REX",
+  "description": null,
+  "logo": null,
+  "website": "https://j7m.io/m/lo4wqRvu0Y",
+  "x": "https://x.com/robinhoodapp/status/2113299347819651380",
+  "telegram": null,
+  "discord": null,
+  "farcaster": null,
+  "github": null,
+  "other": []
+ },
+ "meta": {
+  "ms": 10931,
+  "rpcCalls": 156,
+  "transfers": 69
+ }
+}

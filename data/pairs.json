@@ -1,0 +1,528 @@
+{
+ "head": 102431747,
+ "launches": 415891,
+ "rows": [
+  {
+   "n": 287250,
+   "sym": "ETH",
+   "addr": "",
+   "kind": "native"
+  },
+  {
+   "n": 30425,
+   "sym": "USDG",
+   "addr": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+   "kind": "USDG"
+  },
+  {
+   "n": 24238,
+   "sym": "NVDA",
+   "addr": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 13029,
+   "sym": "SPCX",
+   "addr": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 4857,
+   "sym": "DJT",
+   "addr": "0x1d11f0496982706c5e14a514d4e79f2e6bde4516",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 4382,
+   "sym": "SPY",
+   "addr": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 3785,
+   "sym": "META",
+   "addr": "0xc0d6457c16cc70d6790dd43521c899c87ce02f35",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 3681,
+   "sym": "TSLA",
+   "addr": "0x322f0929c4625ed5bad873c95208d54e1c003b2d",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 3678,
+   "sym": "ORBIO",
+   "addr": "0xaa07a0e9209e16ac99708c3ec70159c6ef3128a3",
+   "kind": "other: Orbio.so"
+  },
+  {
+   "n": 3579,
+   "sym": "GME",
+   "addr": "0x1b0e319c6a659f002271b69db8a7df2f911c153e",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 3363,
+   "sym": "GOOGL",
+   "addr": "0x2e0847e8910a9732eb3fb1bb4b70a580adad4fe3",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 3293,
+   "sym": "AAPL",
+   "addr": "0xaf3d76f1834a1d425780943c99ea8a608f8a93f9",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 3110,
+   "sym": "TTWO",
+   "addr": "0x5e81213613b6b86eab4c6c50d718d34359459786",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 2768,
+   "sym": "RDDT",
+   "addr": "0x05b37fb53a299a1b874a619e1c4c404d52c36f4c",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 2611,
+   "sym": "QQQ",
+   "addr": "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 1821,
+   "sym": "GLD",
+   "addr": "0xc9a981fee1f9dec688bb123ccdecc63d0debfc4e",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 1750,
+   "sym": "MSFT",
+   "addr": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 1431,
+   "sym": "cbBTC",
+   "addr": "0xcec185eb182c47d1ba1efc84e6959e18cd620be4",
+   "kind": "other: Coinbase Wrapped BTC"
+  },
+  {
+   "n": 1337,
+   "sym": "MSTR",
+   "addr": "0xec262a75e413fafd0df80480274532c79d42da09",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 1291,
+   "sym": "AMZN",
+   "addr": "0x12f190a9f9d7d37a250758b26824b97ce941bf54",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 1200,
+   "sym": "COIN",
+   "addr": "0x6330d8c3178a418788df01a47479c0ce7ccf450b",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 1159,
+   "sym": "SGOV",
+   "addr": "0x92fd66527192e3e61d4ddd13322aa222de86f9b5",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 1046,
+   "sym": "PLTR",
+   "addr": "0x894e1ec2d74ffe5aef8dc8a9e84686accb964f2a",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 845,
+   "sym": "AMD",
+   "addr": "0x86923f96303d656e4aa86d9d42d1e57ad2023fdc",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 746,
+   "sym": "COST",
+   "addr": "0x4ea005168d7f09a7a0ba9d1def21a479950e44c2",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 734,
+   "sym": "SNDK",
+   "addr": "0xb90a19ff0af67f7779aff50a882a9cff42446400",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 710,
+   "sym": "CRCL",
+   "addr": "0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 673,
+   "sym": "MU",
+   "addr": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 557,
+   "sym": "HIMS",
+   "addr": "0xccee82fe024c36fa15e1005ede3e9e4787e23d09",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 464,
+   "sym": "RBLX",
+   "addr": "0xf0c4bf4c582cb3836e98394b1d4e7b7281101be8",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 463,
+   "sym": "BABA",
+   "addr": "0xad25ac6c84d497db898fa1e8387bf6af3532a1c4",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 428,
+   "sym": "AMC",
+   "addr": "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 259,
+   "sym": "BB",
+   "addr": "0x48e39e56acdba37b09020c0b734a613c9a2f100a",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 243,
+   "sym": "IBM",
+   "addr": "0x980dcf6766fa79f5cf0c4aadb3ab477ff15a9619",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 229,
+   "sym": "NFLX",
+   "addr": "0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 219,
+   "sym": "LULU",
+   "addr": "0x4e62068525ab11fe768e29dfd00ef909b9803016",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 218,
+   "sym": "Index",
+   "addr": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+   "kind": "other: The Index"
+  },
+  {
+   "n": 202,
+   "sym": "USO",
+   "addr": "0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 198,
+   "sym": "SNAP",
+   "addr": "0xf6589f11bc40b669e584073f428b05562f568733",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 188,
+   "sym": "MCD",
+   "addr": "0x2fdaa4604f10f4ae7f66fa48a174bcd25b1ece20",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 170,
+   "sym": "SHROOM",
+   "addr": "0xab093def657f15df31b33922a95e047add645b29",
+   "kind": "other: MUSHROOM"
+  },
+  {
+   "n": 156,
+   "sym": "BUN",
+   "addr": "0x07ebb29a38fbcb41563817e5e19f2cec619c90d2",
+   "kind": "other: Bundle Cat"
+  },
+  {
+   "n": 150,
+   "sym": "LLY",
+   "addr": "0x8005d266423c7ea827372c9c864491e5786600ea",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 146,
+   "sym": "TAO",
+   "addr": "0xf3081494b87e8d5fb7960f066e931d1d0e6e3d67",
+   "kind": "other: Bittensor"
+  },
+  {
+   "n": 141,
+   "sym": "DELL",
+   "addr": "0x941ae714ec6d8130c7b75d67160ca08f1e7d11dd",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 140,
+   "sym": "INDA",
+   "addr": "0xacef2e09adb47ad6abebad9ff06689e60615c2b6",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 136,
+   "sym": "UPS",
+   "addr": "0xf23250dac154d05bb671cb0d0ebef3c635c79ce2",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 135,
+   "sym": "SKHY",
+   "addr": "0x84cab63bc87912e71ad199ff14a0ba45de68fef8",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 131,
+   "sym": "SLV",
+   "addr": "0x411efb0e7f985935daec3d4c3ebaea0d0ad7d89f",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 129,
+   "sym": "NET",
+   "addr": "0x116f00968269b7bfbad4109ce591d6e74c0601d4",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 121,
+   "sym": "QUBT",
+   "addr": "0x59818904ab4ce163b3ce4ffb64f2d6ca02c434b4",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 120,
+   "sym": "PFE",
+   "addr": "0x7066a64c24e4206cd62e83bf198c1e7eb361f51e",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 119,
+   "sym": "SHOP",
+   "addr": "0xf53f66751b1eff985311b693531e3290f600c410",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 118,
+   "sym": "RCAT",
+   "addr": "0xfde6b5d9bb419b10c23268c74e369abff39c0460",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 115,
+   "sym": "TSM",
+   "addr": "0x58ffe4a942d3885baa22d7520691f611ef09e7aa",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 109,
+   "sym": "MRNA",
+   "addr": "0x43b07d15ce533bec5476d70c22a78a1b2b662155",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 106,
+   "sym": "INTC",
+   "addr": "0xc72b96e0e48ecd4dc75e1e45396e26300bc39681",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 89,
+   "sym": "BA",
+   "addr": "0x4d21483a44bf67a86b77e3da301411880797d452",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 89,
+   "sym": "BULL",
+   "addr": "0xcef9027c7d6985b85f0ba431125073529a947a68",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 83,
+   "sym": "DIS",
+   "addr": "0x501b1b3b79750313ad2c4cccd08586c4c17d7283",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 73,
+   "sym": "SNOW",
+   "addr": "0xba0cab75495255d0cb58e22b648bfed4ecd1f47e",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 71,
+   "sym": "RIVN",
+   "addr": "0xb1bf26c1d20ff267a4f93550d1e0d06ac40a114b",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 71,
+   "sym": "MRVL",
+   "addr": "0x62fd0668e10d8b72339be2dcf7643001688ff13b",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 68,
+   "sym": "F",
+   "addr": "0x25c288e6d899b9bc30160965ad9644c67e73be0c",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 59,
+   "sym": "JNJ",
+   "addr": "0x03dfbbe0ac4e7bcdafd08ed41a400326b77d8c80",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 56,
+   "sym": "EWY",
+   "addr": "0x7f0abef0c07280f82c6a08ead09ded6bae2c13fc",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 56,
+   "sym": "WYFI",
+   "addr": "0x9e7abd3c9139d14e4c86dce0e455aab7a0c2fb3e",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 55,
+   "sym": "FIG",
+   "addr": "0x41f4267525a8aff329540ef24fd83d9044758b33",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 55,
+   "sym": "BE",
+   "addr": "0x822cc93ffd030293e9842c30bbd678f530701867",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 50,
+   "sym": "NU",
+   "addr": "0x408c14038a04f7bd235329e26d2bf569ee20e250",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 50,
+   "sym": "wsNET",
+   "addr": "0x63c12667638f2ae6fc6ae09b43d98ec84a8586ea",
+   "kind": "other: Wrapped Staked NET"
+  },
+  {
+   "n": 45,
+   "sym": "RKLB",
+   "addr": "0x3b14c39e89d60d627b42a1a4ca45b5bb45fc12e2",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 44,
+   "sym": "LMT",
+   "addr": "0x329fcaceb9ad6f9580dd5f643fed0646900d043c",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 26,
+   "sym": "DDOG",
+   "addr": "0x27c99fbde9d0d2aa4f4bfb4943f237843ddf6958",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 26,
+   "sym": "UBER",
+   "addr": "0xbd335aa5a1693f0121a5c0ef18a080e9958da78b",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 22,
+   "sym": "PYPL",
+   "addr": "0xa45abdc77918f7b9199b022eee400c0bc5712bd2",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 21,
+   "sym": "CEG",
+   "addr": "0xae517a2903e68bd929dfd15be875f8369d53e94a",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 19,
+   "sym": "V",
+   "addr": "0x9bff87700337babf5099e99f322f888dafb1d551",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 13,
+   "sym": "JPM",
+   "addr": "0x07c44da0848960bff894f17584db8b2f60b2409e",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 9,
+   "sym": "SOXX",
+   "addr": "0x75742c18bc1f1c5c5f448f4c9d9c6f66dafaaa38",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 8,
+   "sym": "P",
+   "addr": "0x1cdad396db64bda184d5182a97dd9b3c62100b7d",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 8,
+   "sym": "AVGO",
+   "addr": "0x156e175dd063a8ce274c50654ef40e0032b3fbcf",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 8,
+   "sym": "PENG",
+   "addr": "0x9b23573b156b52565012f5ce02cdf60afbaa70be",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 6,
+   "sym": "ORCL",
+   "addr": "0xb0992820e760d836549ba69bc7598b4af75dee03",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 5,
+   "sym": "GDX",
+   "addr": "0xbdfa7a06458aa26b8e736e0fc87ad37c3bb8ac2e",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 2,
+   "sym": "BMNR",
+   "addr": "0x9a7842eded60b0fe1e03eec342c82a397c821ed0",
+   "kind": "OFFICIAL STOCK"
+  },
+  {
+   "n": 2,
+   "sym": "NBIS",
+   "addr": "0x9d9c6684f596f66a64c030b93a886d51fd4d7931",
+   "kind": "OFFICIAL STOCK"
+  }
+ ]
+}

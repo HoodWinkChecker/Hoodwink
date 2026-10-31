@@ -1,0 +1,13 @@
+{
+  "name": "hoodwink",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node serve.mjs 6912",
+    "index": "node tools/build-index.mjs --update"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "@netlify/blobs": "^11.1.7"
+  }
+}

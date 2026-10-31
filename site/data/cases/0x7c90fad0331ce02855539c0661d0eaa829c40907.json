@@ -1,0 +1,992 @@
+{
+ "version": 1,
+ "chain": 4663,
+ "token": "0x7C90FAD0331Ce02855539C0661D0EaA829C40907",
+ "name": "MU",
+ "symbol": "MU",
+ "decimals": 18,
+ "totalSupply": "1000000000000000000000000000",
+ "block": 102526016,
+ "at": "2026-10-31T11:41:29.152Z",
+ "kind": "pons",
+ "coverage": 100,
+ "counts": {
+  "critical": 0,
+  "concern": 3,
+  "pass": 9,
+  "info": 4,
+  "unchecked": 0,
+  "na": 0
+ },
+ "checks": [
+  {
+   "group": "identity",
+   "q": "Is this the only token with this ticker, or a copy of an earlier one?",
+   "id": "ticker",
+   "title": "Ticker uniqueness",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Tokens launched on Pons with this ticker",
+     "v": "132 (index of 719,370 launches)"
+    },
+    {
+     "k": "#1 (first)",
+     "v": "mumu · block 30,604,999",
+     "addr": "0x9f2c60584bcb20fc7a8fba2c8e8145fc34f6fcf9"
+    },
+    {
+     "k": "#2",
+     "v": "mucron · block 34,069,508",
+     "addr": "0xe089257db39d9b4ac7b07055254e7402d49917dd"
+    },
+    {
+     "k": "#3",
+     "v": "Micron Technology · block 35,876,771",
+     "addr": "0xca871e9e77e62971162147e181d9710c647f81db"
+    },
+    {
+     "k": "#4",
+     "v": "mu · block 40,212,740",
+     "addr": "0xd282688cb4af22b067543ac6f9fd2ad3e17eac0a"
+    },
+    {
+     "k": "#5",
+     "v": "mu · block 40,212,994",
+     "addr": "0xf170881dbbc9890801fbe7b48fbab71f2249ad8f"
+    },
+    {
+     "k": "#6",
+     "v": "Mu.social · block 40,583,699",
+     "addr": "0x3bb5c31478c573b45a805ae8e395748b811f45b3"
+    },
+    {
+     "k": "Earlier tokens with this ticker that graduated",
+     "v": "0xec956d290db9a5b0ea04817cf98be2ddb6fcff5f"
+    }
+   ],
+   "summary": "$MU was already used by a token that graduated (0xec95…ff5f, 16 days earlier). This is copy #131 of 132.",
+   "copies": 131,
+   "rank": 131,
+   "original": "0xec956d290db9a5b0ea04817cf98be2ddb6fcff5f"
+  },
+  {
+   "group": "identity",
+   "q": "Does it borrow the ticker or name of a Robinhood stock token?",
+   "id": "stock",
+   "title": "Stock look-alike",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "MU"
+    },
+    {
+     "k": "symbol()",
+     "v": "MU"
+    },
+    {
+     "k": "Code hash",
+     "v": "0x0f73470368618f0607e83c3a2c20b4f9fd41aa4bd8f6c127575da36898b173a5"
+    },
+    {
+     "k": "Official stock-token hash",
+     "v": "0x6c1fdd40002dcb440c7fff6a84171404d279ccb057803b65826f7546acd65630"
+    },
+    {
+     "k": "Genuine MU",
+     "v": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd",
+     "addr": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd"
+    }
+   ],
+   "summary": "Look-alike ticker. MU is also the ticker of an official Robinhood stock token, and this is not it. Fine for a memecoin, dangerous if you meant to buy the stock: the real MU is 0xff08…4afd."
+  },
+  {
+   "group": "identity",
+   "q": "Does it lean on the Robinhood name without being Robinhood?",
+   "id": "brand",
+   "title": "Robinhood branding",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "MU"
+    },
+    {
+     "k": "symbol()",
+     "v": "MU"
+    }
+   ],
+   "summary": "No Robinhood branding in the name or ticker."
+  },
+  {
+   "group": "identity",
+   "q": "What is it priced in, and is that asset genuine?",
+   "id": "pair",
+   "title": "Pair asset",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Pair",
+     "v": "Micron Technology • Robinhood Token (MU)",
+     "addr": "0xfF080c8ce2E5feadaCa0Da81314Ae59D232d4afD"
+    },
+    {
+     "k": "Pair code hash",
+     "v": "0x6c1fdd40002dcb440c7fff6a84171404d279ccb057803b65826f7546acd65630"
+    }
+   ],
+   "summary": "Stock-paired: trades against MU, and that MU is the genuine Robinhood stock token (code fingerprint matched)."
+  },
+  {
+   "group": "reality",
+   "q": "Does the website given at launch work, and does it show this contract?",
+   "id": "website",
+   "title": "Website",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "MU MEETS\nMU = MUMU."
+    },
+    {
+     "k": "Website",
+     "v": "https://mumuthebull.xyz"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/MumuTheBullRH"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x4fa76a67d5220f21aa1c024362bda52cfc9e4c463cd4af2d95276f607be1f63d"
+    },
+    {
+     "k": "Status",
+     "v": "HTTP 200"
+    },
+    {
+     "k": "Title",
+     "v": "MU/MU. Born Bullish."
+    },
+    {
+     "k": "Built with",
+     "v": "custom"
+    },
+    {
+     "k": "Shows this contract address",
+     "v": "no"
+    },
+    {
+     "k": "Links found on the site",
+     "v": "X @mumuthebullrh · GitHub none · Telegram 0"
+    }
+   ],
+   "summary": "Website live (\"MU/MU. Born Bullish.\"), but it does not show this contract address: any token can point to any site."
+  },
+  {
+   "group": "reality",
+   "q": "Is the X link the project's own account, or someone else's post?",
+   "id": "social",
+   "title": "X account",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "MU MEETS\nMU = MUMU."
+    },
+    {
+     "k": "Website",
+     "v": "https://mumuthebull.xyz"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/MumuTheBullRH"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x4fa76a67d5220f21aa1c024362bda52cfc9e4c463cd4af2d95276f607be1f63d"
+    },
+    {
+     "k": "Handle",
+     "v": "@MumuTheBullRH"
+    }
+   ],
+   "summary": "X @MumuTheBullRH, and the project's website links to the same account."
+  },
+  {
+   "group": "reality",
+   "q": "Is there a real repository behind the claims?",
+   "id": "code",
+   "title": "Code",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "MU MEETS\nMU = MUMU."
+    },
+    {
+     "k": "Website",
+     "v": "https://mumuthebull.xyz"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/MumuTheBullRH"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x4fa76a67d5220f21aa1c024362bda52cfc9e4c463cd4af2d95276f607be1f63d"
+    }
+   ],
+   "summary": "No code linked, at launch or on the website. Fine for a meme; a product claim without code is a red flag (see the verdict)."
+  },
+  {
+   "group": "reality",
+   "q": "Taking all the evidence: real product, honest meme, or LARP?",
+   "id": "larp",
+   "title": "AI verdict",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Verdict",
+     "v": "Honest meme · medium confidence"
+    },
+    {
+     "k": "Claim (supported)",
+     "v": "MU meets MU = MUMU, a meme bull token — Website mumuthebull.xyz (HTTP 200) is meme lore, memes and an arcade game with 'points have no monetary value'."
+    },
+    {
+     "k": "Claim (unsupported)",
+     "v": "MU/MU launching on Pons, 'paired with MU (Micron)' — Website meta and text reference Micron's MU ticker; no evidence of any Micron link, so this is borrowed narrative."
+    },
+    {
+     "k": "Claim (unsupported)",
+     "v": "Official X account @MumuTheBullRH — Website links to @mumuthebullrh but profile existence was not checked."
+    },
+    {
+     "k": "Red flag",
+     "v": "Website ties token to Micron (MU) stock ticker it does not own"
+    },
+    {
+     "k": "Red flag",
+     "v": "Website does not show this token's contract address"
+    },
+    {
+     "k": "Red flag",
+     "v": "X profile existence not verified"
+    },
+    {
+     "k": "Red flag",
+     "v": "Mumu is a pre-existing internet bull meme, reused"
+    },
+    {
+     "k": "Green flag",
+     "v": "Custom working website with substantial meme content"
+    },
+    {
+     "k": "Green flag",
+     "v": "No claims of product, team, utility or Robinhood affiliation"
+    },
+    {
+     "k": "Green flag",
+     "v": "Website explicitly says arcade points have no monetary value"
+    },
+    {
+     "k": "Green flag",
+     "v": "Website and launch X link match (@MumuTheBullRH)"
+    },
+    {
+     "k": "Judged by",
+     "v": "claude-opus-5-5 on the evidence above (cached)"
+    }
+   ],
+   "summary": "Honest meme: MU is a Mumu-the-bull meme token with a working meme site; no product claimed, though it borrows the Micron (MU) stock ticker as narrative.",
+   "verdict": {
+    "verdict": "honest_meme",
+    "confidence": "medium",
+    "headline": "MU is a Mumu-the-bull meme token with a working meme site; no product claimed, though it borrows the Micron (MU) stock ticker as narrative.",
+    "claims": [
+     {
+      "claim": "MU meets MU = MUMU, a meme bull token",
+      "status": "supported",
+      "evidence": "Website mumuthebull.xyz (HTTP 200) is meme lore, memes and an arcade game with 'points have no monetary value'."
+     },
+     {
+      "claim": "MU/MU launching on Pons, 'paired with MU (Micron)'",
+      "status": "unsupported",
+      "evidence": "Website meta and text reference Micron's MU ticker; no evidence of any Micron link, so this is borrowed narrative."
+     },
+     {
+      "claim": "Official X account @MumuTheBullRH",
+      "status": "unsupported",
+      "evidence": "Website links to @mumuthebullrh but profile existence was not checked."
+     }
+    ],
+    "red_flags": [
+     "Website ties token to Micron (MU) stock ticker it does not own",
+     "Website does not show this token's contract address",
+     "X profile existence not verified",
+     "Mumu is a pre-existing internet bull meme, reused"
+    ],
+    "green_flags": [
+     "Custom working website with substantial meme content",
+     "No claims of product, team, utility or Robinhood affiliation",
+     "Website explicitly says arcade points have no monetary value",
+     "Website and launch X link match (@MumuTheBullRH)"
+    ]
+   }
+  },
+  {
+   "group": "launch",
+   "q": "How much was bought in the launch block and the first 30 seconds, and is it still held?",
+   "id": "firstblock",
+   "title": "Snipers",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Window",
+     "v": "launch block 82,846,563 + 287 blocks (≈30 s)"
+    },
+    {
+     "k": "Bought inside the launch transaction",
+     "v": "74.35M (7.43%)",
+     "tx": "0x4fa76a67d5220f21aa1c024362bda52cfc9e4c463cd4af2d95276f607be1f63d"
+    },
+    {
+     "k": "Other transactions in the launch block",
+     "v": "0 (0.00%) by 0 wallets"
+    },
+    {
+     "k": "Bought by others in the first 30 s",
+     "v": "80.52M (8.05%) by 6 wallets"
+    },
+    {
+     "k": "Still held by those early buyers now",
+     "v": "0 (0.00%), read with balanceOf"
+    }
+   ],
+   "summary": "Clean start: 8.1% of supply went to other wallets in the first 30 seconds. Those early buyers still hold 0.0%.",
+   "early": {
+    "devBuy": 7.4347,
+    "blockBuy": 0,
+    "winBuy": 8.0523,
+    "still": 0,
+    "buyers": 6
+   }
+  },
+  {
+   "group": "launch",
+   "q": "Were the first buyers throwaway wallets?",
+   "id": "burners",
+   "title": "Fresh wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Measured",
+     "v": "lifetime nonce at block 102,526,016"
+    }
+   ],
+   "summary": "0 of 6 early buyers have sent 3 transactions or fewer in their whole life."
+  },
+  {
+   "group": "holders",
+   "q": "How much do the ten largest wallets hold?",
+   "id": "distribution",
+   "title": "Top 10",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallets from",
+     "v": "all 614 Transfer events since launch"
+    },
+    {
+     "k": "Balances",
+     "v": "read with balanceOf at block 102,526,016 (exact)"
+    },
+    {
+     "k": "Smart-account wallets counted as people",
+     "v": "3"
+    },
+    {
+     "k": "#1",
+     "v": "0.05%  519.7K",
+     "addr": "0xfa5b5ba4e99df23efa0670312c44c4bc66bd7ae9"
+    },
+    {
+     "k": "#2",
+     "v": "0.02%  218.3K",
+     "addr": "0xcd6b980029e6e6e0733ac8ec3e02be9410d09799"
+    },
+    {
+     "k": "#3",
+     "v": "0.01%  117.6K",
+     "addr": "0x4f79dd35aa49a87e55b7af3ed0bb9d3c09e0febc"
+    },
+    {
+     "k": "#4",
+     "v": "0.01%  54.1K",
+     "addr": "0x0ec3b415ebc57ffe4d81baf55bf921c76315ba28"
+    },
+    {
+     "k": "#5",
+     "v": "0.00%  5,403.1623",
+     "addr": "0x1111110f0f73c0b2ef09ec012eae758b3e03a902"
+    },
+    {
+     "k": "#6",
+     "v": "0.00%  140.1077",
+     "addr": "0x3692dea4346c95eb3957d8022c40373ab2a21369"
+    },
+    {
+     "k": "#7",
+     "v": "0.00%  0.0461",
+     "addr": "0xf159c761570de2558b63f4ed3c8d50e97ffd07d0"
+    },
+    {
+     "k": "#8",
+     "v": "0.00%  1.31e-9",
+     "addr": "0x03e1e6d57620e85c665e01271ca2ed96f91b9fff"
+    },
+    {
+     "k": "Contract holder",
+     "v": "0.00%  107.4578",
+     "addr": "0x20f6ee51340adeed01a59b0e65cb3703f3dc860c"
+    },
+    {
+     "k": "Contract holder",
+     "v": "0.00%  1.00e-18",
+     "addr": "0x8f10b468b06c6fd214b65f87778827f7d113f996"
+    }
+   ],
+   "summary": "8 wallet holders. The 10 largest wallets hold 0.1% (largest 0.1%). 99.9% sits in the curve or the v4 pool manager, 0.0% in 2 other contracts.",
+   "holdersTop": [
+    {
+     "a": "0xfa5b5ba4e99df23efa0670312c44c4bc66bd7ae9",
+     "pct": 0.0519
+    },
+    {
+     "a": "0xcd6b980029e6e6e0733ac8ec3e02be9410d09799",
+     "pct": 0.0218
+    },
+    {
+     "a": "0x4f79dd35aa49a87e55b7af3ed0bb9d3c09e0febc",
+     "pct": 0.0117
+    },
+    {
+     "a": "0x0ec3b415ebc57ffe4d81baf55bf921c76315ba28",
+     "pct": 0.0054
+    },
+    {
+     "a": "0x1111110f0f73c0b2ef09ec012eae758b3e03a902",
+     "pct": 0.0005
+    },
+    {
+     "a": "0x3692dea4346c95eb3957d8022c40373ab2a21369",
+     "pct": 0
+    },
+    {
+     "a": "0xf159c761570de2558b63f4ed3c8d50e97ffd07d0",
+     "pct": 0
+    },
+    {
+     "a": "0x03e1e6d57620e85c665e01271ca2ed96f91b9fff",
+     "pct": 0
+    }
+   ],
+   "contractsTop": [
+    {
+     "a": "0x20f6ee51340adeed01a59b0e65cb3703f3dc860c",
+     "pct": 0
+    },
+    {
+     "a": "0x8f10b468b06c6fd214b65f87778827f7d113f996",
+     "pct": 0
+    }
+   ],
+   "venuesPct": 99.9084,
+   "contractsPct": 0,
+   "partial": false
+  },
+  {
+   "group": "holders",
+   "q": "Do holders pass tokens between each other like one owner?",
+   "id": "clusters",
+   "title": "Linked wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallet-to-wallet transfers",
+     "v": "1"
+    },
+    {
+     "k": "Hubs set aside (more than 20 counterparties)",
+     "v": "0"
+    }
+   ],
+   "summary": "No meaningful linked group: 1 wallet-to-wallet moves, no group holds more than 0.5%.",
+   "clusters": [
+    {
+     "size": 2,
+     "pct": 0,
+     "members": [
+      "0x5981debc9c0a948023281de0d384bd344792d0a9",
+      "0xbecd0b81e0c0c3bb32a967890173e2c4c431d31d"
+     ],
+     "hasDev": false
+    }
+   ]
+  },
+  {
+   "group": "dev",
+   "q": "What did the deployer buy, keep and sell here?",
+   "id": "dev",
+   "title": "Deployer on this token",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0x03E1e6d57620e85c665E01271ca2ed96F91b9FFF",
+     "addr": "0x03E1e6d57620e85c665E01271ca2ed96F91b9FFF"
+    },
+    {
+     "k": "Received",
+     "v": "74.35M (7.43%)"
+    },
+    {
+     "k": "Sold back to the market",
+     "v": "74.35M (7.43%)"
+    },
+    {
+     "k": "Sent to other wallets",
+     "v": "0 transfers, 0 (0.00%)"
+    },
+    {
+     "k": "Holds now (balanceOf)",
+     "v": "1.31e-9 (0.00%)"
+    }
+   ],
+   "summary": "The deployer took 7.4% and has sold 7.4% back."
+  },
+  {
+   "group": "dev",
+   "q": "What happened to the deployer's earlier launches?",
+   "id": "devrep",
+   "title": "Deployer track record",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0x03E1e6d57620e85c665E01271ca2ed96F91b9FFF",
+     "addr": "0x03E1e6d57620e85c665E01271ca2ed96F91b9FFF"
+    },
+    {
+     "k": "Pons launches by this wallet",
+     "v": "1"
+    }
+   ],
+   "summary": "First Pons launch from this wallet: no track record. Fresh wallets cost nothing, so this proves neither good nor bad.",
+   "launches": 1
+  },
+  {
+   "group": "market",
+   "q": "Where does it trade and how deep is it?",
+   "id": "liquidity",
+   "title": "Liquidity",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Curve",
+     "v": "0xF183B55960e097739c5b37Af64c8fBBF1caa02eF",
+     "addr": "0xF183B55960e097739c5b37Af64c8fBBF1caa02eF"
+    },
+    {
+     "k": "Curve reserves (getReserves)",
+     "v": "3.6749 MU incl. virtual part, 999.03M tokens"
+    },
+    {
+     "k": "MU balance of the curve",
+     "v": "0.0102 MU"
+    },
+    {
+     "k": "Graduation threshold",
+     "v": "9.1785 MU"
+    }
+   ],
+   "summary": "Still on the bonding curve: 0.0102 MU actually held by the curve, 999.03M tokens left on it. It graduates to Uniswap v4 at the threshold set by the factory.",
+   "curveQuote": "10246122314648202",
+   "threshold": "9178459641793090016"
+  },
+  {
+   "group": "market",
+   "q": "Is the contract the standard launchpad template, with nothing hidden?",
+   "id": "contract",
+   "title": "Contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Deployed token contract · pass",
+     "v": "Contract found: 3,248 bytes of runtime code."
+    },
+    {
+     "k": "Token interface · pass",
+     "v": "MU (MU), 18 decimals, 1.00B total supply."
+    },
+    {
+     "k": "Upgradeability · pass",
+     "v": "Not a proxy. The code at this address is final and cannot be replaced."
+    },
+    {
+     "k": "Ownership · pass",
+     "v": "No owner() or getOwner() function."
+    },
+    {
+     "k": "Privileged functions · pass",
+     "v": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+    },
+    {
+     "k": "Launchpad template · pass",
+     "v": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+    },
+    {
+     "k": "Origin · info",
+     "v": "Launched on Pons by 0x03E1…9FFF, still trading on its bonding curve."
+    },
+    {
+     "k": "Buy, move, sell · pass",
+     "v": "Bought, moved and sold back on the live state. The round trip cost 5.60%, in line with fees and tax."
+    },
+    {
+     "k": "Fees and taxes · pass",
+     "v": "2.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+    }
+   ],
+   "summary": "Standard Pons contract, byte-identical to the template: fixed supply, no mint, blacklist or pause, nothing upgradeable. A simulated buy, transfer and sell went through (round trip 5.60%). Creator tax 2.00%.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 5.602603933842365,
+    "quoteIn": "50000000000000000",
+    "quoteBack": "35399023524809110",
+    "quoteSym": "MU",
+    "quoteDec": 18
+   }
+  }
+ ],
+ "internal": [
+  {
+   "group": "internal",
+   "q": "",
+   "id": "deployed",
+   "title": "Deployed token contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Address",
+     "v": "0x7C90FAD0331Ce02855539C0661D0EaA829C40907",
+     "addr": "0x7C90FAD0331Ce02855539C0661D0EaA829C40907"
+    },
+    {
+     "k": "Code hash",
+     "v": "0x0f73470368618f0607e83c3a2c20b4f9fd41aa4bd8f6c127575da36898b173a5"
+    },
+    {
+     "k": "Read at block",
+     "v": "102,526,016"
+    }
+   ],
+   "summary": "Contract found: 3,248 bytes of runtime code."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "erc20",
+   "title": "Token interface",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "MU"
+    },
+    {
+     "k": "symbol()",
+     "v": "MU"
+    },
+    {
+     "k": "decimals()",
+     "v": "18"
+    },
+    {
+     "k": "totalSupply()",
+     "v": "1000000000000000000000000000"
+    }
+   ],
+   "summary": "MU (MU), 18 decimals, 1.00B total supply."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "proxy",
+   "title": "Upgradeability",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "EIP-1967 implementation slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1967 beacon slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1167 clone",
+     "v": "no"
+    }
+   ],
+   "summary": "Not a proxy. The code at this address is final and cannot be replaced."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "owner",
+   "title": "Ownership",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "owner()",
+     "v": "not present"
+    }
+   ],
+   "summary": "No owner() or getOwner() function."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "powers",
+   "title": "Privileged functions",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Selectors scanned",
+     "v": "25 in contract bytecode"
+    }
+   ],
+   "summary": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "template",
+   "title": "Launchpad template",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Compared with",
+     "v": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592",
+     "addr": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592"
+    },
+    {
+     "k": "Masked fields",
+     "v": "token, curve, deployer, fee recipient, pair"
+    }
+   ],
+   "summary": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "origin",
+   "title": "Origin",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Launchpad",
+     "v": "Pons (factory 0x7eD5…EC7e)",
+     "addr": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e"
+    },
+    {
+     "k": "Deployer",
+     "v": "0x03E1e6d57620e85c665E01271ca2ed96F91b9FFF",
+     "addr": "0x03E1e6d57620e85c665E01271ca2ed96F91b9FFF"
+    },
+    {
+     "k": "Bonding curve",
+     "v": "0xF183B55960e097739c5b37Af64c8fBBF1caa02eF",
+     "addr": "0xF183B55960e097739c5b37Af64c8fBBF1caa02eF"
+    },
+    {
+     "k": "Creator fee recipient",
+     "v": "0x03E1e6d57620e85c665E01271ca2ed96F91b9FFF",
+     "addr": "0x03E1e6d57620e85c665E01271ca2ed96F91b9FFF"
+    },
+    {
+     "k": "Creator tax",
+     "v": "2.00%"
+    },
+    {
+     "k": "Buyback",
+     "v": "off"
+    },
+    {
+     "k": "Phase",
+     "v": "on the bonding curve"
+    },
+    {
+     "k": "Launch block",
+     "v": "82,846,563"
+    },
+    {
+     "k": "Launch transaction",
+     "v": "0x4fa76a67d5220f21aa1c024362bda52cfc9e4c463cd4af2d95276f607be1f63d",
+     "tx": "0x4fa76a67d5220f21aa1c024362bda52cfc9e4c463cd4af2d95276f607be1f63d"
+    }
+   ],
+   "summary": "Launched on Pons by 0x03E1…9FFF, still trading on its bonding curve."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "serial",
+   "title": "Deployer history",
+   "status": "pending",
+   "evidence": []
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "burned",
+   "title": "Burned supply",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Held by dead addresses (balanceOf)",
+     "v": "0"
+    },
+    {
+     "k": "Destroyed (sent to zero)",
+     "v": "0"
+    },
+    {
+     "k": "Minted in total",
+     "v": "1.00B"
+    }
+   ],
+   "summary": "0 provably burned (0.00% of current supply)."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "roundtrip",
+   "title": "Buy, move, sell",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Method",
+     "v": "Pons bonding curve: buy(), transfer(), sell()"
+    },
+    {
+     "k": "State",
+     "v": "latest block, eth_call with state override (nothing broadcast)"
+    },
+    {
+     "k": "Spent",
+     "v": "0.0500 MU"
+    },
+    {
+     "k": "Tokens received",
+     "v": "13.01M"
+    },
+    {
+     "k": "Moved to a fresh wallet",
+     "v": "3.25M sent, 3.25M arrived"
+    },
+    {
+     "k": "Sold back",
+     "v": "9.76M"
+    },
+    {
+     "k": "Came back",
+     "v": "0.0354 MU"
+    },
+    {
+     "k": "Round-trip cost",
+     "v": "5.60% (fees, tax and price impact on the sold share)"
+    }
+   ],
+   "summary": "Bought, moved and sold back on the live state. The round trip cost 5.60%, in line with fees and tax.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 5.602603933842365,
+    "quoteIn": "50000000000000000",
+    "quoteBack": "35399023524809110",
+    "quoteSym": "MU",
+    "quoteDec": 18
+   }
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "tax",
+   "title": "Fees and taxes",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Creator tax (factory record)",
+     "v": "2.00% on each trade"
+    },
+    {
+     "k": "Received vs quoted on the buy",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Wallet-to-wallet transfer",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Round-trip cost (buy + sell)",
+     "v": "5.60%"
+    }
+   ],
+   "summary": "2.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+  }
+ ],
+ "metadata": {
+  "launchBlock": 82846563,
+  "launchTx": "0x4fa76a67d5220f21aa1c024362bda52cfc9e4c463cd4af2d95276f607be1f63d",
+  "launchedAt": 1791414321,
+  "sender": "0x03e1e6d57620e85c665e01271ca2ed96f91b9fff",
+  "via": "0x03e1e6d57620e85c665e01271ca2ed96f91b9fff",
+  "deployer": "0x03e1e6d57620e85c665e01271ca2ed96f91b9fff",
+  "name": "MU",
+  "symbol": null,
+  "description": "MU MEETS\nMU = MUMU.",
+  "logo": "ipfs://bafybeidnrndnjqvl6cwiecveyfdeqcrcti4pwhen6cmjs5drglxhkecymq",
+  "website": "https://mumuthebull.xyz",
+  "x": "https://x.com/MumuTheBullRH",
+  "telegram": null,
+  "discord": null,
+  "farcaster": null,
+  "github": null,
+  "other": []
+ },
+ "meta": {
+  "ms": 11014,
+  "rpcCalls": 168,
+  "transfers": 614
+ }
+}

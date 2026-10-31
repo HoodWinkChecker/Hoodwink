@@ -1,0 +1,8 @@
+.DS_Store
+.cache/
+.env
+_shots/
+contracts/cache/
+contracts/out/
+node_modules/
+netlify/lib/secrets.mjs

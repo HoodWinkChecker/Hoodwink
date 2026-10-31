@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hoodwink · Is it real or a LARP? Robinhood Chain token check</title>
+<meta name="description" content="Paste a Robinhood Chain token: copied ticker, dead or borrowed links, the deployer's past launches, snipers still holding, top 10, and an AI verdict on whether the project is real or a LARP.">
+<meta property="og:title" content="Hoodwink · Don't get hoodwinked">
+<meta property="og:description" content="Copied ticker? Borrowed links? Serial dumper? Snipers still in? Hoodwink checks a Robinhood Chain token and calls it: real product, honest meme, or LARP.">
+<meta property="og:url" content="https://www.hoodwink.site/">
+<meta property="og:image" content="https://www.hoodwink.site/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@CheckHoodWink">
+<meta name="theme-color" content="#08090b">
+<link rel="canonical" href="https://www.hoodwink.site/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/mona-sans-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/hw.css">
+<script src="config.js"></script>
+</head>
+<body data-page="home">
+<a class="skip" href="#main">Skip to content</a>
+<div class="split">
+  <aside class="instrument" id="inst"></aside>
+  <main class="content" id="main">
+
+    <section class="sec hero" id="scan">
+      <div class="kicker label">Robinhood Chain · LARP check</div>
+      <h1 class="h1">Don't get<br><span class="uvw">hood&shy;winked.</span></h1>
+      <p class="lead">Paste a token. Hoodwink tells you if the ticker is a copy, if the website and X links are real or borrowed, what the deployer did with their earlier launches, whether the snipers are still in and how much the top 10 hold. Then an AI reads the evidence and calls it: <em>real product</em>, <em>honest meme</em> or <em>LARP</em>.</p>
+      <form class="scanbox" id="scanForm" autocomplete="off">
+        <input id="addr" name="a" spellcheck="false" placeholder="0x… contract address, or a $TICKER" aria-label="Token address or ticker">
+        <button type="submit">Scan <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg></button>
+      </form>
+      <div class="ts" id="tsBox" hidden></div>
+      <div class="err" id="err" role="alert"></div>
+      <div class="scan-hint">
+        <span class="label">Try a real case</span>
+        <button class="chip" data-a="0x4f7bf61d52d56086a29aa028f414042933d79218">REX · borrowed Robinhood post</button>
+        <button class="chip" data-a="0x66742771b79a61f19cc307218d6afb6ed835000e">SKY · copy of a winner</button>
+        <button class="chip" data-a="0x7c90fad0331ce02855539c0661d0eaa829c40907">MU · look-alike ticker</button>
+        <button class="chip" data-a="0x4b5de030df5bbb12e0418beb23215570d09b4b80">Serial dumper</button>
+      </div>
+      <div class="hero-meta">
+        <div><div class="n" id="mLaunch">415,891</div><div class="label">tickers indexed</div></div>
+        <div><div class="n">16</div><div class="label">checks per token</div></div>
+        <div><div class="n">1</div><div class="label">AI verdict, with reasons</div></div>
+        <div><div class="n">0</div><div class="label">wallets connected</div></div>
+      </div>
+    </section>
+
+    <section class="sec" id="film" style="padding-top:0">
+      <div class="label" style="margin-bottom:14px">The 34-second tour · sound on</div>
+      <video src="assets/video/hoodwink-film.mp4" poster="assets/img/og.png" controls playsinline preload="none" style="width:100%;display:block;border:1px solid var(--line);background:#000;aspect-ratio:16/9"></video>
+    </section>
+
+    <section class="sec" id="method">
+      <div class="sec-head rv">
+        <div class="sec-num">01 / METHOD</div>
+        <div>
+          <h2 class="h2">On Pons the contract is always clean.<br>The people aren't.</h2>
+          <p class="lead" style="margin-top:18px">Every Pons token uses the same audited template: you can always buy and sell, there is no blacklist, no hidden mint. A scanner that only reads the contract will call every token safe. What changes from one token to the next is the story it tells and the wallets behind it, so that is what Hoodwink checks.</p>
+        </div>
+      </div>
+      <div class="cmp-wrap rv">
+        <table class="cmp">
+          <thead><tr><th>Question</th><th>Typical scanner</th><th class="us">Hoodwink</th></tr></thead>
+          <tbody id="cmpBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec" id="checks">
+      <div class="sec-head rv">
+        <div class="sec-num">02 / THE 20 CHECKS</div>
+        <div>
+          <h2 class="h2">Six questions.<br>Sixteen answers with receipts.</h2>
+          <p class="lead" style="margin-top:18px">Every check returns its evidence: the launch transaction, the page that was fetched, the post that was read, the wallets and blocks behind each number. Thresholds are published in the docs.</p>
+        </div>
+      </div>
+      <div class="groups rv" id="groups"></div>
+    </section>
+
+    <section class="sec" id="reality">
+      <div class="sec-head rv">
+        <div class="sec-num">03 / REALITY CHECK</div>
+        <div>
+          <h2 class="h2">Every link they typed<br>is on the chain. <span class="uvt" style="color:var(--uv)">We open them.</span></h2>
+          <p class="lead" style="margin-top:18px">The description, website, X and Telegram links a creator types on Pons are stored in the launch transaction. Hoodwink reads them, visits the site, reads the X post, looks up the GitHub, then hands the whole file to an AI that answers one question: does the evidence back the story?</p>
+        </div>
+      </div>
+      <div class="rv" id="caseFile"></div>
+    </section>
+
+    <section class="sec" id="stocks">
+      <div class="sec-head rv">
+        <div class="sec-num">04 / LOOK-ALIKES</div>
+        <div>
+          <h2 class="h2">There is one real NVDA.<br>Copies get caught.</h2>
+          <p class="lead" style="margin-top:18px">Tickers get copied within minutes of a launch that works. Hoodwink keeps an index of every Pons ticker, so it can tell you whether you are looking at the original or copy number seven. Stock tickers are checked the same way: every official Robinhood stock token runs the same 283-byte proxy, so a memecoin borrowing NVDA or a pair priced in a fake stock is caught on the first read.</p>
+        </div>
+      </div>
+      <div class="fp rv">
+        <div>
+          <div class="label" style="margin-bottom:10px">Official stock-token code hash</div>
+          <div class="hash">0x6c1fdd40002dcb440c7fff6a84171404d279ccb057803b65826f7546acd65630</div>
+          <div class="label" style="margin:22px 0 10px">Issuer beacon, embedded in every proxy</div>
+          <div class="hash">…7f000000000000000000000000<b>e10b6f6b275de231345c20d14ab812db62151b00</b>6001600160a01b0316635c60da1b…</div>
+          <div class="label" style="margin:28px 0 12px">What Pons launches are priced in</div>
+          <div class="bars" id="pairBars"></div>
+          <p class="dim" style="margin-top:14px;font-size:13px;max-width:36em" id="pairNote"></p>
+        </div>
+        <div>
+          <div class="label" style="margin-bottom:10px">The 78 stock tokens seen on chain · click to scan</div>
+          <div class="tickers" id="tickers"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="cases">
+      <div class="sec-head rv">
+        <div class="sec-num">05 / CASE FILES</div>
+        <div>
+          <h2 class="h2">Real tokens, real reports.</h2>
+          <p class="lead" style="margin-top:18px">Snapshots taken with the same engine you run in your browser. Open one to run it again on the latest block.</p>
+        </div>
+      </div>
+      <div class="rv" id="caseList"></div>
+    </section>
+
+    <section class="sec" id="rules">
+      <div class="sec-head rv">
+        <div class="sec-num">06 / RULES</div>
+        <div><h2 class="h2">Four rules the scanner never breaks.</h2></div>
+      </div>
+      <div class="rules rv">
+        <div class="rule"><span class="rn">R1</span><h3 class="h3">Unchecked is never a pass.</h3><p>When a source is unavailable or a question cannot be answered, the check says so and stays out of the coverage. A green row only covers the exact thing it measured.</p></div>
+        <div class="rule"><span class="rn">R2</span><h3 class="h3">Coverage is not a safety score.</h3><p>The percentage tells you how much of the investigation completed. It never adds up into a "safe" badge. You read the findings and decide.</p></div>
+        <div class="rule"><span class="rn">R3</span><h3 class="h3">The AI only judges evidence.</h3><p>The verdict is written from what the scanner found: the launch metadata, the fetched site, the post, the repository. It cannot be fed text by the person asking, and it must name the item behind each flag.</p></div>
+        <div class="rule"><span class="rn">R4</span><h3 class="h3">No wallet, nothing broadcast.</h3><p>The chain is read from your browser through the public RPC; our server only opens the links (your browser is not allowed to). There is no connect button, and the contract test is a simulation that never leaves the node.</p></div>
+      </div>
+    </section>
+
+    <footer class="foot" id="foot"></footer>
+  </main>
+</div>
+<script type="module" src="assets/js/home.js"></script>
+</body>
+</html>

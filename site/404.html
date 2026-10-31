@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not found · Hoodwink</title>
+<meta name="twitter:site" content="@CheckHoodWink">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#08090b">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/hw.css">
+<script src="config.js"></script>
+</head>
+<body data-page="">
+<div class="split">
+  <aside class="instrument" id="inst"></aside>
+  <main class="content" id="main">
+    <section class="sec hero">
+      <div class="kicker label">Error 404</div>
+      <h1 class="h1">Nothing at<br><span class="uvw">this address.</span></h1>
+      <p class="lead">Same as an empty contract: there is no code here. Paste a token address instead.</p>
+      <form class="scanbox" onsubmit="event.preventDefault();location.href='scan.html?a='+this.a.value.trim()"><input name="a" placeholder="0x… token address" aria-label="Token address"><button>Scan</button></form>
+    </section>
+    <footer class="foot" id="foot"></footer>
+  </main>
+</div>
+<script type="module">
+import { mountInstrument, mountFooter } from './assets/js/site.js';
+import { createDial } from './assets/js/dial.js';
+const c = mountInstrument(document.getElementById('inst'));
+mountFooter(document.getElementById('foot'));
+const d = createDial(c); d.setCenter('404', 'no code here'); d.setMode('idle');
+</script>
+</body>
+</html>

@@ -1,0 +1,893 @@
+{
+ "version": 1,
+ "chain": 4663,
+ "token": "0x77681D23C6D2302321cCc367b632e39D794eA77e",
+ "name": "Make Robinhood Great Again",
+ "symbol": "MRGA",
+ "decimals": 18,
+ "totalSupply": "1000000000000000000000000000",
+ "block": 102526125,
+ "at": "2026-10-31T11:41:38.052Z",
+ "kind": "pons",
+ "coverage": 100,
+ "counts": {
+  "critical": 0,
+  "concern": 4,
+  "pass": 6,
+  "info": 5,
+  "unchecked": 0,
+  "na": 1
+ },
+ "checks": [
+  {
+   "group": "identity",
+   "q": "Is this the only token with this ticker, or a copy of an earlier one?",
+   "id": "ticker",
+   "title": "Ticker uniqueness",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Tokens launched on Pons with this ticker",
+     "v": "12 (index of 719,370 launches)"
+    },
+    {
+     "k": "#1 (first)",
+     "v": "Make Robinhood Great Again · block 40,794,933",
+     "addr": "0xece92f3d3ef9b3d2ebf6c48fd35c21b6d6dcb006"
+    },
+    {
+     "k": "#2",
+     "v": "Make Robinhood Great Again · block 51,126,716",
+     "addr": "0xe65e85f6c08c20799fa23aab69f7174d4c0bc204"
+    },
+    {
+     "k": "#3",
+     "v": "Make Robinhood Great Again · block 55,449,766",
+     "addr": "0xe0545dafda4a1dfdd59eb92e7adf36bcbdbc76fd"
+    },
+    {
+     "k": "#4",
+     "v": "MAKE ROBINHOOD GREAT AGAIN · block 56,285,852",
+     "addr": "0x9b06bde133f93468c010dacd43b8a1fa28e8a0fb"
+    },
+    {
+     "k": "#5",
+     "v": "MAKE ROBINHOOD GREAT AGAIN · block 57,623,513",
+     "addr": "0x2fc589eca6c2a50396419edae9aa3150c929abe2"
+    },
+    {
+     "k": "#6",
+     "v": "Make Robinhood Great Again · block 57,769,928",
+     "addr": "0xc4285b1a2f6d884387b53d0c213d10f8c2378627"
+    },
+    {
+     "k": "Earlier tokens with this ticker that graduated",
+     "v": "none among those checked"
+    },
+    {
+     "k": "Same name launched in the 7 days before",
+     "v": "1 token(s), first 0x38f5f268c41be46db51c81b4b2d6f6653acee74e",
+     "addr": "0x38f5f268c41be46db51c81b4b2d6f6653acee74e"
+    }
+   ],
+   "summary": "1 token(s) with the same name and ticker were launched in the week before this one: this looks like a copy riding the same narrative.",
+   "copies": 11,
+   "rank": 11,
+   "original": "0x38f5f268c41be46db51c81b4b2d6f6653acee74e"
+  },
+  {
+   "group": "identity",
+   "q": "Does it borrow the ticker or name of a Robinhood stock token?",
+   "id": "stock",
+   "title": "Stock look-alike",
+   "status": "na",
+   "evidence": [],
+   "summary": "Does not present itself as a Robinhood stock token."
+  },
+  {
+   "group": "identity",
+   "q": "Does it lean on the Robinhood name without being Robinhood?",
+   "id": "brand",
+   "title": "Robinhood branding",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "Make Robinhood Great Again"
+    },
+    {
+     "k": "symbol()",
+     "v": "MRGA"
+    }
+   ],
+   "summary": "The name or ticker leans on Robinhood (\"Make Robinhood Great Again\" / MRGA). Robinhood Chain has no native token: gas is paid in ETH. Any token presented as \"the Robinhood Chain token\" is not official."
+  },
+  {
+   "group": "identity",
+   "q": "What is it priced in, and is that asset genuine?",
+   "id": "pair",
+   "title": "Pair asset",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Pair",
+     "v": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+     "addr": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168"
+    }
+   ],
+   "summary": "Paired against USDG (Global Dollar), the dollar token Robinhood stock pools use."
+  },
+  {
+   "group": "reality",
+   "q": "Does the website given at launch work, and does it show this contract?",
+   "id": "website",
+   "title": "Website",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "none"
+    },
+    {
+     "k": "Website",
+     "v": "none"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/rdbotato?s=21&t=wf6ZqqUtH4h967Sos_6LsA"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x34be2d42e651744395c684c15b9e9398b01b4fb319bb9b28c3ddc10408794985"
+    }
+   ],
+   "summary": "No website given at launch. Normal for a pure meme; a token that claims a product without a site is a red flag."
+  },
+  {
+   "group": "reality",
+   "q": "Is the X link the project's own account, or someone else's post?",
+   "id": "social",
+   "title": "X account",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "none"
+    },
+    {
+     "k": "Website",
+     "v": "none"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/rdbotato?s=21&t=wf6ZqqUtH4h967Sos_6LsA"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x34be2d42e651744395c684c15b9e9398b01b4fb319bb9b28c3ddc10408794985"
+    },
+    {
+     "k": "Handle",
+     "v": "@rdbotato"
+    }
+   ],
+   "summary": "X @rdbotato. Not cross-checked: the website does not link an X account (no website)."
+  },
+  {
+   "group": "reality",
+   "q": "Is there a real repository behind the claims?",
+   "id": "code",
+   "title": "Code",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Description typed at launch",
+     "v": "none"
+    },
+    {
+     "k": "Website",
+     "v": "none"
+    },
+    {
+     "k": "X",
+     "v": "https://x.com/rdbotato?s=21&t=wf6ZqqUtH4h967Sos_6LsA"
+    },
+    {
+     "k": "Telegram",
+     "v": "none"
+    },
+    {
+     "k": "Read from",
+     "v": "launch transaction calldata",
+     "tx": "0x34be2d42e651744395c684c15b9e9398b01b4fb319bb9b28c3ddc10408794985"
+    }
+   ],
+   "summary": "No code linked, at launch or on the website. Fine for a meme; a product claim without code is a red flag (see the verdict)."
+  },
+  {
+   "group": "reality",
+   "q": "Taking all the evidence: real product, honest meme, or LARP?",
+   "id": "larp",
+   "title": "AI verdict",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Verdict",
+     "v": "Unclear · medium confidence"
+    },
+    {
+     "k": "Claim (unsupported)",
+     "v": "Name \"Make Robinhood Great Again\" invokes the Robinhood brand — No description or site; the only link is X profile @rdbotato, which shows no tie to Robinhood and whose existence was not checked."
+    },
+    {
+     "k": "Red flag",
+     "v": "Name uses the Robinhood brand, which the token does not own"
+    },
+    {
+     "k": "Red flag",
+     "v": "No description typed at launch"
+    },
+    {
+     "k": "Red flag",
+     "v": "No website, telegram or GitHub"
+    },
+    {
+     "k": "Red flag",
+     "v": "X profile @rdbotato existence not verified"
+    },
+    {
+     "k": "Green flag",
+     "v": "No explicit claim of product, team or official Robinhood affiliation in launch metadata"
+    },
+    {
+     "k": "Judged by",
+     "v": "claude-opus-5-5 on the evidence above"
+    }
+   ],
+   "summary": "Unclear: MRGA has no description, no website and only an unverified X profile link; there is too little evidence to judge it.",
+   "verdict": {
+    "verdict": "unclear",
+    "confidence": "medium",
+    "headline": "MRGA has no description, no website and only an unverified X profile link; there is too little evidence to judge it.",
+    "claims": [
+     {
+      "claim": "Name \"Make Robinhood Great Again\" invokes the Robinhood brand",
+      "status": "unsupported",
+      "evidence": "No description or site; the only link is X profile @rdbotato, which shows no tie to Robinhood and whose existence was not checked."
+     }
+    ],
+    "red_flags": [
+     "Name uses the Robinhood brand, which the token does not own",
+     "No description typed at launch",
+     "No website, telegram or GitHub",
+     "X profile @rdbotato existence not verified"
+    ],
+    "green_flags": [
+     "No explicit claim of product, team or official Robinhood affiliation in launch metadata"
+    ]
+   }
+  },
+  {
+   "group": "launch",
+   "q": "How much was bought in the launch block and the first 30 seconds, and is it still held?",
+   "id": "firstblock",
+   "title": "Snipers",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Window",
+     "v": "launch block 95,415,694 + 287 blocks (≈30 s)"
+    },
+    {
+     "k": "Bought inside the launch transaction",
+     "v": "7.26M (0.73%)",
+     "tx": "0x34be2d42e651744395c684c15b9e9398b01b4fb319bb9b28c3ddc10408794985"
+    },
+    {
+     "k": "Other transactions in the launch block",
+     "v": "0 (0.00%) by 0 wallets"
+    },
+    {
+     "k": "Bought by others in the first 30 s",
+     "v": "72.86M (7.29%) by 6 wallets"
+    },
+    {
+     "k": "Still held by those early buyers now",
+     "v": "33.7K (0.00%), read with balanceOf"
+    }
+   ],
+   "summary": "Clean start: 7.3% of supply went to other wallets in the first 30 seconds. Those early buyers still hold 0.0%.",
+   "early": {
+    "devBuy": 0.7261,
+    "blockBuy": 0,
+    "winBuy": 7.2859,
+    "still": 0.0033,
+    "buyers": 6
+   }
+  },
+  {
+   "group": "launch",
+   "q": "Were the first buyers throwaway wallets?",
+   "id": "burners",
+   "title": "Fresh wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Measured",
+     "v": "lifetime nonce at block 102,526,125"
+    }
+   ],
+   "summary": "0 of 6 early buyers have sent 3 transactions or fewer in their whole life."
+  },
+  {
+   "group": "holders",
+   "q": "How much do the ten largest wallets hold?",
+   "id": "distribution",
+   "title": "Top 10",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallets from",
+     "v": "all 32 Transfer events since launch"
+    },
+    {
+     "k": "Balances",
+     "v": "read with balanceOf at block 102,526,125 (exact)"
+    },
+    {
+     "k": "Smart-account wallets counted as people",
+     "v": "1"
+    },
+    {
+     "k": "#1",
+     "v": "0.00%  33.7K",
+     "addr": "0xcb373b34726803443ffab953449c60e6d3141dfa"
+    },
+    {
+     "k": "#2",
+     "v": "0.00%  3,333",
+     "addr": "0x8bc8aecab84e3a5d64215b9a777d9f2b31063fc8"
+    },
+    {
+     "k": "#3",
+     "v": "0.00%  100",
+     "addr": "0x48ad7aea7a5365cc89ee4e075246b4d6349bfb2f"
+    },
+    {
+     "k": "#4",
+     "v": "0.00%  1",
+     "addr": "0x0d5389cfd87471a64ff1c7b1f264c7b49a1f9b6f"
+    }
+   ],
+   "summary": "4 wallet holders. The 10 largest wallets hold 0.0% (largest 0.0%). 100.0% sits in the curve or the v4 pool manager.",
+   "holdersTop": [
+    {
+     "a": "0xcb373b34726803443ffab953449c60e6d3141dfa",
+     "pct": 0.0033
+    },
+    {
+     "a": "0x8bc8aecab84e3a5d64215b9a777d9f2b31063fc8",
+     "pct": 0.0003
+    },
+    {
+     "a": "0x48ad7aea7a5365cc89ee4e075246b4d6349bfb2f",
+     "pct": 0
+    },
+    {
+     "a": "0x0d5389cfd87471a64ff1c7b1f264c7b49a1f9b6f",
+     "pct": 0
+    }
+   ],
+   "contractsTop": [],
+   "venuesPct": 99.9962,
+   "contractsPct": 0,
+   "partial": false
+  },
+  {
+   "group": "holders",
+   "q": "Do holders pass tokens between each other like one owner?",
+   "id": "clusters",
+   "title": "Linked wallets",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Wallet-to-wallet transfers",
+     "v": "1"
+    },
+    {
+     "k": "Hubs set aside (more than 20 counterparties)",
+     "v": "0"
+    }
+   ],
+   "summary": "No meaningful linked group: 1 wallet-to-wallet moves, no group holds more than 0.5%.",
+   "clusters": [
+    {
+     "size": 2,
+     "pct": 0,
+     "members": [
+      "0xaeab7faf78269e23319fbb84bba689693436c093",
+      "0x849a371a2a781cfa48cb8e9e1bceea1dcc35a2eb"
+     ],
+     "hasDev": true
+    }
+   ]
+  },
+  {
+   "group": "dev",
+   "q": "What did the deployer buy, keep and sell here?",
+   "id": "dev",
+   "title": "Deployer on this token",
+   "status": "concern",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0xAEab7fAf78269E23319fbB84bBa689693436c093",
+     "addr": "0xAEab7fAf78269E23319fbB84bBa689693436c093"
+    },
+    {
+     "k": "Received",
+     "v": "27.67M (2.77%)"
+    },
+    {
+     "k": "Sold back to the market",
+     "v": "0 (0.00%)"
+    },
+    {
+     "k": "Sent to other wallets",
+     "v": "1 transfers, 27.67M (2.77%)"
+    },
+    {
+     "k": "Holds now (balanceOf)",
+     "v": "0 (0.00%)"
+    }
+   ],
+   "summary": "The deployer spread 2.8% of supply to other wallets (see linked wallets)."
+  },
+  {
+   "group": "dev",
+   "q": "What happened to the deployer's earlier launches?",
+   "id": "devrep",
+   "title": "Deployer track record",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Deployer",
+     "v": "0xAEab7fAf78269E23319fbB84bBa689693436c093",
+     "addr": "0xAEab7fAf78269E23319fbB84bBa689693436c093"
+    },
+    {
+     "k": "Pons launches by this wallet",
+     "v": "4"
+    },
+    {
+     "k": "Earlier launches graduated",
+     "v": "0 of 3"
+    },
+    {
+     "k": "Earlier launches the deployer dumped (sold 80%+ of its bag)",
+     "v": "0 of 3 where it held tokens"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x4bfcc82c00c2aaea1b391a065936c9feede192ce · did not graduate · dev sold 0%",
+     "addr": "0x4bfcc82c00c2aaea1b391a065936c9feede192ce"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x402a1725cde4d2db7932d02d88f3c9c1deab9333 · did not graduate · dev sold 0%",
+     "addr": "0x402a1725cde4d2db7932d02d88f3c9c1deab9333"
+    },
+    {
+     "k": "Earlier launch",
+     "v": "0x2c0980061faa544b7c3b8803179b09e21e2d2a00 · did not graduate · dev sold 0%",
+     "addr": "0x2c0980061faa544b7c3b8803179b09e21e2d2a00"
+    }
+   ],
+   "summary": "3 earlier Pons launches: 0 graduated, 0 dumped by the deployer.",
+   "devrep": {
+    "launches": 4,
+    "earlier": 3,
+    "graduated": 0,
+    "dumped": 0,
+    "withBag": 3,
+    "median": null
+   }
+  },
+  {
+   "group": "market",
+   "q": "Where does it trade and how deep is it?",
+   "id": "liquidity",
+   "title": "Liquidity",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Curve",
+     "v": "0xd14f3555eb9E18a1B9f5add1070281ca9f827d8A",
+     "addr": "0xd14f3555eb9E18a1B9f5add1070281ca9f827d8A"
+    },
+    {
+     "k": "Curve reserves (getReserves)",
+     "v": "3,236.12 USDG incl. virtual part, 999.96M tokens"
+    },
+    {
+     "k": "USDG balance of the curve",
+     "v": "0.144 USDG"
+    },
+    {
+     "k": "Graduation threshold",
+     "v": "8,090 USDG"
+    }
+   ],
+   "summary": "Still on the bonding curve: 0.144 USDG actually held by the curve, 999.96M tokens left on it. It graduates to Uniswap v4 at the threshold set by the factory.",
+   "curveQuote": "144460",
+   "threshold": "8090000000"
+  },
+  {
+   "group": "market",
+   "q": "Is the contract the standard launchpad template, with nothing hidden?",
+   "id": "contract",
+   "title": "Contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Deployed token contract · pass",
+     "v": "Contract found: 3,248 bytes of runtime code."
+    },
+    {
+     "k": "Token interface · pass",
+     "v": "Make Robinhood Great Again (MRGA), 18 decimals, 1.00B total supply."
+    },
+    {
+     "k": "Upgradeability · pass",
+     "v": "Not a proxy. The code at this address is final and cannot be replaced."
+    },
+    {
+     "k": "Ownership · pass",
+     "v": "No owner() or getOwner() function."
+    },
+    {
+     "k": "Privileged functions · pass",
+     "v": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+    },
+    {
+     "k": "Launchpad template · pass",
+     "v": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+    },
+    {
+     "k": "Origin · info",
+     "v": "Launched on Pons by 0xAEab…c093, still trading on its bonding curve."
+    },
+    {
+     "k": "Buy, move, sell · pass",
+     "v": "Bought, moved and sold back on the live state. The round trip cost 1.95%, in line with fees and tax."
+    },
+    {
+     "k": "Fees and taxes · pass",
+     "v": "0.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+    }
+   ],
+   "summary": "Standard Pons contract, byte-identical to the template: fixed supply, no mint, blacklist or pause, nothing upgradeable. A simulated buy, transfer and sell went through (round trip 1.95%). Creator tax 0.00%.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 1.9525600000000032,
+    "quoteIn": "5000000",
+    "quoteBack": "3676779",
+    "quoteSym": "USDG",
+    "quoteDec": 6
+   }
+  }
+ ],
+ "internal": [
+  {
+   "group": "internal",
+   "q": "",
+   "id": "deployed",
+   "title": "Deployed token contract",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Address",
+     "v": "0x77681D23C6D2302321cCc367b632e39D794eA77e",
+     "addr": "0x77681D23C6D2302321cCc367b632e39D794eA77e"
+    },
+    {
+     "k": "Code hash",
+     "v": "0x556705a68a800686f4bfd82574241d5e8bb4e7551bb0a7043673224aeb010885"
+    },
+    {
+     "k": "Read at block",
+     "v": "102,526,125"
+    }
+   ],
+   "summary": "Contract found: 3,248 bytes of runtime code."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "erc20",
+   "title": "Token interface",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "name()",
+     "v": "Make Robinhood Great Again"
+    },
+    {
+     "k": "symbol()",
+     "v": "MRGA"
+    },
+    {
+     "k": "decimals()",
+     "v": "18"
+    },
+    {
+     "k": "totalSupply()",
+     "v": "1000000000000000000000000000"
+    }
+   ],
+   "summary": "Make Robinhood Great Again (MRGA), 18 decimals, 1.00B total supply."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "proxy",
+   "title": "Upgradeability",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "EIP-1967 implementation slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1967 beacon slot",
+     "v": "empty"
+    },
+    {
+     "k": "EIP-1167 clone",
+     "v": "no"
+    }
+   ],
+   "summary": "Not a proxy. The code at this address is final and cannot be replaced."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "owner",
+   "title": "Ownership",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "owner()",
+     "v": "not present"
+    }
+   ],
+   "summary": "No owner() or getOwner() function."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "powers",
+   "title": "Privileged functions",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Selectors scanned",
+     "v": "25 in contract bytecode"
+    }
+   ],
+   "summary": "No mint, blacklist, pause, tax-change or limit functions in the bytecode."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "template",
+   "title": "Launchpad template",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Compared with",
+     "v": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592",
+     "addr": "0x76350e2e9a297ff16d5c60aa1f0dcf9eaa9f8592"
+    },
+    {
+     "k": "Masked fields",
+     "v": "token, curve, deployer, fee recipient, pair"
+    }
+   ],
+   "summary": "Byte-identical to the Pons token template once its own addresses are masked. No custom code was slipped in."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "origin",
+   "title": "Origin",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Launchpad",
+     "v": "Pons (factory 0x7eD5…EC7e)",
+     "addr": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e"
+    },
+    {
+     "k": "Deployer",
+     "v": "0xAEab7fAf78269E23319fbB84bBa689693436c093",
+     "addr": "0xAEab7fAf78269E23319fbB84bBa689693436c093"
+    },
+    {
+     "k": "Bonding curve",
+     "v": "0xd14f3555eb9E18a1B9f5add1070281ca9f827d8A",
+     "addr": "0xd14f3555eb9E18a1B9f5add1070281ca9f827d8A"
+    },
+    {
+     "k": "Creator fee recipient",
+     "v": "0x2F41f4e6A114b65D57f5C18121B93D3CC0C0BaFD",
+     "addr": "0x2F41f4e6A114b65D57f5C18121B93D3CC0C0BaFD"
+    },
+    {
+     "k": "Creator tax",
+     "v": "0.00%"
+    },
+    {
+     "k": "Buyback",
+     "v": "off"
+    },
+    {
+     "k": "Phase",
+     "v": "on the bonding curve"
+    },
+    {
+     "k": "Launch block",
+     "v": "95,415,694"
+    },
+    {
+     "k": "Launch transaction",
+     "v": "0x34be2d42e651744395c684c15b9e9398b01b4fb319bb9b28c3ddc10408794985",
+     "tx": "0x34be2d42e651744395c684c15b9e9398b01b4fb319bb9b28c3ddc10408794985"
+    }
+   ],
+   "summary": "Launched on Pons by 0xAEab…c093, still trading on its bonding curve."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "serial",
+   "title": "Deployer history",
+   "status": "pending",
+   "evidence": []
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "burned",
+   "title": "Burned supply",
+   "status": "info",
+   "evidence": [
+    {
+     "k": "Held by dead addresses (balanceOf)",
+     "v": "0"
+    },
+    {
+     "k": "Destroyed (sent to zero)",
+     "v": "0"
+    },
+    {
+     "k": "Minted in total",
+     "v": "1.00B"
+    }
+   ],
+   "summary": "0 provably burned (0.00% of current supply)."
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "roundtrip",
+   "title": "Buy, move, sell",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Method",
+     "v": "Pons bonding curve: buy(), transfer(), sell()"
+    },
+    {
+     "k": "State",
+     "v": "latest block, eth_call with state override (nothing broadcast)"
+    },
+    {
+     "k": "Spent",
+     "v": "5 USDG"
+    },
+    {
+     "k": "Tokens received",
+     "v": "1.53M"
+    },
+    {
+     "k": "Moved to a fresh wallet",
+     "v": "381.8K sent, 381.8K arrived"
+    },
+    {
+     "k": "Sold back",
+     "v": "1.15M"
+    },
+    {
+     "k": "Came back",
+     "v": "3.6768 USDG"
+    },
+    {
+     "k": "Round-trip cost",
+     "v": "1.95% (fees, tax and price impact on the sold share)"
+    }
+   ],
+   "summary": "Bought, moved and sold back on the live state. The round trip cost 1.95%, in line with fees and tax.",
+   "sim": {
+    "buyGapPct": 0,
+    "moveGapPct": 0,
+    "lossPct": 1.9525600000000032,
+    "quoteIn": "5000000",
+    "quoteBack": "3676779",
+    "quoteSym": "USDG",
+    "quoteDec": 6
+   }
+  },
+  {
+   "group": "internal",
+   "q": "",
+   "id": "tax",
+   "title": "Fees and taxes",
+   "status": "pass",
+   "evidence": [
+    {
+     "k": "Creator tax (factory record)",
+     "v": "0.00% on each trade"
+    },
+    {
+     "k": "Received vs quoted on the buy",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Wallet-to-wallet transfer",
+     "v": "0.000% missing"
+    },
+    {
+     "k": "Round-trip cost (buy + sell)",
+     "v": "1.95%"
+    }
+   ],
+   "summary": "0.00% creator tax, set at launch and fixed by the template. Transfers between wallets arrive in full."
+  }
+ ],
+ "metadata": {
+  "launchBlock": 95415694,
+  "launchTx": "0x34be2d42e651744395c684c15b9e9398b01b4fb319bb9b28c3ddc10408794985",
+  "launchedAt": 1792703724,
+  "sender": "0xaeab7faf78269e23319fbb84bba689693436c093",
+  "via": "0xe33e9e479df8802cb0866d5d05258bec4cf62948",
+  "deployer": "0xaeab7faf78269e23319fbb84bba689693436c093",
+  "name": "Make Robinhood Great Again",
+  "symbol": "MRGA",
+  "description": null,
+  "logo": "ipfs://bafybeibdw2hoz34wit6zw5e7obcfow4xxmjdr2t2vfafwiudcdnjzxwhay",
+  "website": null,
+  "x": "https://x.com/rdbotato?s=21&t=wf6ZqqUtH4h967Sos_6LsA",
+  "telegram": null,
+  "discord": null,
+  "farcaster": null,
+  "github": null,
+  "other": []
+ },
+ "meta": {
+  "ms": 8413,
+  "rpcCalls": 101,
+  "transfers": 32
+ }
+}

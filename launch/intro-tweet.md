@@ -26,9 +26,9 @@ On every token, Hoodwink reads:
 • Website: live, or a dead shortlink
 • X link: the project's, or someone else's post
 • Dev: past launches, how many they dumped
-• Snipers still holding, top 10 %
+• Snipers still in, top 10 %
 
-Then an AI judges the evidence.
+Then an AI judges it all.
 
 ---
 

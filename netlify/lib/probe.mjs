@@ -3,7 +3,7 @@
 import dns from 'node:dns/promises';
 import net from 'node:net';
 
-const UA = 'Mozilla/5.0 (compatible; HoodwinkScanner/1.0; +https://www.hoodwink.site)';
+const UA = 'Mozilla/5.0 (compatible; HoodwinkScanner/1.0; +https://hoodwink.site)';
 const MAX_BYTES = 1_500_000;
 const SHORTENERS = /^(bit\.ly|t\.co|tinyurl\.com|j7m\.io|cutt\.ly|rebrand\.ly|is\.gd|ow\.ly|buff\.ly|shorturl\.at|tiny\.cc|lnkd\.in|rb\.gy|s\.id)$/i;
 const BUILDERS = [

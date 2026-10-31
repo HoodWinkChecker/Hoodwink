@@ -51,4 +51,4 @@ Deploy from this folder (Netlify CLI or a linked folder) so `netlify/lib/secrets
 
 ## Before publishing
 
-- `site/config.js`: `$WINK` address once launched. Site: https://www.hoodwink.site · X: https://x.com/CheckHoodWink · Code: https://github.com/HoodWinkChecker/Hoodwink
+- `site/config.js`: `$WINK` address once launched. Site: https://hoodwink.site · X: https://x.com/CheckHoodWink · Code: https://github.com/HoodWinkChecker/Hoodwink

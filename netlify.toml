@@ -11,9 +11,3 @@
   [headers.values]
     cache-control = "public, max-age=600"
 
-# apex to www
-[[redirects]]
-  from = "https://hoodwink.site/*"
-  to = "https://www.hoodwink.site/:splat"
-  status = 301
-  force = true

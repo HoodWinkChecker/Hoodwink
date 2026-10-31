@@ -15,7 +15,7 @@ Hoodwink checks the story:
 Then an AI reads the evidence and calls it: real product, honest meme, or LARP.
 
 Paste a CA. Don't get hoodwinked.
-https://www.hoodwink.site
+https://hoodwink.site
 
 ---
 
@@ -23,7 +23,7 @@ https://www.hoodwink.site
 
 1/
 Real or LARP? Paste any Robinhood Chain token into Hoodwink and get the answer with receipts: the launch transaction, the page we opened, the post we read, the wallets behind every number.
-https://www.hoodwink.site
+https://hoodwink.site
 
 2/
 Everything a creator types on Pons (description, website, X, Telegram) is stored in the launch transaction. Hoodwink reads it and opens every link. Example: REX linked a dead shortlink and a post by @RobinhoodApp. Not their account.
@@ -36,4 +36,4 @@ The deployer's past is on chain too. One wallet we scanned: 26 Pons launches, 0 
 
 5/
 No wallet connect, nothing signed. The AI verdict only sees what the scanner found and must cite it. Every threshold is in the docs.
-https://www.hoodwink.site/docs.html
+https://hoodwink.site/docs.html

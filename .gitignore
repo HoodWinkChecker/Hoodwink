@@ -6,3 +6,4 @@ contracts/cache/
 contracts/out/
 node_modules/
 netlify/lib/secrets.mjs
+.netlify/

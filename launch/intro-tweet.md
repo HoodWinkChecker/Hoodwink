@@ -20,7 +20,7 @@ hoodwink.site
 
 ## 2/ What it checks (no image)
 
-What Hoodwink reads on every token:
+On every token, Hoodwink reads:
 
 • Ticker: original, or copy #69 of a token that graduated
 • Website: live, or a dead shortlink

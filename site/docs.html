@@ -17,10 +17,11 @@
 <script src="config.js"></script>
 </head>
 <body data-page="docs">
-<div class="docs-top"><a class="brand" href="index.html" id="topBrand"></a><button class="btn" id="navToggle" aria-expanded="false" aria-controls="docsNav">Pages</button></div>
+<div class="docs-top"><a class="brand" href="index.html" id="topBrand"></a><span style="display:flex;gap:10px"><a class="xbtn" id="topX" href="#" target="_blank" rel="noopener" aria-label="Hoodwink on X"></a><button class="btn" id="navToggle" aria-expanded="false" aria-controls="docsNav">Pages</button></span></div>
 <div class="docs">
   <nav class="docs-nav" id="docsNav" aria-label="Documentation">
     <a class="brand" href="index.html" id="navBrand" style="border:0;padding:0"></a>
+    <a class="xbtn docs-x" id="navXTop" href="#" target="_blank" rel="noopener" aria-label="Hoodwink on X"></a>
     <h6>Start</h6>
     <a href="#overview">Overview</a>
     <a href="#how">How a scan works</a>
@@ -518,12 +519,13 @@ node tools/find-cases.mjs 3000000 pair       # recent launches with a non-ETH pa
   <aside class="docs-toc" id="toc" aria-label="On this page"></aside>
 </div>
 <script type="module">
-import { MARK, cfg, TICKER, esc } from './assets/js/site.js';
+import { MARK, X_SVG, cfg, TICKER, esc } from './assets/js/site.js';
 import { STOCKS, PAIR_STATS } from './assets/js/stocks.js';
 const brand = `${MARK}<span class="word">Hoodwink</span>`;
 document.getElementById('navBrand').innerHTML = brand;
 document.getElementById('topBrand').innerHTML = brand;
 document.getElementById('navX').href = cfg.x || '#';
+for (const id of ['navXTop', 'topX']) { const a = document.getElementById(id); a.href = cfg.x || '#'; a.innerHTML = X_SVG + (id === 'navXTop' ? '<span>Follow on X</span>' : ''); }
 document.getElementById('navTicker').textContent = TICKER;
 const nav = document.getElementById('docsNav');
 document.getElementById('navToggle').onclick = (e) => { nav.classList.toggle('open'); e.target.setAttribute('aria-expanded', nav.classList.contains('open')); };

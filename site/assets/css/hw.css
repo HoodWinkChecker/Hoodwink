@@ -70,6 +70,11 @@ img, svg, canvas { display: block; }
 .brand svg { width: 34px; height: 34px; }
 .brand .word { font-family: var(--display); font-weight: 700; font-stretch: 125%; letter-spacing: .02em; font-size: 17px; text-transform: uppercase; }
 .inst-status { display: flex; align-items: center; gap: 8px; }
+.inst-right { display: flex; align-items: center; gap: 18px; }
+.xbtn { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--line-2); background: var(--bg-2); color: var(--ink); text-decoration: none; font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; transition: border-color .2s, background .2s, color .2s; }
+.xbtn svg { width: 14px; height: 14px; }
+.xbtn:hover { border-color: var(--uv); background: var(--uv); color: #0a0a0a; }
+.docs-x { margin: 0 0 22px; }
 .led { width: 7px; height: 7px; background: var(--pass); box-shadow: 0 0 10px var(--pass); }
 .led.off { background: var(--faint); box-shadow: none; }
 .led.busy { background: var(--uv); box-shadow: 0 0 12px var(--uv); animation: blink 1s steps(2) infinite; }
@@ -463,6 +468,9 @@ a.ts-row:hover { background: rgba(205, 247, 49, .06); }
   .tk > div:nth-child(2n) { padding-left: 0; border-left: 0; }
   .cmp td:first-child { width: auto; }
   .inst-status .label { font-size: 9.5px; letter-spacing: .08em; }
+  .inst-right { gap: 10px; }
+  .xbtn span { display: none; }
+  .xbtn { padding: 8px 9px; }
   .inst-status .label .rh { display: none; }
   .cmp.stackable thead { display: none; }
   .cmp.stackable tr { display: grid; grid-template-columns: 1fr 1.6fr; border-bottom: 1px solid var(--line); }

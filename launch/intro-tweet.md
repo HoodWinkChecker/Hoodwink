@@ -79,11 +79,15 @@ hoodwink.site
 
 ---
 
-## Launch day of $WINK (once the CA is live)
+## Launch day of $WINK (attach launch/post-wink-selfscan.png)
 
-We scan our own token with the same rules as everyone else.
+$WINK is live.
 
-$WINK on Hoodwink: [paste the "At a glance" screenshot from hoodwink.site/token.html]
+We scanned our own token with the same rules as everyone else: low risk, real product, standard Pons contract.
 
-CA: [address]
+Only CA:
+0x07ed41c3ca04921b3937cc9eb907f71bd6bedfc8
+
+81 other tokens use $WINK. Check the address.
+
 hoodwink.site/token.html

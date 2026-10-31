@@ -22,7 +22,8 @@ form.addEventListener('submit', async (e) => {
 });
 input.addEventListener('input', () => { err.textContent = ''; });
 document.querySelectorAll('.chip[data-a]').forEach((b) => b.addEventListener('click', () => { location.href = 'scan.html?a=' + b.dataset.a; }));
-fetch('data/tickers/meta.json').then((r) => r.json()).then((m) => { document.getElementById('mLaunch').textContent = m.count.toLocaleString('en-US'); }).catch(() => {});
+fetch('data/tickers/meta.json').then((r) => r.json()).then((m) => { document.getElementById('offCopy')?.addEventListener('click', async (e) => { try { await navigator.clipboard.writeText(document.getElementById('offCa').textContent); e.target.textContent = 'Copied'; } catch { prompt('Copy', document.getElementById('offCa').textContent); } });
+document.getElementById('mLaunch').textContent = m.count.toLocaleString('en-US'); }).catch(() => {});
 
 // ---------------------------------------------------------------- comparison
 const ROWS = [

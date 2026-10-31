@@ -24,7 +24,7 @@ async function call(to, data) {
 const str = (h) => { try { const b = Buffer.from(h.slice(2), 'hex'); if (b.length === 32) return b.toString('utf8').replace(/\0+$/, ''); const n = Number(BigInt('0x' + b.slice(32, 64).toString('hex'))); return b.slice(64, 64 + n).toString('utf8'); } catch { return null; } };
 
 export async function gather(token) {
-  const key = 'reality-' + token;
+  const key = 'reality-v2-' + token;
   const hit = await cacheGet(key);
   if (hit && Date.now() - hit.at < TTL) return { ...hit, cached: true };
   const [nameH, symH] = await Promise.all([call(token, '0x06fdde03'), call(token, '0x95d89b41')]);
